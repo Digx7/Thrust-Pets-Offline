@@ -47,8 +47,12 @@ MonoBehaviour:
   _allGameModes:
   - name: Main Menu
     obj: {fileID: 8659514848704239082, guid: 7beb41524a063d04ebf97b3e5a4e6b13, type: 3}
-  - name: Game Play
-    obj: {fileID: 2664540852246214789, guid: 9469eec85833da94193b3f3958183d68, type: 3}
+  - name: Classic
+    obj: {fileID: 2664540852246214789, guid: c47fd319596318541851561115d74c06, type: 3}
+  - name: Time Attack
+    obj: {fileID: 2664540852246214789, guid: c12bdbb2ba5b5484a95872ee364219af, type: 3}
+  - name: Score Attack
+    obj: {fileID: 2664540852246214789, guid: 43ae02e00bf399042b0560004018a108, type: 3}
   _nextGameModeToLoad:
     name: 
     obj: {fileID: 0}

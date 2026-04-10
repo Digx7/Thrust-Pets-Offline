@@ -270,8 +270,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gamePlayScene:
-    sceneName: Gameplay_3D
+  gameModeScene:
+    sceneName: GameMode_Classic
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  mapScene:
+    sceneName: Map_City
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  mainMenuScene:
+    sceneName: GameMode_MainMenu
     context:
       SpawnPointID: 0
       sceneCameraMode: 0
@@ -283,6 +295,36 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 9069b127b21c7c048b3faf50ab12d7d4, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.SceneDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requestAddSceneDataEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e339885cf2ff6054bb65a3a4f0af4246, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.SceneDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requestRemoveSceneDataEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 25867674a2214554ba7979e21848f9c2, type: 2}
         m_TargetAssemblyTypeName: Digx7.Zygote.SceneDataChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 0

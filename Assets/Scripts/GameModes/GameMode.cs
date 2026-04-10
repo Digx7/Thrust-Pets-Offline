@@ -14,15 +14,15 @@ namespace Digx7.Zygote
         public GameObject cameraManagerPreFab;
         
         [Header("Incoming Channels")]
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/GameMode")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] private Channel _request_GameModeTearDown_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/Player")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
         [SerializeField] private PlayerSpawnInfoChannel _request_SpawnPlayer_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/Player")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
         [SerializeField] private IntChannel _on_PlayerCharacterFinishedSetup_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/Player")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
         [SerializeField] private IntChannel _on_PlayerControllerFinishedSetup_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/GameMode")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] private Channel _on_OptionsMenuQuit_Channel;
 
         [Header("Outgoing Events")]

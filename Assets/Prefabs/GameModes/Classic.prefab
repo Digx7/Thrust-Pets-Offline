@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2664540852246214789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902357903538050323}
+  - component: {fileID: 7865008039371546016}
+  m_Layer: 0
+  m_Name: Classic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902357903538050323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664540852246214789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7865008039371546016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664540852246214789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403e47004afb3dd4b9714f1986812367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.ClassicGameMode
+  spawnPlayerOnSetup: 1
+  playerCharacterPreFab: {fileID: 4939326817478878853, guid: 4aca57158c49c244785a1ef786809d59, type: 3}
+  playerControllerPreFab: {fileID: 2707968005197875816, guid: 8efe1f92813e8f649a967195902fd696, type: 3}
+  cameraManagerPreFab: {fileID: 167596003869953699, guid: c5e69b92bfa9c334fbbeb69a29a9cc93, type: 3}
+  _request_GameModeTearDown_Channel: {fileID: 11400000, guid: 583cef0b807457e408ba1a08a913ea82, type: 2}
+  _request_SpawnPlayer_Channel: {fileID: 11400000, guid: ed340b948b49a7843b26bc1badd0b73d, type: 2}
+  _on_PlayerCharacterFinishedSetup_Channel: {fileID: 11400000, guid: 58acc76d458b83b4f87495e353e13a34, type: 2}
+  _on_PlayerControllerFinishedSetup_Channel: {fileID: 11400000, guid: 055e5cdfb0edfd7468eae2640142d7a5, type: 2}
+  _on_OptionsMenuQuit_Channel: {fileID: 11400000, guid: a89482449064eb84caed006eac2db915, type: 2}
+  OnGameModeTearDownFinishedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 06e092b9ecd70854b9c89da23cad6c39, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGameModeSetupFinishedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 28fe3ff9cc9a91f4f9ac48cad4781ea4, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
+  currentLevel: 1
+  maxLevel: 100
+  currentScore: 0
+  currentLives: 3
+  currentHealth: 100
+  maxHealth: 100
+  currentCoins: 0
+  _request_IncreaseLevel_Channel: {fileID: 11400000, guid: 97cf08128bea2e94ea1c9f5bc3dec814, type: 2}
+  _request_IncreaseScore_Channel: {fileID: 11400000, guid: 08390bea02e558f4583de5e59621bcf9, type: 2}
+  _request_DecreaseLives_Channel: {fileID: 11400000, guid: 97d72232e690b8a49ab47bf83d22e2ca, type: 2}
+  _request_UpdateHealth_Channel: {fileID: 11400000, guid: db2aef5ada6b70142a11d4ae8d97290d, type: 2}
+  _request_IncreaseCoins_Channel: {fileID: 11400000, guid: 6133a4b861361dd44a663b6a87e8a9b8, type: 2}
+  OnRequestLoadUIWidgetDataEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f3f8d18c03147c642b8bc411fd2f12ae, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.UIWidgetDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRequestLoadSaveDataEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9821c1081b506794d951538c9bac7081, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGameStartEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5e9e44351468a9240a40d29313b41bd3, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGameEndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d1f49df5619dccf45b8d83a230bb37f4, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.GameEndResultChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLevelChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2e9e21ab765aae446bc96cea2c3da1d2, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnScoreChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 27c837052c0e123458b9d44a3921f6fa, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLivesChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 840425441b77eaa4da2b9f8d18938f33, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHealthChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 542b5fa46fb70254f9893c6900ff0efb, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCoinsChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 79b3eadd5d91dd149b5dc60207f9921f, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

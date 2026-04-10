@@ -99,13 +99,14 @@ namespace Digx7.Zygote
 
         private void LoadScene(string name, LoadSceneMode mode = LoadSceneMode.Single)
         {
-            Debug.Log("SceneManger: LoadScene()");
+            Debug.Log($"SceneManger: LoadScene({name}, {mode})");
             // UnityEngine.SceneManagement.SceneManager.LoadScene(name, mode);
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(name, mode);
         }
 
         private void UnloadScene(SceneData data)
         {
+            Debug.Log($"MenuIssue: SceneManger: UnloadScene({data.sceneName})");
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(data.sceneName);
         }
 

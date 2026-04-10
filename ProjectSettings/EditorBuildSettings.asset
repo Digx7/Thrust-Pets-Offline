@@ -6,14 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/GameMode_MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/GamePlay_3D.unity
-    guid: 62553558075941e41ba3932aa1bc7a66
+    path: Assets/Scenes/GameMode_Classic.unity
+    guid: 9e699a887b46a2b4aa7f413d95db3f99
   - enabled: 1
-    path: Assets/Scenes/GamePlay_2D.unity
-    guid: 68ec02fb3cf9f4e4da2f5bc1e747652a
+    path: Assets/Scenes/GameMode_ScoreAttack.unity
+    guid: 67ffee9a809bafa4f9c0498c0b3655b0
+  - enabled: 1
+    path: Assets/Scenes/GameMode_TimeAttack.unity
+    guid: 4bfc39be722f9c4449011144cf7a5576
+  - enabled: 1
+    path: Assets/Scenes/Map_City.unity
+    guid: 5f1d57f56e0cc13408ee2da3817c7c37
+  - enabled: 1
+    path: Assets/Scenes/Map_Desert.unity
+    guid: 87d927e6b4786ab4e957dcb3e8798473
+  - enabled: 1
+    path: Assets/Scenes/Map_Forest.unity
+    guid: 1c52c98caca182749bc3867974a8741b
+  - enabled: 1
+    path: Assets/Scenes/Map_Snow.unity
+    guid: 6fdae208fe213b044b008a39f14c76c5
+  - enabled: 1
+    path: Assets/Scenes/Map_Beachside.unity
+    guid: cf8ac9319fee58c49b0f2fa3abe65f15
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

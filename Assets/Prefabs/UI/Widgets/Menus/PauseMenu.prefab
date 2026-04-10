@@ -205,7 +205,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   mainMenuScene:
-    sceneName: MainMenu
+    sceneName: GameMode_MainMenu
     context:
       SpawnPointID: 0
       sceneCameraMode: 0
@@ -400,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_text
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_Pivot.x
@@ -644,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_text
       value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_Pivot.x
@@ -892,6 +900,10 @@ PrefabInstance:
     - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_text
       value: Options
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_Pivot.x
