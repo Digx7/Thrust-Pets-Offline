@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Digx7.Zygote
 {
@@ -9,8 +10,8 @@ namespace Digx7.Zygote
         #region Variables ================================
 
         [Header("Variables")]
-        [SerializeField] SceneData gameModeScene;
-        [SerializeField] SceneData mapScene;
+        [SerializeField] List<SceneData> gameModeScenes;
+        [SerializeField] List<SceneData> mapScenes;
         [SerializeField] SceneData mainMenuScene;
         [SerializeField] UIWidgetData optionsMenuWidgetData;
         [SerializeField] UIWidgetData creditsMenuWidgetData;
@@ -19,13 +20,17 @@ namespace Digx7.Zygote
         // [Header("Incoming Channels")]
         [Header("Outgoing Events")]
         public SceneDataEvent requestChangeSceneDataEvent;
+        public SceneDataEvent requestSetActiveSceneDataEvent;
         public SceneDataEvent requestAddSceneDataEvent;
         public SceneDataEvent requestRemoveSceneDataEvent;
         public UIWidgetDataEvent requestLoadUIWidgetEvent;
         public UIWidgetDataEvent requestUnLoadUIWidgetEvent;
 
         private bool onClickPlayCoroutineIsGoing = false;
-        private bool sceneChanged = false;
+        private bool mapLoaded = false;
+
+        private int selectedGameModeIndex = 0;
+        private int selectedMapIndex = 0;
 
         #endregion
 
@@ -33,14 +38,14 @@ namespace Digx7.Zygote
 
         public override void Setup(UIWidgetData newUIWidgetData)
         {
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnRecieve_OnAcitveSceneChanged;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnRecieve_SceneLoaded;
             
             base.Setup(newUIWidgetData);
         }
 
         public override void Teardown()
         {
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnRecieve_OnAcitveSceneChanged;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnRecieve_SceneLoaded;
             
             base.Teardown();
         }
@@ -49,10 +54,14 @@ namespace Digx7.Zygote
 
         #region Channel Responses ================================
 
-        public void OnRecieve_OnAcitveSceneChanged(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+        public void OnRecieve_SceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
-            Debug.Log($"MenuIssue: MainMenuWidget: OnRecieve_OnAcitveSceneChanged({scene.name}, {mode})");
-            sceneChanged = true;
+            Debug.Log($"MenuIssue: MainMenuWidget: OnRecieve_SceneLoaded({scene.name}, {mode})");
+            
+            if(scene.name == mapScenes[selectedMapIndex].sceneName)
+            {
+                mapLoaded = true;
+            }
         }
 
         #endregion
@@ -104,19 +113,30 @@ namespace Digx7.Zygote
             requestUnLoadUIWidgetEvent?.Invoke(ownUIWidgetData);
         }
 
+        public void OnSelectGameMode(int index)
+        {
+            selectedGameModeIndex = index;
+        }
+
+        public void OnSelectMap(int index)
+        {
+            selectedMapIndex = index;
+        }
+
         private IEnumerator playCoroutine()
         {
-            Debug.Log($"MenuIssue: MainMenuWidget: playCoroutine() started\nsceneChanged: {sceneChanged}");
+            Debug.Log($"MenuIssue: MainMenuWidget: playCoroutine() started\nmapLoaded: {mapLoaded}");
             
             onClickPlayCoroutineIsGoing = true;
-            sceneChanged = false;
+            mapLoaded = false;
 
-            requestAddSceneDataEvent?.Invoke(gameModeScene);
-            requestAddSceneDataEvent?.Invoke(mapScene);
+            requestAddSceneDataEvent?.Invoke(gameModeScenes[selectedGameModeIndex]);
+            requestAddSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
 
-            yield return new WaitUntil(() => sceneChanged);
+            yield return new WaitUntil(() => mapLoaded);
             yield return new WaitForSeconds(0.1f);
 
+            requestSetActiveSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
             requestRemoveSceneDataEvent?.Invoke(mainMenuScene);
             requestUnLoadUIWidgetEvent?.Invoke(ownUIWidgetData);
 

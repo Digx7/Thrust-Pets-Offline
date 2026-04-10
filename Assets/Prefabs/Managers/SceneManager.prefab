@@ -47,6 +47,7 @@ MonoBehaviour:
   _request_changeSceneData_Channel: {fileID: 11400000, guid: 9069b127b21c7c048b3faf50ab12d7d4, type: 2}
   _request_addSceneData_Channel: {fileID: 11400000, guid: e339885cf2ff6054bb65a3a4f0af4246, type: 2}
   _request_removeSceneData_Channel: {fileID: 11400000, guid: 25867674a2214554ba7979e21848f9c2, type: 2}
+  _request_setActiveScene_Channel: {fileID: 11400000, guid: e0e4e7af9e89cfb4c8cd4c38ccf758cd, type: 2}
   OnChangeSceneEvent:
     m_PersistentCalls:
       m_Calls:

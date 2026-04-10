@@ -270,14 +270,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gameModeScene:
-    sceneName: GameMode_Classic
+  gameModeScenes:
+  - sceneName: GameMode_Classic
     context:
       SpawnPointID: 0
       sceneCameraMode: 0
       cameraLocation: {x: 0, y: 0, z: 0}
-  mapScene:
-    sceneName: Map_City
+  - sceneName: GameMode_TimeAttack
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  - sceneName: GameMode_ScoreAttack
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  mapScenes:
+  - sceneName: Map_City
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  - sceneName: Map_Desert
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  - sceneName: Map_Forest
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  - sceneName: Map_Snow
+    context:
+      SpawnPointID: 0
+      sceneCameraMode: 0
+      cameraLocation: {x: 0, y: 0, z: 0}
+  - sceneName: Map_Beachside
     context:
       SpawnPointID: 0
       sceneCameraMode: 0
@@ -295,6 +325,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 9069b127b21c7c048b3faf50ab12d7d4, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.SceneDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requestSetActiveSceneDataEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e0e4e7af9e89cfb4c8cd4c38ccf758cd, type: 2}
         m_TargetAssemblyTypeName: Digx7.Zygote.SceneDataChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 0
@@ -2797,6 +2842,34 @@ PrefabInstance:
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
       value: Score Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7225348129960757485}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSelectGameMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Digx7.Zygote.MainMenuWidget, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7067494685742839248, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_text
       value: Game Mode
@@ -4540,6 +4613,34 @@ PrefabInstance:
     - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_Options.m_Options.Array.data[4].m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7225348129960757485}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSelectMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Digx7.Zygote.MainMenuWidget, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7067494685742839248, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_text

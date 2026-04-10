@@ -9,6 +9,7 @@ namespace Digx7.Zygote
         
         [Header("Variables")]
         [SerializeField] private int ID = 0;
+        [SerializeField] private SceneData activeSceneToWaitFor;
 
         [Header("Incoming Channels")]
         [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/Scenes")]
@@ -23,12 +24,27 @@ namespace Digx7.Zygote
 
         private void OnEnable()
         {
-            contextOnSceneSetupChannel.channelEvent.AddListener(SpawnPlayer);
+            // contextOnSceneSetupChannel.channelEvent.AddListener(SpawnPlayer);
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnRecieve_ActiveSceneChanged;
+
         }
 
         private void OnDisable()
         {
-            contextOnSceneSetupChannel.channelEvent.RemoveListener(SpawnPlayer);
+            // contextOnSceneSetupChannel.channelEvent.RemoveListener(SpawnPlayer);
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= OnRecieve_ActiveSceneChanged;
+        }
+
+        #endregion
+
+        #region Channel Responses ================================
+
+        public void OnRecieve_ActiveSceneChanged(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.Scene scene2)
+        {
+            if(scene2.name == activeSceneToWaitFor.sceneName)
+            {
+                SpawnPlayer(contextOnSceneSetupChannel.lastValue);
+            }
         }
 
         #endregion

@@ -84,7 +84,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   mainMenuWidgetData: {fileID: 11400000, guid: ded42b706e85a2f41835bfbacdce83d1, type: 2}
-  splashScreenWidgetData: {fileID: 11400000, guid: eb5d981c78bb91640a45f943f700280f, type: 2}
+  splashScreenWidgetData: {fileID: 11400000, guid: ded42b706e85a2f41835bfbacdce83d1, type: 2}
   OnRequestLoadUIWidgetDataEvent:
     m_PersistentCalls:
       m_Calls:
