@@ -9,6 +9,10 @@ namespace Digx7.Zygote
         
         [Header("Variables")]
         [SerializeField] protected int _ID = 1;
+        [SerializeField] protected GameObject _cameraPrefab;
+        [SerializeField] Camera _camera;
+        [SerializeField] Vector3 _cameraOffset;
+        public Camera Camera => _camera;
         [SerializeField] PlayerController _connectedPlayerController;
         [SerializeField] PlayerCharacter _playerCharacter;
 
@@ -38,8 +42,11 @@ namespace Digx7.Zygote
         public virtual void Setup(int newID = 1, PlayerController controllerToConnectTo = null, PlayerCharacter newPlayerCharacter = null)
         {
             SetID(newID);
+            // FindMainCamera();
+            CreateCamera();
             ConnectToPlayerController(controllerToConnectTo);
             ConnectToPlayerCharacter(newPlayerCharacter);
+            PositionCamera(_playerCharacter, _cameraOffset);
             OnCameraManagerFinishedSetupEvent?.Invoke(_ID);
         }
 
@@ -51,6 +58,47 @@ namespace Digx7.Zygote
         #endregion
 
         #region Main Functions ================================
+
+        public bool FindMainCamera()
+        {
+            if(_camera != null) return true;
+
+            _camera = Camera.main;
+            if(_camera != null) return true;
+
+            Debug.LogWarning("The CameraManager: " + this + " failed to find a main camera in the scene.  Make sure there is a camera with the tag MainCamera in the scene, or assign a camera to the CameraManager directly.");
+
+            return false;
+        }
+
+        public void CreateCamera()
+        {
+            if(_camera != null) return;
+            if(_cameraPrefab == null)
+            {
+                Debug.LogWarning("The CameraManager: " + this + " failed to create a camera because the camera prefab is not assigned.  Please assign a camera prefab to the CameraManager.");
+                return;
+            }
+
+            GameObject newCamera = Instantiate(_cameraPrefab, transform);
+            _camera = newCamera.GetComponent<Camera>();
+            if(_camera == null)
+            {
+                Debug.LogWarning("The CameraManager: " + this + " failed to create a camera because the camera prefab does not have a Camera component.  Please make sure the camera prefab has a Camera component.");
+                return;
+            }
+        }
+
+        public void PositionCamera(PlayerCharacter playerCharacter, Vector3 offset)
+        {
+            if(!IsPlayerCharacterValid(playerCharacter)) return;
+            if(_camera == null) return;
+
+            Debug.Log($"CameraManager: PositionCamera: Positioning camera: {Camera} to playerCharacter: {playerCharacter} with offset: {offset}");
+
+            _camera.transform.SetParent(playerCharacter.transform);
+            _camera.transform.localPosition = offset;
+        }
 
         public bool ConnectToPlayerController(PlayerController newPlayerController)
         {

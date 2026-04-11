@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ID: 1
+  _cameraPrefab: {fileID: 5535170761093406067, guid: c194064714b80314fa05a9211ade9d60, type: 3}
+  _camera: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0.8, z: -1.5}
   _connectedPlayerController: {fileID: 0}
   _playerCharacter: {fileID: 0}
   _runSetupOnEnable: 1

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Digx7.Zygote;
 
 public class LevelGenerator : MonoBehaviour 
 {
@@ -30,19 +31,63 @@ public class LevelGenerator : MonoBehaviour
     public int seed = 0;
     public System.Random sharedRandom;
 
+    private bool _isSetup = false;
+
+    [Header("Incoming Channels")]
+    [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
+    [SerializeField] InstantiatedObjectChannel _on_PlayerSpawned_Channel;
+
     #endregion
 
     #region Setup ================================
+
+    public void OnEnable()
+    {
+        SetupChannels();
+    }
+
+    public void OnDisable()
+    {
+        TearDownChannels();
+    }
+
+    public void SetupChannels()
+    {
+        _on_PlayerSpawned_Channel.channelEvent.AddListener(OnRecieve_OnPlayerSpawned);
+
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnRecieve_ActiveSceneChanged;
+    }
+
+    public void TearDownChannels()
+    {
+        _on_PlayerSpawned_Channel.channelEvent.RemoveListener(OnRecieve_OnPlayerSpawned);
+
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= OnRecieve_ActiveSceneChanged;
+    }
 
     #endregion
 
     #region Channel Responses ================================
 
+    public void OnRecieve_OnPlayerSpawned(InstantiatedObject obj)
+    {
+
+        player = obj.gameObject.transform;
+
+    }
+
+    public void OnRecieve_ActiveSceneChanged(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.Scene scene2)
+    {
+        
+        Setup();
+    
+    }
+
     #endregion
 
     #region Main Functions ================================
 
-    void Start()
+    public void Setup()
     {
         
         seed = Random.Range(1, 99999);
@@ -90,12 +135,15 @@ public class LevelGenerator : MonoBehaviour
             obstacleNextZPos += 15;
             coinNextZPos += 54;
         }
+
+        _isSetup = true;
     }
 
     // TODO: add 7 blocks to the Map in the scene
 
     void Update()
     {
+        if(!_isSetup) return;
         if (player == null) return;
 
         if (player.position.z > activeBlocks.Peek().transform.position.z + reuseDistance)
@@ -105,6 +153,12 @@ public class LevelGenerator : MonoBehaviour
 
         if(activeObstacles.Count > 0) 
         {
+            // Debug.Log($"Issue Deleted Objects: LevelGenerator Update(): player {player} activeObstacles.Peek() {activeObstacles.Peek()}");
+            // Debug.Log($"Issue Deleted Objects: LevelGenerator Update(): activeObstacles.Peek() {activeObstacles.Peek()}");
+            // Debug.Log($"Issue Deleted Objects: LevelGenerator Update(): reuseDistance {reuseDistance}");
+
+            Debug.Log($"Issue Deleted Objects: LevelGenerator Update(): activeObstacles.Count {activeObstacles.Count}");
+            
             if (player.position.z > activeObstacles.Peek().transform.position.z + (reuseDistance / 2))
             {
                 ReuseObstacle();

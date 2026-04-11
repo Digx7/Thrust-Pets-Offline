@@ -28,6 +28,9 @@ namespace Digx7.Zygote
         [Header("Outgoing Events")]
         public UnityEvent OnGameModeTearDownFinishedEvent;
         public UnityEvent OnGameModeSetupFinishedEvent;
+        public InstantiatedObjectEvent OnPlayerSpawnedEvent;
+        public InstantiatedObjectEvent OnPlayerControllerSpawnedEvent;
+        public InstantiatedObjectEvent OnCameraSpawnedEvent;
 
         private PlayerSpawnInfo _playerSpawnInfo;
         private PlayerCharacter _playerCharacterBeingSetup;
@@ -118,6 +121,9 @@ namespace Digx7.Zygote
             
             GameObject characterObj = Instantiate(playerCharacterPreFab, _playerSpawnInfo.location, _playerSpawnInfo.rotation);
             _playerCharacterBeingSetup = characterObj.GetComponent<PlayerCharacter>();
+
+            OnPlayerSpawnedEvent?.Invoke(new InstantiatedObject { gameObject = characterObj, instantiatedPosition = _playerSpawnInfo.location, instantiatedRotation = _playerSpawnInfo.rotation });
+
             if(_playerCharacterBeingSetup == null) return;
 
             _playerCharacterBeingSetup.Setup(_playerSpawnInfo.ID);
@@ -131,6 +137,8 @@ namespace Digx7.Zygote
             _playerControllerBeingSetup = controllerObj.GetComponent<PlayerController>();
             if(_playerControllerBeingSetup == null) return;
 
+            OnPlayerControllerSpawnedEvent?.Invoke(new InstantiatedObject { gameObject = controllerObj, instantiatedPosition = _playerSpawnInfo.location, instantiatedRotation = _playerSpawnInfo.rotation });
+
             _playerControllerBeingSetup.Setup(_playerSpawnInfo.ID, _playerCharacterBeingSetup);
         }
 
@@ -141,6 +149,8 @@ namespace Digx7.Zygote
             GameObject cameraObj = Instantiate(cameraManagerPreFab, _playerSpawnInfo.location, _playerSpawnInfo.rotation);
             _cameraManagerBeingSetup = cameraObj.GetComponent<CameraManager>();
             if(_cameraManagerBeingSetup == null) return;
+
+            OnCameraSpawnedEvent?.Invoke(new InstantiatedObject { gameObject = cameraObj, instantiatedPosition = _playerSpawnInfo.location, instantiatedRotation = _playerSpawnInfo.rotation });
 
             _cameraManagerBeingSetup.Setup(_playerSpawnInfo.ID, _playerControllerBeingSetup, _playerCharacterBeingSetup);
         }
