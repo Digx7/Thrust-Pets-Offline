@@ -54,3 +54,5 @@ jobs:
       message: "A new game build ${{ github.ref_name }} for ${{ github.repository.name }} has been deployed to [GitHub Releases](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}) and [Itch.io](https://${{ secrets.ITCH_USERNAME }}.itch.io/${{ secrets.ITCH_GAME_ID }})! Check it out! "
     secrets:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
+      # new
