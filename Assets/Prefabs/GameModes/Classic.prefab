@@ -106,6 +106,7 @@ MonoBehaviour:
       m_Calls: []
   _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
   _levelWidgetData: {fileID: 11400000, guid: 78ab1cd970f830c439492e757a06568b, type: 2}
+  _gameOverWidgetData: {fileID: 11400000, guid: 1ba3c1e3de4d1824aa0e8a5735ddfdf7, type: 2}
   currentLevel: 1
   maxLevel: 100
   currentScore: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   _request_IncreaseScore_Channel: {fileID: 11400000, guid: 08390bea02e558f4583de5e59621bcf9, type: 2}
   _request_DecreaseLives_Channel: {fileID: 11400000, guid: 97d72232e690b8a49ab47bf83d22e2ca, type: 2}
   _request_UpdateHealth_Channel: {fileID: 11400000, guid: db2aef5ada6b70142a11d4ae8d97290d, type: 2}
+  _On_PlayerDied_Channel: {fileID: 11400000, guid: 3222f885fefffa244b0a2564704391ef, type: 2}
   _request_IncreaseCoins_Channel: {fileID: 11400000, guid: 6133a4b861361dd44a663b6a87e8a9b8, type: 2}
   OnRequestLoadUIWidgetDataEvent:
     m_PersistentCalls:
@@ -133,6 +135,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnRequestUnLoadUIWidgetDataEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnRequestLoadSaveDataEvent:
     m_PersistentCalls:
       m_Calls:
