@@ -9,6 +9,7 @@ namespace Digx7.Zygote
 
         [Header("Variables")]
         [SerializeField] private UIWidgetData _pauseMenuWidgetData;
+        [SerializeField] private UIWidgetData _levelWidgetData;
         [SerializeField] private int currentLevel = 1;
         [SerializeField] private int maxLevel = 100;
         [SerializeField] private int currentScore = 0;
@@ -58,6 +59,11 @@ namespace Digx7.Zygote
             base.Setup();
 
             OnRequestLoadSaveDataEvent?.Invoke();
+
+            if(_levelWidgetData != null)
+            {
+                OnRequestLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
+            }
         }
 
         public override void Teardown()

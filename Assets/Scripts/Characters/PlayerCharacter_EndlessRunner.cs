@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 using Digx7.Zygote;
 
@@ -7,6 +8,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
     #region Variables ================================
 
+    [Header("Variables")]
     [SerializeField] int _maxHealth = 3;
     public int MaxHealth
     {
@@ -42,6 +44,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
                 if(_currentHealth > 0 && value <= 0 && !IsDead)
                 {
                     IsDead = true;
+                    OnDie.Invoke();
                 }
                 // Set IsDead = false ONLY when current health goes from zero to positive the first time
                 // This prevents setting IsDead = false eveytime heal is updated well greater than zero
@@ -60,6 +63,8 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
                 {
                     _currentHealth = _maxHealth;
                 }
+
+                OnCurrentHealthUpdate.Invoke(_currentHealth);
             }
         }
     }
@@ -79,8 +84,13 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         }
     }
 
+    [Header("References")]
     [SerializeField] Animator animator;
     [SerializeField] LaneMovement laneMovement;
+
+    [Header("Outgoing Events")]
+    public IntEvent OnCurrentHealthUpdate;
+    public UnityEvent OnDie;
 
     #endregion
 

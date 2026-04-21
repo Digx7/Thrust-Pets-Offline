@@ -105,6 +105,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
+  _levelWidgetData: {fileID: 11400000, guid: 78ab1cd970f830c439492e757a06568b, type: 2}
   currentLevel: 1
   maxLevel: 100
   currentScore: 0
