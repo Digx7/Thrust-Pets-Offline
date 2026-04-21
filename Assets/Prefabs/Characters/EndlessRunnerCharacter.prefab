@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7474299332963675715}
-  - component: {fileID: 5890715133269322062}
+  - component: {fileID: 5149022448164744398}
   - component: {fileID: 7719864053321669177}
   - component: {fileID: 1359084682865041263}
   m_Layer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 5650058783169565572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5890715133269322062
+--- !u!114 &5149022448164744398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4939326817478878853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782db02c90828db409a850ed816e4ede, type: 3}
+  m_Script: {fileID: 11500000, guid: eaa23a9b310ab7a4a9b91101b8979a5f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.PlayerCharacter
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter_EndlessRunner
   ID: 0
   controller: {fileID: 0}
   cameraManager: {fileID: 0}
@@ -80,6 +80,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _maxHealth: 3
+  _currentHealth: 3
+  _isDead: 0
+  animator: {fileID: 4981784019002034483}
+  laneMovement: {fileID: 7719864053321669177}
 --- !u!114 &7719864053321669177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +206,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
+--- !u!95 &4981784019002034483 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6397291155531275066, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
+  m_PrefabInstance: {fileID: 2154238234927108617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5650058783169565572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6020308598444310925, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}

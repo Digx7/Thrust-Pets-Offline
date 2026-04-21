@@ -44,6 +44,25 @@ public class Obstacle : MonoBehaviour
         //         }
         //     }
         // }
+
+        if(type == ObstacleType.SpiderWeb)
+        {
+            PlayerCharacter_EndlessRunner player = other.transform.root.GetComponent<PlayerCharacter_EndlessRunner>();
+
+            if (player != null)
+            {
+                player.Stuck();
+            }
+        }
+        else
+        {
+            PlayerCharacter_EndlessRunner player = other.transform.root.GetComponent<PlayerCharacter_EndlessRunner>();
+
+            if (player != null)
+            {
+                player.TakeDamage();
+            }
+        }
     }
 }
 
