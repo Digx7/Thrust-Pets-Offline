@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.ClassicGameMode
   spawnPlayerOnSetup: 1
-  playerCharacterPreFab: {fileID: 4939326817478878853, guid: 8323244a561bd524e9b81c334aa23a37, type: 3}
+  playerCharacterPreFab: {fileID: 6015637040896787885, guid: feb60a6ff78a1e547845c67374790423, type: 3}
   playerControllerPreFab: {fileID: 2707968005197875816, guid: 8efe1f92813e8f649a967195902fd696, type: 3}
   cameraManagerPreFab: {fileID: 167596003869953699, guid: c5e69b92bfa9c334fbbeb69a29a9cc93, type: 3}
   _request_GameModeTearDown_Channel: {fileID: 11400000, guid: 583cef0b807457e408ba1a08a913ea82, type: 2}
