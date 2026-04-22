@@ -28,6 +28,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
             }
         }
     }
+    [SerializeField] int _startingHealth = 3;
     [SerializeField] int _currentHealth = 3;
     public int CurrentHealth
     {
@@ -88,6 +89,11 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     [SerializeField] Animator animator;
     [SerializeField] LaneMovement laneMovement;
 
+    [Header("Incoming Channels")]
+    [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
+    [SerializeField] 
+    protected Channel _request_ResetGame_Channel;
+
     [Header("Outgoing Events")]
     public IntEvent OnCurrentHealthUpdate;
     public UnityEvent OnDie;
@@ -95,6 +101,31 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     #endregion
 
     #region Setup ================================
+
+    public override void Setup(int newID = 0)
+    {
+        _request_ResetGame_Channel.channelEvent.AddListener(OnReceive_RequestReset);
+
+        CurrentHealth = _startingHealth;
+        
+        base.Setup(newID);
+    }
+
+    public override void Teardown()
+    {
+        _request_ResetGame_Channel.channelEvent.RemoveListener(OnReceive_RequestReset);
+
+        base.Teardown();
+    }
+
+    #endregion
+
+    #region Channel Respons Methods ===================
+
+    public virtual void OnReceive_RequestReset()
+    {
+        CurrentHealth = _startingHealth;
+    }
 
     #endregion
 

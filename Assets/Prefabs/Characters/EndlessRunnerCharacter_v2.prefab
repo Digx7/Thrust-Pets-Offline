@@ -320,6 +320,52 @@ Transform:
   - {fileID: 1896536089817443324}
   m_Father: {fileID: 2278897231220177287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2023900457548787974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7498443934434917523}
+  - component: {fileID: 8189432061282987304}
+  m_Layer: 0
+  m_Name: UnloadLevelUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7498443934434917523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023900457548787974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1290124476524323744}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8189432061282987304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023900457548787974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4983a71f816fecb4a85e0af268a76fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.UIWidgetDataChannelRaiser
+  channelToRaise: {fileID: 11400000, guid: 292c0aaffbdafba418055e6a3626d74c, type: 2}
+  m_data: {fileID: 11400000, guid: 78ab1cd970f830c439492e757a06568b, type: 2}
 --- !u!1 &2299357735718619591
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +555,38 @@ Transform:
   m_Children:
   - {fileID: 4575401988966647955}
   m_Father: {fileID: 4203708917740184257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3309929501903589610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290124476524323744}
+  m_Layer: 0
+  m_Name: ChannelRaisers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1290124476524323744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309929501903589610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7498443934434917523}
+  m_Father: {fileID: 6354586395576999703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3418504184599807871
 GameObject:
@@ -864,6 +942,7 @@ Transform:
   m_Children:
   - {fileID: 3062370827518830550}
   - {fileID: 8195435021250310062}
+  - {fileID: 1290124476524323744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6015637040896787873
@@ -959,10 +1038,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _maxHealth: 3
+  _startingHealth: 3
   _currentHealth: 3
   _isDead: 0
   animator: {fileID: 6015637040896787872}
   laneMovement: {fileID: 388844434421336248}
+  _request_ResetGame_Channel: {fileID: 11400000, guid: 362ba93806ce08c4b9e2787bf36539e9, type: 2}
   OnCurrentHealthUpdate:
     m_PersistentCalls:
       m_Calls:
@@ -981,6 +1062,18 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8189432061282987304}
+        m_TargetAssemblyTypeName: Digx7.Zygote.UIWidgetDataChannelRaiser, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 3222f885fefffa244b0a2564704391ef, type: 2}
         m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
         m_MethodName: Raise

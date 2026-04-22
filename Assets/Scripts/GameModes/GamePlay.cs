@@ -11,12 +11,14 @@ namespace Digx7.Zygote
         [SerializeField] protected UIWidgetData _pauseMenuWidgetData;
         [SerializeField] protected UIWidgetData _levelWidgetData;
         [SerializeField] protected UIWidgetData _gameOverWidgetData;
+        [SerializeField] protected int startingLevel = 1;
         [SerializeField] protected int currentLevel = 1;
         [SerializeField] protected int maxLevel = 100;
+        [SerializeField] protected int startingScore = 0;
         [SerializeField] protected int currentScore = 0;
+        [SerializeField] protected int startingLives = 3;
         [SerializeField] protected int currentLives = 3;
-        [SerializeField] protected int currentHealth = 3;
-        [SerializeField] protected int maxHealth = 3;
+        [SerializeField] protected int startingCoins = 0;
         [SerializeField] protected int currentCoins = 0;
         
         [Header("Incoming Channels")]
@@ -29,13 +31,13 @@ namespace Digx7.Zygote
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] 
         protected IntChannel _request_DecreaseLives_Channel;
-        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
-        [SerializeField] 
-        protected IntChannel _request_UpdateHealth_Channel;
         [SerializeField] Channel _On_PlayerDied_Channel;
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] 
         protected IntChannel _request_IncreaseCoins_Channel;
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
+        [SerializeField] 
+        protected Channel _request_ResetGame_Channel;
 
         [Header("Outgoing Events")]
         public UIWidgetDataEvent OnRequestLoadUIWidgetDataEvent;
@@ -46,7 +48,6 @@ namespace Digx7.Zygote
         public IntEvent OnLevelChangedEvent;
         public IntEvent OnScoreChangedEvent;
         public IntEvent OnLivesChangedEvent;
-        public IntEvent OnHealthChangedEvent;
         public IntEvent OnCoinsChangedEvent;
 
 
@@ -82,9 +83,9 @@ namespace Digx7.Zygote
             _request_IncreaseLevel_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseLevel);
             _request_IncreaseScore_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseScore);
             _request_DecreaseLives_Channel.channelEvent.AddListener(OnRecieve_RequestDecreaseLives);
-            _request_UpdateHealth_Channel.channelEvent.AddListener(OnRecieve_RequestUpdateHealth);
             _request_IncreaseCoins_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseCoins);
             _On_PlayerDied_Channel.channelEvent.AddListener(OnRevieve_OnPlayerDied);
+            _request_ResetGame_Channel.channelEvent.AddListener(OnRevieve_RequestResetGame);
         }
 
         protected override void TearDownChannels()
@@ -93,9 +94,9 @@ namespace Digx7.Zygote
             _request_IncreaseLevel_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseLevel);
             _request_IncreaseScore_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseScore);
             _request_DecreaseLives_Channel.channelEvent.RemoveListener(OnRecieve_RequestDecreaseLives);
-            _request_UpdateHealth_Channel.channelEvent.RemoveListener(OnRecieve_RequestUpdateHealth);
             _request_IncreaseCoins_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseCoins);
             _On_PlayerDied_Channel.channelEvent.RemoveListener(OnRevieve_OnPlayerDied);
+            _request_ResetGame_Channel.channelEvent.RemoveListener(OnRevieve_RequestResetGame);
         }
 
         #endregion
@@ -117,11 +118,6 @@ namespace Digx7.Zygote
             DecreaseLives(amount);
         }
 
-        protected void OnRecieve_RequestUpdateHealth(int amount)
-        {
-            UpdateHealth(amount);
-        }
-
         protected void OnRecieve_RequestIncreaseCoins(int amount)
         {
             IncreaseCoins(amount);
@@ -135,6 +131,11 @@ namespace Digx7.Zygote
         protected override void OnRecieve_OnOptionsMenuQuit()
         {
             OnRequestLoadUIWidgetDataEvent?.Invoke(_pauseMenuWidgetData);
+        }
+
+        protected virtual void OnRevieve_RequestResetGame()
+        {
+            Reset();
         }
 
         #endregion
@@ -168,23 +169,6 @@ namespace Digx7.Zygote
             OnLivesChangedEvent?.Invoke(currentLives);
         }
 
-        public virtual void UpdateHealth(int amount)
-        {
-            currentHealth += amount;
-
-            if (currentHealth > maxHealth)
-            {
-                currentHealth = maxHealth;
-            }
-            else if (currentHealth < 0)
-            {
-                currentHealth = 0;
-
-                EndGame(GameEndCondition.Win);
-            }
-            OnHealthChangedEvent?.Invoke(currentHealth);
-        }
-
         public virtual void IncreaseCoins(int amount)
         {
             currentCoins += amount;
@@ -203,6 +187,19 @@ namespace Digx7.Zygote
             OnGameEndEvent?.Invoke(result);
             OnRequestUnLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
             OnRequestLoadUIWidgetDataEvent?.Invoke(_gameOverWidgetData);
+        }
+
+        public virtual void Reset()
+        {
+            currentLevel = startingLevel;
+            currentScore = startingScore;
+            currentLives = startingLives;
+            currentCoins = startingCoins;
+
+            if(_levelWidgetData != null)
+            {
+                OnRequestLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
+            }
         }
 
         #endregion

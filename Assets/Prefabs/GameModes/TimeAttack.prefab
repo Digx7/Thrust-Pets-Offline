@@ -107,19 +107,21 @@ MonoBehaviour:
   _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
   _levelWidgetData: {fileID: 11400000, guid: 78ab1cd970f830c439492e757a06568b, type: 2}
   _gameOverWidgetData: {fileID: 11400000, guid: 1ba3c1e3de4d1824aa0e8a5735ddfdf7, type: 2}
+  startingLevel: 1
   currentLevel: 1
   maxLevel: 100
+  startingScore: 0
   currentScore: 0
+  startingLives: 3
   currentLives: 3
-  currentHealth: 100
-  maxHealth: 100
+  startingCoins: 0
   currentCoins: 0
   _request_IncreaseLevel_Channel: {fileID: 11400000, guid: 97cf08128bea2e94ea1c9f5bc3dec814, type: 2}
   _request_IncreaseScore_Channel: {fileID: 11400000, guid: 08390bea02e558f4583de5e59621bcf9, type: 2}
   _request_DecreaseLives_Channel: {fileID: 11400000, guid: 97d72232e690b8a49ab47bf83d22e2ca, type: 2}
-  _request_UpdateHealth_Channel: {fileID: 11400000, guid: db2aef5ada6b70142a11d4ae8d97290d, type: 2}
   _On_PlayerDied_Channel: {fileID: 11400000, guid: 3222f885fefffa244b0a2564704391ef, type: 2}
   _request_IncreaseCoins_Channel: {fileID: 11400000, guid: 6133a4b861361dd44a663b6a87e8a9b8, type: 2}
+  _request_ResetGame_Channel: {fileID: 11400000, guid: 362ba93806ce08c4b9e2787bf36539e9, type: 2}
   OnRequestLoadUIWidgetDataEvent:
     m_PersistentCalls:
       m_Calls:
@@ -217,21 +219,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 840425441b77eaa4da2b9f8d18938f33, type: 2}
-        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnHealthChangedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 542b5fa46fb70254f9893c6900ff0efb, type: 2}
         m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 0
