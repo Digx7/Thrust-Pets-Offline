@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using Digx7.Zygote;
+using Digx7.ThrustPets;
 
 public class PlayerCharacter_EndlessRunner : PlayerCharacter 
 {
@@ -88,6 +89,8 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     [Header("References")]
     [SerializeField] Animator animator;
     [SerializeField] LaneMovement laneMovement;
+    [SerializeField] Transform playerSkinHolder;
+    private GameObject playerSkin;
 
     [Header("Incoming Channels")]
     [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
@@ -107,6 +110,12 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         _request_ResetGame_Channel.channelEvent.AddListener(OnReceive_RequestReset);
 
         CurrentHealth = _startingHealth;
+        
+        playerSkin = Instantiate(PlayerDataManager.Instance.PlayerSkin.RuntimePrefab, playerSkinHolder);
+        animator = playerSkin.GetComponent<Animator>();
+
+        animator.SetBool("GamePlay", true);
+
         
         base.Setup(newID);
     }
