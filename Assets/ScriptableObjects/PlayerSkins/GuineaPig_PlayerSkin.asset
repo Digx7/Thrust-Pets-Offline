@@ -15,5 +15,5 @@ MonoBehaviour:
   _displayName: Guinea Pig
   _itemID: 0
   _unlockType: 1
-  _menuImage: {fileID: 0}
+  _menuImage: {fileID: 21300000, guid: 3cb4965201c5c2d4b83e11e1b026fcad, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: 6ad1b6b90f7c8ee48867507d85ce2b38, type: 3}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Digx7.Zygote;
 
 namespace Digx7.ThrustPets
 {
@@ -9,6 +10,7 @@ namespace Digx7.ThrustPets
         [SerializeField] private PlayerSkinDataChannel channelToListenTo;
 
         public PlayerSkinDataEvent onChannelRaised;
+        public StringEvent onChannelRaised_DisplayName;
 
         public bool checkLastValueOnStart;
         public bool shouldFilterValue = false;
@@ -63,10 +65,12 @@ namespace Digx7.ThrustPets
             if(shouldPassHeardDataThrough) 
             {
                 onChannelRaised.Invoke(incomingData);
+                onChannelRaised_DisplayName.Invoke(incomingData.DisplayName);
             }
             else
             {
                 onChannelRaised.Invoke(outgoingDataIfNotPassHeardDataThrough);
+                onChannelRaised_DisplayName.Invoke(outgoingDataIfNotPassHeardDataThrough.DisplayName);
             }
         }
 

@@ -30,6 +30,11 @@ namespace Digx7.ThrustPets
             channelToRaise.Raise(_data);
         }
 
+        public void SetData(PlayerSkinData newData)
+        {
+            _data = newData;
+        }
+
         #endregion
     }
 }

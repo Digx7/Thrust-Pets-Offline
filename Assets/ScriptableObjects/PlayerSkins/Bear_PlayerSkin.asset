@@ -15,5 +15,5 @@ MonoBehaviour:
   _displayName: Bear
   _itemID: 0
   _unlockType: 2
-  _menuImage: {fileID: 0}
+  _menuImage: {fileID: 21300000, guid: 15037eebc7290ea4385e00ff588bd6b5, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: 678e769b1842a2c4fab7a6aea941b007, type: 3}
