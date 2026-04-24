@@ -26,12 +26,32 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         }
     }
 
+    [SerializeField] PowerUpData _activePowerUp;
+    public PowerUpData ActivePowerUp
+    {
+        get
+        {
+            return _activePowerUp;
+        }
+        private set
+        {
+            if (value is PowerUpData)
+            {
+                _activePowerUp = value;
+                OnUpdateActivePowerUp.Invoke(_activePowerUp);
+            }
+        }
+    }
+
     [Header("Incoming Channels")]
     [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
     [SerializeField] PlayerSkinDataChannel _Request_UpdatePlayerSkin_Channel;
+    [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/Player")]
+    [SerializeField] PowerUpDataChannel _Request_UpdateActivePowerUp_Channel;
 
     [Header("Outgoing Events")]
     public PlayerSkinDataEvent OnUpdatePlayerSkin;
+    public PowerUpDataEvent OnUpdateActivePowerUp;
      
     #endregion
     #region Setup
@@ -53,11 +73,13 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     private void SetupChannels()
     {
         _Request_UpdatePlayerSkin_Channel.channelEvent.AddListener(OnRecieve_RequestUpdatePlayerSkin);
+        _Request_UpdateActivePowerUp_Channel.channelEvent.AddListener(OnRecieve_RequestUpdateActivePowerUp);
     }
     
     private void TearDownChannels()
     {
         _Request_UpdatePlayerSkin_Channel.channelEvent.RemoveListener(OnRecieve_RequestUpdatePlayerSkin);
+        _Request_UpdateActivePowerUp_Channel.channelEvent.RemoveListener(OnRecieve_RequestUpdateActivePowerUp);
     }
     
     #endregion
@@ -66,6 +88,11 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     private void OnRecieve_RequestUpdatePlayerSkin(PlayerSkinData playerSkinData)
     {
         PlayerSkin = playerSkinData;
+    }
+
+    private void OnRecieve_RequestUpdateActivePowerUp(PowerUpData powerUpData)
+    {
+        ActivePowerUp = powerUpData;
     }
     
     #endregion

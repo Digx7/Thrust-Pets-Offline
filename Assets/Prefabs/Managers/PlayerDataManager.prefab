@@ -45,12 +45,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataManager
   _playerSkin: {fileID: 11400000, guid: 5f733e4b485a8414a9bd06fa71fac5ba, type: 2}
+  _activePowerUp: {fileID: 11400000, guid: 56ac1624ce84c9f4aa55167bf16642a3, type: 2}
   _Request_UpdatePlayerSkin_Channel: {fileID: 11400000, guid: 285826c9a358d3243aa0ad2ccc46d775, type: 2}
+  _Request_UpdateActivePowerUp_Channel: {fileID: 11400000, guid: 5ce093ee1fbb49544b58ba69d5f34240, type: 2}
   OnUpdatePlayerSkin:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 0e0917dd6a84e5949b02cca3884bf636, type: 2}
         m_TargetAssemblyTypeName: Digx7.ThrustPets.PlayerSkinDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUpdateActivePowerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a2e55dbc84c8f2f46a0afae0b4ef0ca9, type: 2}
+        m_TargetAssemblyTypeName: Digx7.ThrustPets.PowerUpDataChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 0
         m_Arguments:

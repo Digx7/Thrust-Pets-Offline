@@ -4,20 +4,21 @@ using Digx7.Zygote;
 
 namespace Digx7.ThrustPets
 {
-    public class PlayerSkinDataChannelListener : MonoBehaviour 
+    public class PowerUpDataChannelListener : MonoBehaviour 
     {
         #region Variables ==============================================
-        [SerializeField] private PlayerSkinDataChannel channelToListenTo;
+        [SerializeField] private PowerUpDataChannel channelToListenTo;
 
-        public PlayerSkinDataEvent onChannelRaised;
+        public PowerUpDataEvent onChannelRaised;
         public StringEvent onChannelRaised_DisplayName;
 
         public bool checkLastValueOnStart;
+        public bool checkLastValueOnEnable;
         public bool shouldFilterValue = false;
         public bool shouldPassHeardDataThrough = true;
 
-        public PlayerSkinData filter;
-        public PlayerSkinData outgoingDataIfNotPassHeardDataThrough;
+        public PowerUpData filter;
+        public PowerUpData outgoingDataIfNotPassHeardDataThrough;
         #endregion
 
         #region Setup ==============================================
@@ -33,6 +34,11 @@ namespace Digx7.ThrustPets
         private void OnEnable()
         {
             channelToListenTo.channelEvent.AddListener(OnHearChannel);
+
+            if (checkLastValueOnEnable && channelToListenTo.lastValue != null) 
+            {
+                OnHearChannel(channelToListenTo.lastValue);
+            }
         }
 
         private void OnDisable()
@@ -44,7 +50,7 @@ namespace Digx7.ThrustPets
 
         #region Channel Response Functions ==============================================
 
-        public void OnHearChannel(PlayerSkinData data)
+        public void OnHearChannel(PowerUpData data)
         {
             if(shouldFilterValue)
             {
@@ -63,7 +69,7 @@ namespace Digx7.ThrustPets
 
         #region Main Functions ==============================================
 
-        public void SendOutResponse(PlayerSkinData incomingData)
+        public void SendOutResponse(PowerUpData incomingData)
         {
             if(shouldPassHeardDataThrough) 
             {
