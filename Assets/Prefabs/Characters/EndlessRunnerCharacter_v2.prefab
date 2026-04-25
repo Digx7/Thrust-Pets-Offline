@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 6015637040896787873}
   - component: {fileID: 8527453861408327465}
   - component: {fileID: 388844434421336248}
+  - component: {fileID: 2197803437422542608}
   m_Layer: 0
   m_Name: EndlessRunnerCharacter_v2
   m_TagString: Untagged
@@ -191,6 +192,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   laneMovement: {fileID: 388844434421336248}
   playerSkinHolder: {fileID: 5176002615629022177}
+  playerPowerUpComponent: {fileID: 2197803437422542608}
   _request_ResetGame_Channel: {fileID: 11400000, guid: 362ba93806ce08c4b9e2787bf36539e9, type: 2}
   OnCurrentHealthUpdate:
     m_PersistentCalls:
@@ -261,6 +263,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   currentLane: 1
+--- !u!114 &2197803437422542608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015637040896787885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941de017e3ad3264da16c60b801fd3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPowerUpComponent
+  _currentPowerUp: {fileID: 0}
+  _request_TryToUsePowerUp_channel: {fileID: 11400000, guid: 05ebef08e6ad92f43badac2f5cdabd4e, type: 2}
 --- !u!1 &6356730977410194264
 GameObject:
   m_ObjectHideFlags: 0

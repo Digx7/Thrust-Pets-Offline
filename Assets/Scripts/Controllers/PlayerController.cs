@@ -17,7 +17,8 @@ namespace Digx7.Zygote
         [Header("Outgoing Events")]
         public UIWidgetDataEvent OnRequestLoadUIWidgetDataEvent;
 
-        private PlayerCharacter possessedPlayer;
+        // private PlayerCharacter possessedPlayer;
+        private PlayerCharacter_EndlessRunner possessedPlayer;
 
         #endregion
 
@@ -27,14 +28,16 @@ namespace Digx7.Zygote
 
         public override bool PossessCharacter(Character newCharacter)
         {
-            possessedPlayer = newCharacter as PlayerCharacter;
+            // possessedPlayer = newCharacter as PlayerCharacter;
+            possessedPlayer = newCharacter as PlayerCharacter_EndlessRunner;
 
             return base.PossessCharacter(newCharacter);
         }
 
         public override void ForcePossessCharacter(Character newCharacter)
         {
-            possessedPlayer = newCharacter as PlayerCharacter;
+            // possessedPlayer = newCharacter as PlayerCharacter;
+            possessedPlayer = newCharacter as PlayerCharacter_EndlessRunner;
 
             base.ForcePossessCharacter(newCharacter);
         }
@@ -153,7 +156,8 @@ namespace Digx7.Zygote
                     break;
                 case InputActionPhase.Performed:
                     // Add Code here
-                    possessedPlayer.Fire1();
+                    // possessedPlayer.Fire1();
+                    possessedPlayer.TryToUsePowerUp();
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here

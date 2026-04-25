@@ -15,4 +15,14 @@ MonoBehaviour:
   _displayName: Jump
   _itemID: 0
   _menuImage: {fileID: 21300000, guid: 5b6eaab00884b504b89473b3ed9a438f, type: 3}
-  _runtimePrefab: {fileID: 0}
+  _runtimePrefab: {fileID: 5536303132746848686, guid: 18ad06b3b95d22540b8e72726b0af862, type: 3}
+  _usesLeft: 99
+  OnTryToUse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSuccessfullyUse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFailToUse:
+    m_PersistentCalls:
+      m_Calls: []

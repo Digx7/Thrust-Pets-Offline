@@ -90,6 +90,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     [SerializeField] Animator animator;
     [SerializeField] LaneMovement laneMovement;
     [SerializeField] Transform playerSkinHolder;
+    [SerializeField] PlayerPowerUpComponent playerPowerUpComponent;
     private GameObject playerSkin;
 
     [Header("Incoming Channels")]
@@ -151,6 +152,11 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     public void Stuck()
     {
         StartCoroutine(StopAndStartPlayer(3f));
+    }
+
+    public void TryToUsePowerUp()
+    {
+        playerPowerUpComponent.TryUsePowerUp();
     }
 
     IEnumerator StopAndStartPlayer(float timeDelay) 
