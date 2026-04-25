@@ -21,5 +21,6 @@ public class JumpRunTime : PowerUpRuntime
         laneMovement.TryJump();
 
         yield return null;
+        // new
     }
 }
