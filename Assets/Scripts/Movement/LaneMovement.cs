@@ -71,10 +71,15 @@ public class LaneMovement : MonoBehaviour
             forwardSpeed = Mathf.Min(maxSpeed, forwardSpeed + speedChangeAmount);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && Time.time > lastJumpTime + jumpCooldown)
+        // if (Input.GetKeyDown(KeyCode.Space) && isGrounded && Time.time > lastJumpTime + jumpCooldown)
+        // {
+        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
+        //     lastJumpTime = Time.time; // Record jump time
+        // }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
-            lastJumpTime = Time.time; // Record jump time
+            TryJump();
         }
 
         if (isChangingLane)
@@ -95,6 +100,17 @@ public class LaneMovement : MonoBehaviour
         moveVector.y = velocity.y * Time.deltaTime;
 
         controller.Move(moveVector);
+    }
+
+    public void TryJump()
+    {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+
+        if(isGrounded && Time.time > lastJumpTime + jumpCooldown)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
+            lastJumpTime = Time.time; // Record jump time
+        }
     }
 
     public void IncreaseSpeed() 

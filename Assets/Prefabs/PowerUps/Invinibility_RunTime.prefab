@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5bc7aced73bd74d83ab146f7b40611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InvincibilityRunTime
-  lifeTime: 1
+  lifeTime: 5
+  invincibleDuration: 4

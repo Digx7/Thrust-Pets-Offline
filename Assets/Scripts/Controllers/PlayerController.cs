@@ -157,7 +157,7 @@ namespace Digx7.Zygote
                 case InputActionPhase.Performed:
                     // Add Code here
                     // possessedPlayer.Fire1();
-                    possessedPlayer.TryToUsePowerUp();
+                    // possessedPlayer.TryToUsePowerUp();
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here
@@ -185,7 +185,8 @@ namespace Digx7.Zygote
                     break;
                 case InputActionPhase.Performed:
                     // Add Code here
-                    possessedPlayer.Fire2();
+                    // possessedPlayer.Fire2();
+                    possessedPlayer.TryToUsePowerUp();
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here

@@ -17,17 +17,11 @@ public class MainMenuSelectedPowerUpElment : UIElement
 
     public void Refreash(PowerUpData powerUpData)
     {
-        Debug.Log("MainMenuSelectedPowerUpElment: Refresh()");
+        _count.text = powerUpData.UsesLeft.ToString();
         
         if(powerUpData.MenuImage != null)
         {
             _icon.sprite = powerUpData.MenuImage;
-
-            Debug.Log($"MainMenuSelectedPowerUpElment: Refresh() _icon.sprite = {powerUpData.MenuImage}");
-        }
-        else
-        {
-            Debug.Log($"MainMenuSelectedPowerUpElment: Refresh() powerUpData.MenuImage == null");
         }
     }
 }

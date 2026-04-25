@@ -29,7 +29,7 @@ public class PlayerPowerUpComponent : MonoBehaviour
     {
         if(_currentPowerUp.TryUse(out GameObject powerupRuntimePrefab))
         {
-            GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab);
+            GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab, this.transform);
         }
     }
 }

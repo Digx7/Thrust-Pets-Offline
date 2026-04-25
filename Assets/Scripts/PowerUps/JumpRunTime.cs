@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class JumpRunTime : PowerUpRuntime 
 {
@@ -10,5 +11,15 @@ public class JumpRunTime : PowerUpRuntime
         // Jump player
 
         Debug.Log("Jump Powerup Started");
+        StartCoroutine(PowerUpMain());
+    }
+
+    IEnumerator PowerUpMain()
+    {
+        LaneMovement laneMovement = GetComponentInParent<LaneMovement>();
+
+        laneMovement.TryJump();
+
+        yield return null;
     }
 }

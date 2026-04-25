@@ -102,6 +102,8 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     public IntEvent OnCurrentHealthUpdate;
     public UnityEvent OnDie;
 
+    public bool IsInvincible = false;
+
     #endregion
 
     #region Setup ================================
@@ -143,7 +145,9 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
     public void TakeDamage()
     {
-        if(IsDead) return;
+        if(IsDead || IsInvincible) return;
+
+        // Debug.Log($"PlayerCharacter_EndlessRunner: TakeDamage() IsInvincible = {IsInvincible}");
 
         CurrentHealth--;
         StartCoroutine(StopAndStartPlayer(1f));
@@ -151,6 +155,10 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
     public void Stuck()
     {
+        if(IsDead || IsInvincible) return;
+        
+        // Debug.Log($"PlayerCharacter_EndlessRunner: Stuck() IsInvincible = {IsInvincible}");
+        
         StartCoroutine(StopAndStartPlayer(3f));
     }
 
