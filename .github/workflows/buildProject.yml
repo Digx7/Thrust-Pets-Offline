@@ -51,13 +51,13 @@ jobs:
     # needs: deployToItch
     uses: ./.github/workflows/discordMessage.yml
     with:
-      message: "A new game build ${{ github.ref_name }} for ${{ github.repository }} has been deployed to [GitHub Releases](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}) and [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\nPatch Notes\n${{ github.event.head_commit.message }}"
+      message: "A new game build ${{ github.ref_name }} for ${{ github.repository }} has been deployed to [GitHub Releases](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}) and [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n ${{ github.ref_name }} Patch Notes\n${{ github.event.head_commit.message }}"
     secrets:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
   discordMessage_ProcessFinished_Client:
     needs: deployToItch
     uses: ./.github/workflows/discordMessage.yml
     with:
-      message: "A new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\nPatch Notes\n${{ github.event.head_commit.message }}"
+      message: "A new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n${{ github.ref_name }} Patch Notes\n${{ github.event.head_commit.message }}"
     secrets:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CLIENT }}
