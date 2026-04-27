@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1452418729982283089}
   - component: {fileID: 8191384441500559762}
   - component: {fileID: 4181726840130041138}
+  - component: {fileID: 50398485290923479}
   m_Layer: 5
   m_Name: BuildNumber
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &50398485290923479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788505538216500388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adffd18fd6bf99546a12f3ad88e418b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.BuildNumberHelper
+  textMeshProUGUI: {fileID: 4181726840130041138}
 --- !u!1 &3810195760349270251
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +218,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  requestUpdateFallBackSelection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 12de955fe03543944ac90a7d48eca733, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.GameObjectChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requestSelectFallBack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ec1003a9ad364ca4cbf02ad2b6dedfb5, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fallBackSelection: {fileID: 1369625792055825836}
+  uiNavigateAction: {fileID: -8784545083839296357, guid: e6630c0f5e843694fb723a304d71a3b1, type: 3}
   mainMenuScene:
     sceneName: GameMode_MainMenu
     context:
@@ -490,6 +536,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+--- !u!1 &1369625792055825836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 924701941320546054, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+  m_PrefabInstance: {fileID: 2293687781822898858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7611544483843307762 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}

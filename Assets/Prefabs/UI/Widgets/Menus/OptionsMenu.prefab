@@ -134,6 +134,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  requestUpdateFallBackSelection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 12de955fe03543944ac90a7d48eca733, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.GameObjectChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requestSelectFallBack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ec1003a9ad364ca4cbf02ad2b6dedfb5, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fallBackSelection: {fileID: 6676656310930381762}
+  uiNavigateAction: {fileID: -8784545083839296357, guid: e6630c0f5e843694fb723a304d71a3b1, type: 3}
   masterVolumeSlider: {fileID: 8630765579620464175}
   musicVolumeSlider: {fileID: 8737624390397452038}
   sfxVolumeSlider: {fileID: 3506038236982886638}
@@ -734,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605889644540895712, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_fontSize
-      value: 179.95
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8416761257626244949, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_Name
@@ -920,12 +952,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7403979786101270387, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
   m_PrefabInstance: {fileID: 6182234491648132462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6676656310930381762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 676536143461408428, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
+  m_PrefabInstance: {fileID: 6182234491648132462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8630765579620464175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2453641641910137665, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
   m_PrefabInstance: {fileID: 6182234491648132462}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6676656310930381762}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}

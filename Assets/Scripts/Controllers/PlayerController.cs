@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Digx7.Zygote
@@ -16,6 +17,7 @@ namespace Digx7.Zygote
         // [Header("Incoming Channels")]
         [Header("Outgoing Events")]
         public UIWidgetDataEvent OnRequestLoadUIWidgetDataEvent;
+        public UnityEvent OnRequestSelectUIFallBack;
 
         // private PlayerCharacter possessedPlayer;
         private PlayerCharacter_EndlessRunner possessedPlayer;
@@ -78,6 +80,8 @@ namespace Digx7.Zygote
 
         // PLAYER INPUT FUNCTIONS =============================================
 
+        // PLAYER =============================================================
+
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             
@@ -111,7 +115,7 @@ namespace Digx7.Zygote
             }
         }
 
-        public void OnJump(InputAction.CallbackContext callbackContext)
+        public void OnPowerUp(InputAction.CallbackContext callbackContext)
         {
             
             // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
@@ -128,93 +132,7 @@ namespace Digx7.Zygote
                     break;
                 case InputActionPhase.Performed:
                     // Add Code here
-                    possessedPlayer.Jump();
-                    break;
-                case InputActionPhase.Canceled:
-                    // Add Code here
-                    break;
-                default:
-                    // Add Code here
-                    break;
-            }
-        }
-
-        public void OnFire1(InputAction.CallbackContext callbackContext)
-        {
-            
-            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
-            switch (callbackContext.phase)
-            {
-                case InputActionPhase.Disabled:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Waiting:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Started:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Performed:
-                    // Add Code here
-                    // possessedPlayer.Fire1();
-                    // possessedPlayer.TryToUsePowerUp();
-                    break;
-                case InputActionPhase.Canceled:
-                    // Add Code here
-                    break;
-                default:
-                    // Add Code here
-                    break;
-            }
-        }
-
-        public void OnFire2(InputAction.CallbackContext callbackContext)
-        {
-            
-            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
-            switch (callbackContext.phase)
-            {
-                case InputActionPhase.Disabled:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Waiting:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Started:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Performed:
-                    // Add Code here
-                    // possessedPlayer.Fire2();
                     possessedPlayer.TryToUsePowerUp();
-                    break;
-                case InputActionPhase.Canceled:
-                    // Add Code here
-                    break;
-                default:
-                    // Add Code here
-                    break;
-            }
-        }
-
-        public void OnLore(InputAction.CallbackContext callbackContext)
-        {
-            
-            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
-            switch (callbackContext.phase)
-            {
-                case InputActionPhase.Disabled:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Waiting:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Started:
-                    // Add Code here
-                    break;
-                case InputActionPhase.Performed:
-                    // Add Code here
-                    OnRequestLoadUIWidgetDataEvent?.Invoke(activeTimeLoreWidgetData);
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here
@@ -249,6 +167,49 @@ namespace Digx7.Zygote
                     break;
                 default:
                     // Add Code here
+                    break;
+            }
+        }
+
+        // UI =============================================================
+
+        public void OnNaviage(InputAction.CallbackContext callbackContext)
+        {
+            
+            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
+            switch (callbackContext.phase)
+            {
+                case InputActionPhase.Disabled:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.Disabled");
+                    break;
+                case InputActionPhase.Waiting:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.Waiting");
+                    break;
+                case InputActionPhase.Started:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.Started");
+                    // if (EventSystem.current.currentSelectedGameObject == null)
+                    // {
+                    //     // Nothing is selected
+
+                    //     Debug.Log($"FallBack PlayerController: OnNavigate() tried naviaging but currentSelectedGameObject == null\nRequesting Select FallBack");
+
+                    //     OnRequestSelectUIFallBack.Invoke();
+                    // }
+                    break;
+                case InputActionPhase.Performed:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.Performed");
+                    break;
+                case InputActionPhase.Canceled:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.Canceled");
+                    break;
+                default:
+                    // Add Code here
+                    Debug.Log($"FallBack PlayerController: OnNavigate() InputActionPhase.default");
                     break;
             }
         }

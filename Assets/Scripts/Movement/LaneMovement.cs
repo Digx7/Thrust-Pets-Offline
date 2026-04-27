@@ -40,36 +40,36 @@ public class LaneMovement : MonoBehaviour
 
         Vector3 moveVector = Vector3.forward * forwardSpeed * Time.deltaTime;
 
-        if (!isChangingLane)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if (currentLane > 0)
-                {
-                    currentLane--;
-                    isChangingLane = true;
-                    targetPosition.x = (currentLane - 1) * laneDistance;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.D)) 
-            {
-                if (currentLane < 2)
-                {
-                    currentLane++;
-                    isChangingLane = true;
-                    targetPosition.x = (currentLane - 1) * laneDistance;
-                }
-            }
-        }
+        // if (!isChangingLane)
+        // {
+        //     if (Input.GetKeyDown(KeyCode.A))
+        //     {
+        //         if (currentLane > 0)
+        //         {
+        //             currentLane--;
+        //             isChangingLane = true;
+        //             targetPosition.x = (currentLane - 1) * laneDistance;
+        //         }
+        //     }
+        //     else if (Input.GetKeyDown(KeyCode.D)) 
+        //     {
+        //         if (currentLane < 2)
+        //         {
+        //             currentLane++;
+        //             isChangingLane = true;
+        //             targetPosition.x = (currentLane - 1) * laneDistance;
+        //         }
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            forwardSpeed = Mathf.Max(minSpeed, forwardSpeed - speedChangeAmount);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            forwardSpeed = Mathf.Min(maxSpeed, forwardSpeed + speedChangeAmount);
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     forwardSpeed = Mathf.Max(minSpeed, forwardSpeed - speedChangeAmount);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     forwardSpeed = Mathf.Min(maxSpeed, forwardSpeed + speedChangeAmount);
+        // }
 
         // if (Input.GetKeyDown(KeyCode.Space) && isGrounded && Time.time > lastJumpTime + jumpCooldown)
         // {
@@ -77,10 +77,10 @@ public class LaneMovement : MonoBehaviour
         //     lastJumpTime = Time.time; // Record jump time
         // }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TryJump();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     TryJump();
+        // }
 
         if (isChangingLane)
         {
@@ -100,6 +100,35 @@ public class LaneMovement : MonoBehaviour
         moveVector.y = velocity.y * Time.deltaTime;
 
         controller.Move(moveVector);
+    }
+
+    public bool TryChangeLanes(float moveDirection)
+    {
+        if (!isChangingLane)
+        {
+            if (moveDirection < -0.1)
+            {
+                if (currentLane > 0)
+                {
+                    currentLane--;
+                    isChangingLane = true;
+                    targetPosition.x = (currentLane - 1) * laneDistance;
+                    return true;
+                }
+            }
+            else if (moveDirection > 0.1) 
+            {
+                if (currentLane < 2)
+                {
+                    currentLane++;
+                    isChangingLane = true;
+                    targetPosition.x = (currentLane - 1) * laneDistance;
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void TryJump()

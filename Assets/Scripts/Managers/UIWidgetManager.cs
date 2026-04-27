@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,19 +14,26 @@ namespace Digx7.Zygote
         [Header("Variables")]
         [SerializeField] private Transform _canvas;
         [SerializeField] private List<UIWidgetData> _activeWidgets;
+        [SerializeField] private EventSystem eventSystem;
 
         [Header("Incoming Channels")]
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/UI")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/UI")]
         [SerializeField] private UIWidgetDataChannel _request_LoadUIWidget_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/UI")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/UI")]
         [SerializeField] private UIWidgetDataChannel _request_UnloadUIWidget_Channel;
-        [CreateScriptableObjectButton("Assets/Zygote/ScriptableObjects/Channels/UI")]
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/UI")]
         [SerializeField] private Channel _request_ClearAllUIWidgets_Channel;
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/UI")]
+        [SerializeField] private GameObjectChannel _request_UpdateFallBackSelection_Channel;
+        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/UI")]
+        [SerializeField] private Channel _request_SelectFallBack_Channel;
 
         [Header("Outgoing Events")]
         public UnityEvent OnLoadUIWidgetEvent;
         public UnityEvent OnUnloadUIWidgetEvent;
         public UnityEvent OnClearAllUIWidgetsEvent;
+
+        private GameObject fallBackSelectionObject;
 
         #endregion
 
@@ -46,6 +54,8 @@ namespace Digx7.Zygote
             _request_LoadUIWidget_Channel.channelEvent.AddListener(OnRecieve_LoadUIWidget);
             _request_UnloadUIWidget_Channel.channelEvent.AddListener(OnRecieve_UnloadUIWidget);
             _request_ClearAllUIWidgets_Channel.channelEvent.AddListener(OnRecieve_UnloadAllUIWidgets);
+            _request_UpdateFallBackSelection_Channel.channelEvent.AddListener(OnRecieve_RequestUpdateFallBackSelect);
+            _request_SelectFallBack_Channel.channelEvent.AddListener(OnRecieve_RequestSelectFallBack);
         }
 
         private void TeardownChannels()
@@ -53,6 +63,8 @@ namespace Digx7.Zygote
             _request_LoadUIWidget_Channel.channelEvent.RemoveListener(OnRecieve_LoadUIWidget);
             _request_UnloadUIWidget_Channel.channelEvent.RemoveListener(OnRecieve_UnloadUIWidget);
             _request_ClearAllUIWidgets_Channel.channelEvent.RemoveListener(OnRecieve_UnloadAllUIWidgets);
+            _request_UpdateFallBackSelection_Channel.channelEvent.RemoveListener(OnRecieve_RequestUpdateFallBackSelect);
+            _request_SelectFallBack_Channel.channelEvent.RemoveListener(OnRecieve_RequestSelectFallBack);
         }
 
         #endregion
@@ -72,6 +84,16 @@ namespace Digx7.Zygote
         protected void OnRecieve_UnloadAllUIWidgets()
         {
             UnloadAllWidgets();
+        }
+
+        protected void OnRecieve_RequestUpdateFallBackSelect(GameObject newFallBackObject)
+        {
+            UpdateFallBackSelection(newFallBackObject);
+        }
+
+        protected void OnRecieve_RequestSelectFallBack()
+        {
+            SelectFallBack();
         }
 
         #endregion
@@ -112,6 +134,25 @@ namespace Digx7.Zygote
             _activeWidgets.Clear();
             OnClearAllUIWidgetsEvent.Invoke();
 
+        }
+
+        private void UpdateFallBackSelection(GameObject newFallBackSelection)
+        {
+            fallBackSelectionObject = newFallBackSelection;
+
+            Debug.Log($"FallBack UIWidgetManager: UpdateFallBackSelection() fallBackSelectionObject = {fallBackSelectionObject}");
+        }
+
+        private void SelectFallBack()
+        {
+            
+            
+            if(fallBackSelectionObject != null)
+            {
+                eventSystem.SetSelectedGameObject(fallBackSelectionObject);
+            }
+
+            Debug.Log($"FallBack UIWidgetManager: SelectFallBack() fallBackSelectionObject = {fallBackSelectionObject}");
         }
 
         #endregion

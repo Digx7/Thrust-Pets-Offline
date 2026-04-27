@@ -143,6 +143,13 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
     #region  Main Functions ================================
 
+    public override void UpdateDesiredMoveDirection(Vector2 newDesiredDirection)
+    {
+        base.UpdateDesiredMoveDirection(newDesiredDirection);
+
+        laneMovement.TryChangeLanes(desiredMoveDirection.x);
+    }
+
     public void TakeDamage()
     {
         if(IsDead || IsInvincible) return;
