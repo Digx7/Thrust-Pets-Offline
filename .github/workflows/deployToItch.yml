@@ -30,20 +30,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel:
-          # - windows
-          - WebGL 
+        buildPair:
+            - {buildName: Itch_Web_Game, channel: WebGL}
+            - {buildName: Itch_Win_Game, channel: Windows}
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: Build-${{ matrix.channel }}
-          path: build/${{ matrix.channel }}
+          name: Build-${{ matrix.buildPair.buildName }}
+          path: build/${{ matrix.buildPair.buildName }}
           run-id: ${{ inputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-          gameData: ./build/${{ matrix.channel }}
+          gameData: ./build/${{ matrix.buildPair.buildName }}
           itchUsername: ${{secrets.ITCH_USERNAME}}
           itchGameId: ${{ secrets.ITCH_GAME_ID }}
-          buildChannel: ${{ matrix.channel }}
+          buildChannel: ${{ matrix.buildPair.channel }}

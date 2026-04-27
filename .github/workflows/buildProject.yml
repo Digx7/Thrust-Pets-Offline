@@ -41,8 +41,8 @@ jobs:
     uses: ./.github/workflows/deployToGitHubRelease.yml
     with:
       run_id: ${{ github.run_id }}
-      artifactName: Build-WebGL
-      zipName: ${{ github.ref_name }}_Itch_WebGL_FullGame.zip
+      artifactName: Build-Itch_Web_Game
+      zipName: ${{ github.ref_name }}_Itch_Web_Game.zip
       tagName: ${{ github.ref_name }}
       note: "${{ github.event.head_commit.message }}"
       prerelease: true
