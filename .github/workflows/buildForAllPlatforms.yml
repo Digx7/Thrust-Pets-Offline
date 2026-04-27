@@ -19,17 +19,17 @@ jobs:
         matrix:
           buildPair:
             - {buildName: Itch_Web_Game, targetPlatform: WebGL, buildProfile: 'Assets/Settings/Build Profiles/Itch_Web_Game.asset'}
-            - {buildName: Itch_Win_Game, targetPlatform: Windows, buildProfile: 'Assets/Settings/Build Profiles/Itch_Win_Game.asset'}
+            - {buildName: Itch_Win_Game, targetPlatform: StandaloneWindows64, buildProfile: 'Assets/Settings/Build Profiles/Itch_Win_Game.asset'}
       steps:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
             lfs: true
-        - uses: actions/cache@v3
+        - uses: actions/cache@v4.2.0
           with:
-            path: Library
-            key: Library-${{ matrix.buildPair.buildName }}
-            restore-keys: Library-
+            path: CacheLibrary/
+            key: CacheLibrary-${{ matrix.buildPair.buildName }}
+            restore-keys: CacheLibrary-
         - if: matrix.buildPair.targetPlatform == 'Android'
           uses: jlumbroso/free-disk-space@v1.3.1
         - uses: game-ci/unity-builder@v4
