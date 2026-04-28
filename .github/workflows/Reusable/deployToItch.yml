@@ -1,0 +1,76 @@
+name: Deploy to Itch.io
+on:
+  workflow_call:
+    inputs:
+      run_id:
+        description: 'The id of the workflow we want to download the artifact from'
+        required: true
+        type: string
+      build_name:
+        description: 'The name of the build, should match the cache artifact name'
+        required: true
+        type: string
+      channel:
+        description: 'The name of the itch channel we want to upload to'
+        required: true
+        type: string
+      send_DiscordMessages:
+        description: 'Do we want to send discord messages'
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      BUTLER_API_KEY:
+        required: true
+      ITCH_USERNAME:
+        required: true
+      ITCH_GAME_ID:
+        required: true
+      DISCORD_WEBHOOK:
+        required: false
+
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'The id of the workflow we want to download the artifact from'
+        required: true
+        type: string
+      build_name:
+        description: 'The name of the build, should match the cache artifact name'
+        required: true
+        type: string
+      channel:
+        description: 'The name of the itch channel we want to upload to'
+        required: true
+        type: string
+      send_DiscordMessages:
+        description: 'Do we want to send discord messages'
+        required: false
+        type: boolean
+        default: false
+
+
+
+jobs:
+  deploy:
+    name: Deploy - Itch.io ${{ inputs.build_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: Build-${{ inputs.build_name }}
+          path: build/${{ inputs.build_name }}
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: ./build/${{ inputs.build_name}}
+          itchUsername: ${{secrets.ITCH_USERNAME}}
+          itchGameId: ${{ secrets.ITCH_GAME_ID }}
+          buildChannel: ${{ inputs.channel }}
+      - if: inputs.send_DiscordMessages == true
+          uses: appleboy/discord-action@v1.2.0
+          with:
+            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+            message: "Deployed build ${{ inputs.build_name }} to Itch"

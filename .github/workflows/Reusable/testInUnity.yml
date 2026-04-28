@@ -28,8 +28,8 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Library
-          key: Library-${{ matrix.testMode }}
+          path: CacheLibrary/
+            key: CacheLibrary-${{ matrix.testMode }}
           restore-keys: |
             Library-
       - uses: game-ci/unity-test-runner@v4

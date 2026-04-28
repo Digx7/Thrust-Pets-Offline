@@ -1,0 +1,88 @@
+name: Build For All Platforms
+on:
+  workflow_call:
+    inputs:
+      build_name:
+        description: 'The name of the build'
+        required: true
+        type: string
+      target_Platform:
+        description: 'The platform to target, should be one of the provided ones'
+        required: true
+        type: string
+      build_Profile:
+        description: 'The path to the build profile'
+        required: true
+        type: string
+      send_DiscordMessages:
+        description: 'Do we want to send discord messages'
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      UNITY_LICENSE:
+        required: true
+      UNITY_EMAIL:
+        required: true
+      UNITY_PASSWORD:
+        required: true
+      DISCORD_WEBHOOK:
+        required: false
+  workflow_dispatch:
+    inputs:
+      build_name:
+        description: 'The name of the build'
+        required: true
+        type: string
+      target_Platform:
+        description: 'The platform to target, should be one of the provided ones'
+        required: true
+        type: string
+      build_Profile:
+        description: 'The path to the build profile'
+        required: true
+        type: string
+      send_DiscordMessages:
+        description: 'Do we want to send discord messages'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  buildForAllSupportedPlatforms:
+      name: Build for ${{ inputs.build_name }}
+      runs-on: ubuntu-latest
+      steps:
+        - if: inputs.send_DiscordMessages == true
+          uses: appleboy/discord-action@v1.2.0
+          with:
+            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+            message: "Begining making the unity build for ${{ inputs.build_name }}"
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+            lfs: true
+        - uses: actions/cache@v4.2.0
+          with:
+            path: CacheLibrary/
+            key: CacheLibrary-${{ inputs.build_name }}
+            restore-keys: CacheLibrary-
+        - if: inputs.target_Platform == 'Android'
+          uses: jlumbroso/free-disk-space@v1.3.1
+        - uses: game-ci/unity-builder@v4
+          env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          with:
+            targetPlatform: ${{ inputs.target_Platform }}
+            buildProfile: ${{ inputs.build_Profile }}
+        - uses: actions/upload-artifact@v7
+          with:
+            name: Build-${{ inputs.build_name }}
+            path: build/${{ inputs.build_name }}
+        - if: inputs.send_DiscordMessages == true
+          uses: appleboy/discord-action@v1.2.0
+          with:
+            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+            message: "Finished making the unity build for ${{ inputs.build_name }}"
