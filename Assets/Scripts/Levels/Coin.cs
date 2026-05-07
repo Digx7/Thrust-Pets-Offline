@@ -1,33 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Digx7.Zygote;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public IntChannel request_IncreaseCoins_Channel;
 
     void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
 
-        // Player player = other.transform.root.GetComponent<Player>();
+        PlayerCharacter player = other.transform.root.GetComponent<PlayerCharacter>();
 
-        // if (player != null)
-        // {
-        //     if (player.hasAuthority == true)
-        //     {
-        //         player.TakeCoin();
-        //     }
-        // }
+        if (player != null)
+        {
+            request_IncreaseCoins_Channel.Raise(1);
+        }
     }
 }

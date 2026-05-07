@@ -169,6 +169,12 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         StartCoroutine(StopAndStartPlayer(3f));
     }
 
+    public void GiveCoin()
+    {
+        if(IsDead) return;
+
+    }
+
     public void TryToUsePowerUp()
     {
         playerPowerUpComponent.TryUsePowerUp();

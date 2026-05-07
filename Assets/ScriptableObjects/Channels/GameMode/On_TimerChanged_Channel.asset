@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900c2cff8e9ca4947820e07682587b24, type: 3}
-  m_Name: RunUI
-  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.UIWidgetData
-  widgetPrefab: {fileID: 1554670444162185287, guid: 37955555b96bd284ba6bf960d5c349d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 47e8c4790550b6441ab316619d48d672, type: 3}
+  m_Name: On_TimerChanged_Channel
+  m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.FloatChannel
+  debug: 1
+  channelEvent:
+    m_PersistentCalls:
+      m_Calls: []
