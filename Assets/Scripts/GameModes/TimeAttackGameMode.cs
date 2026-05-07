@@ -11,6 +11,10 @@ namespace Digx7.Zygote
         [SerializeField] protected float startingTime = 120f;
         [SerializeField] protected float currentTime = 120f;
         [SerializeField] protected bool isTimerRunning = false;
+        [SerializeField] protected int levelScoreAmount = 100;
+        [SerializeField] protected int coinScoreAmount = 10;
+        [SerializeField] protected int lifeScoreAmount = 50;
+        [SerializeField] protected int secondRemainingScore = 10;
 
         [Header("Incoming Channels")]
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
@@ -97,6 +101,31 @@ namespace Digx7.Zygote
         public virtual void StopTimer()
         {
             isTimerRunning = false;
+        }
+
+        public override int CalculateEndGameScoreResult()
+        {
+            // Example scoring calculation based on time remaining and coins collected
+            int score = 0;
+            score += currentLevel * levelScoreAmount;   // Each level is worth 100 points
+            score += currentCoins * coinScoreAmount;   // Each coin is worth 10 points
+            score += currentLives * lifeScoreAmount;   // Each remaining life is worth 50 points
+            score -= Mathf.RoundToInt(currentTime) * secondRemainingScore; // Each second remaining removes 10 points
+
+            if(score < 0) score = 0;
+
+            return score;
+        }
+
+        public override float CalculateEndGameTimeResult()
+        {
+            return currentTime;
+        }
+
+        public override void EndGame(GameEndCondition endCondition)
+        {
+            StopTimer();
+            base.EndGame(endCondition);
         }
 
         #endregion

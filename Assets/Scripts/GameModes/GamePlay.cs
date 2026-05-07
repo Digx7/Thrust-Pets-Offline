@@ -14,8 +14,6 @@ namespace Digx7.Zygote
         [SerializeField] protected int startingLevel = 1;
         [SerializeField] protected int currentLevel = 1;
         [SerializeField] protected int maxLevel = 100;
-        [SerializeField] protected int startingScore = 0;
-        [SerializeField] protected int currentScore = 0;
         [SerializeField] protected int startingLives = 3;
         [SerializeField] protected int currentLives = 3;
         [SerializeField] protected int startingCoins = 0;
@@ -25,9 +23,6 @@ namespace Digx7.Zygote
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] 
         protected IntChannel _request_IncreaseLevel_Channel;
-        [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
-        [SerializeField] 
-        protected IntChannel _request_IncreaseScore_Channel;
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
         [SerializeField] 
         protected IntChannel _request_DecreaseLives_Channel;
@@ -81,7 +76,6 @@ namespace Digx7.Zygote
         {
             base.SetupChannels();
             _request_IncreaseLevel_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseLevel);
-            _request_IncreaseScore_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseScore);
             _request_DecreaseLives_Channel.channelEvent.AddListener(OnRecieve_RequestDecreaseLives);
             _request_IncreaseCoins_Channel.channelEvent.AddListener(OnRecieve_RequestIncreaseCoins);
             _On_PlayerDied_Channel.channelEvent.AddListener(OnRevieve_OnPlayerDied);
@@ -92,7 +86,6 @@ namespace Digx7.Zygote
         {
             base.TearDownChannels();
             _request_IncreaseLevel_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseLevel);
-            _request_IncreaseScore_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseScore);
             _request_DecreaseLives_Channel.channelEvent.RemoveListener(OnRecieve_RequestDecreaseLives);
             _request_IncreaseCoins_Channel.channelEvent.RemoveListener(OnRecieve_RequestIncreaseCoins);
             _On_PlayerDied_Channel.channelEvent.RemoveListener(OnRevieve_OnPlayerDied);
@@ -106,11 +99,6 @@ namespace Digx7.Zygote
         protected void OnRecieve_RequestIncreaseLevel(int amount)
         {
             IncreaseLevel(amount);
-        }
-
-        protected void OnRecieve_RequestIncreaseScore(int amount)
-        {
-            IncreaseScore(amount);
         }
 
         protected void OnRecieve_RequestDecreaseLives(int amount)
@@ -152,12 +140,6 @@ namespace Digx7.Zygote
             OnLevelChangedEvent?.Invoke(currentLevel);
         }
 
-        public virtual void IncreaseScore(int amount)
-        {
-            currentScore += amount;
-            OnScoreChangedEvent?.Invoke(currentScore);
-        }
-
         public virtual void DecreaseLives(int amount)
         {
             currentLives -= amount;
@@ -175,14 +157,25 @@ namespace Digx7.Zygote
             OnCoinsChangedEvent?.Invoke(currentCoins);
         }
 
+        public virtual int CalculateEndGameScoreResult()
+        {
+            return 0;
+        }
+
+        public virtual float CalculateEndGameTimeResult()
+        {
+            return -1f;
+        }
+
         public virtual void EndGame(GameEndCondition endCondition)
         {
             GameEndResult result = new GameEndResult
             {
                 endCondition = endCondition,
                 levelReached = currentLevel,
-                score = currentScore,
-                coins = currentCoins
+                score = CalculateEndGameScoreResult(),
+                coins = currentCoins,
+                time = CalculateEndGameTimeResult() // You can set this to the actual time if you have a timer implemented
             };
             OnGameEndEvent?.Invoke(result);
             OnRequestUnLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
@@ -192,7 +185,6 @@ namespace Digx7.Zygote
         public virtual void Reset()
         {
             currentLevel = startingLevel;
-            currentScore = startingScore;
             currentLives = startingLives;
             currentCoins = startingCoins;
 

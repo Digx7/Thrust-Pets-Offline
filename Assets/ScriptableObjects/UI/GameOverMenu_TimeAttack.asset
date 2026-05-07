@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900c2cff8e9ca4947820e07682587b24, type: 3}
-  m_Name: GameOverMenu
+  m_Name: GameOverMenu_TimeAttack
   m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.UIWidgetData
-  widgetPrefab: {fileID: 5178392673657786732, guid: 38e5e6761f93c2949bb54bb2ccb649d3, type: 3}
+  widgetPrefab: {fileID: 5178392673657786732, guid: a6ad979f5d939a74e9f062cc1f9ae354, type: 3}

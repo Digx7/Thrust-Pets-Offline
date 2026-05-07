@@ -8,9 +8,16 @@ namespace Digx7.Zygote
         #region Variables ================================
 
         [Header("Variables")]
-        [SerializeField] protected float startingTime = 120f;
-        [SerializeField] protected float currentTime = 120f;
+        [SerializeField] protected float startingTime = 0f;
+        [SerializeField] protected float currentTime = 0f;
         [SerializeField] protected bool isTimerRunning = false;
+        [SerializeField] protected int coinGoal = 10;
+        [SerializeField] protected int levelScoreAmount = 100;
+        [SerializeField] protected int coinScoreAmount = 10;
+        [SerializeField] protected int missedCoinScoreAmount = 5;
+        [SerializeField] protected int lifeScoreAmount = 50;
+        [SerializeField] protected int timeScoreCap = 10000;
+        [SerializeField] protected int timeScoreScaler = 10;
 
         [Header("Incoming Channels")]
         [CreateScriptableObjectButton("Assets/ScriptableObjects/Channels/GameMode")]
@@ -23,7 +30,7 @@ namespace Digx7.Zygote
         [Header("Outgoing Events")]
         [SerializeField] 
         public FloatEvent OnTimerChangedEvent;
-        public UnityEvent OnTimerFinishedEvent;
+        public IntEvent OnCoinGoalChangedEvent;
 
         #endregion
 
@@ -33,7 +40,16 @@ namespace Digx7.Zygote
         {
             base.Setup();
 
+            OnCoinGoalChangedEvent?.Invoke(coinGoal);
+
             StartTimer();
+        }
+
+        public override void Teardown()
+        {
+            OnCoinGoalChangedEvent?.Invoke(0);
+
+            base.Teardown();
         }
 
         protected override void SetupChannels()
@@ -74,16 +90,19 @@ namespace Digx7.Zygote
         {
             if(isTimerRunning)
             {
-                currentTime -= Time.deltaTime;
+                currentTime += Time.deltaTime;
                 OnTimerChangedEvent?.Invoke(currentTime);
+            }
+        }
 
-                if(currentTime <= 0f)
-                {
-                    currentTime = 0f;
-                    isTimerRunning = false;
-                    OnTimerFinishedEvent?.Invoke();
-                    EndGame(GameEndCondition.Loss);
-                }
+        public override void IncreaseCoins(int amount)
+        {
+            base.IncreaseCoins(amount);
+
+            if(currentCoins >= coinGoal)
+            {
+                StopTimer();
+                EndGame(GameEndCondition.Win);
             }
         }
 
@@ -97,6 +116,37 @@ namespace Digx7.Zygote
         public virtual void StopTimer()
         {
             isTimerRunning = false;
+        }
+
+        public override int CalculateEndGameScoreResult()
+        {
+            // Example scoring calculation based on time and coins
+            int score = 0;
+            score += currentLevel * levelScoreAmount;
+            score += currentCoins * coinScoreAmount;   
+            score += currentLives * lifeScoreAmount;   
+
+            if(currentCoins >= coinGoal)
+            {
+                score += Mathf.Max(0, (int)(timeScoreCap - currentTime * timeScoreScaler)); // Faster times are worth more points, with a cap 
+            }
+            else
+            {
+                score -= (coinGoal - currentCoins) * missedCoinScoreAmount; // Each coin short of the goal reduces score
+            }
+
+            return score;
+        }
+
+        public override float CalculateEndGameTimeResult()
+        {
+            return currentTime;
+        }
+
+        public override void EndGame(GameEndCondition endCondition)
+        {
+            StopTimer();
+            base.EndGame(endCondition);
         }
 
         #endregion

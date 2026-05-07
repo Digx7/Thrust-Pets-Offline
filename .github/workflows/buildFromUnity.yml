@@ -78,6 +78,7 @@ jobs:
             targetPlatform: ${{ inputs.target_Platform }}
             buildProfile: ${{ inputs.build_Profile }}
             buildName: ${{ inputs.build_name }}
+            buildsPath: build/${{ inputs.build_name }}
         - uses: actions/upload-artifact@v7
           with:
             name: Build-${{ inputs.build_name }}

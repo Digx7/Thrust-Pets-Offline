@@ -14,6 +14,7 @@ namespace Digx7.Zygote
         public int levelReached;
         public int score;
         public int coins;
+        public float time;
 
         #endregion
 
@@ -22,7 +23,7 @@ namespace Digx7.Zygote
         // Implement IEquatable<T>.Equals(T other) for type-safe, efficient comparison
         public bool Equals(GameEndResult other)
         {
-            return endCondition == other.endCondition && levelReached == other.levelReached && score == other.score && coins == other.coins;
+            return endCondition == other.endCondition && levelReached == other.levelReached && score == other.score && coins == other.coins && time == other.time;
         }
 
         // Override Object.Equals(object obj) to call the type-specific Equals
@@ -34,7 +35,7 @@ namespace Digx7.Zygote
         // Override Object.GetHashCode() so that equal objects have the same hash code
         public override int GetHashCode()
         {
-            return HashCode.Combine(endCondition, levelReached, score, coins);
+            return HashCode.Combine(endCondition, levelReached, score, coins, time);
         }
 
         // Overload the == and != operators for intuitive syntax

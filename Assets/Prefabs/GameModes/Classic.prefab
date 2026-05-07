@@ -110,14 +110,11 @@ MonoBehaviour:
   startingLevel: 1
   currentLevel: 1
   maxLevel: 100
-  startingScore: 0
-  currentScore: 0
   startingLives: 3
   currentLives: 3
   startingCoins: 0
   currentCoins: 0
   _request_IncreaseLevel_Channel: {fileID: 11400000, guid: 97cf08128bea2e94ea1c9f5bc3dec814, type: 2}
-  _request_IncreaseScore_Channel: {fileID: 11400000, guid: 08390bea02e558f4583de5e59621bcf9, type: 2}
   _request_DecreaseLives_Channel: {fileID: 11400000, guid: 97d72232e690b8a49ab47bf83d22e2ca, type: 2}
   _On_PlayerDied_Channel: {fileID: 11400000, guid: 3222f885fefffa244b0a2564704391ef, type: 2}
   _request_IncreaseCoins_Channel: {fileID: 11400000, guid: 6133a4b861361dd44a663b6a87e8a9b8, type: 2}
@@ -139,7 +136,19 @@ MonoBehaviour:
         m_CallState: 2
   OnRequestUnLoadUIWidgetDataEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 292c0aaffbdafba418055e6a3626d74c, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.UIWidgetDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRequestLoadSaveDataEvent:
     m_PersistentCalls:
       m_Calls:
@@ -245,3 +254,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  levelScoreAmount: 100
+  coinScoreAmount: 10
+  lifeScoreAmount: 50

@@ -106,18 +106,15 @@ MonoBehaviour:
       m_Calls: []
   _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
   _levelWidgetData: {fileID: 11400000, guid: 23cea4c4351d6314f8f4c8ab0859ce28, type: 2}
-  _gameOverWidgetData: {fileID: 11400000, guid: 1ba3c1e3de4d1824aa0e8a5735ddfdf7, type: 2}
+  _gameOverWidgetData: {fileID: 11400000, guid: 364cfc764e22bdf4daba349546ca9628, type: 2}
   startingLevel: 1
   currentLevel: 1
   maxLevel: 100
-  startingScore: 0
-  currentScore: 0
   startingLives: 3
   currentLives: 3
   startingCoins: 0
   currentCoins: 0
   _request_IncreaseLevel_Channel: {fileID: 11400000, guid: 97cf08128bea2e94ea1c9f5bc3dec814, type: 2}
-  _request_IncreaseScore_Channel: {fileID: 11400000, guid: 08390bea02e558f4583de5e59621bcf9, type: 2}
   _request_DecreaseLives_Channel: {fileID: 11400000, guid: 97d72232e690b8a49ab47bf83d22e2ca, type: 2}
   _On_PlayerDied_Channel: {fileID: 11400000, guid: 3222f885fefffa244b0a2564704391ef, type: 2}
   _request_IncreaseCoins_Channel: {fileID: 11400000, guid: 6133a4b861361dd44a663b6a87e8a9b8, type: 2}
@@ -139,7 +136,19 @@ MonoBehaviour:
         m_CallState: 2
   OnRequestUnLoadUIWidgetDataEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 292c0aaffbdafba418055e6a3626d74c, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.UIWidgetDataChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRequestLoadSaveDataEvent:
     m_PersistentCalls:
       m_Calls:
@@ -245,9 +254,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  startingTime: 120
-  currentTime: 120
+  startingTime: 0
+  currentTime: 0
   isTimerRunning: 0
+  coinGoal: 10
+  levelScoreAmount: 100
+  coinScoreAmount: 10
+  missedCoinScoreAmount: 5
+  lifeScoreAmount: 50
+  timeScoreCap: 10000
+  timeScoreScaler: 10
   _request_StartTimer_Channel: {fileID: 11400000, guid: cd0cd23ada30fd54987afdc70f244b48, type: 2}
   _request_StopTimer_Channel: {fileID: 11400000, guid: 27b6dcf681a7c5644832a834223ad06c, type: 2}
   OnTimerChangedEvent:
@@ -265,13 +281,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTimerFinishedEvent:
+  OnCoinGoalChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53f7ffd4da8465e4f87611d58cfd2e42, type: 2}
-        m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: aabeb96de3c1ca744890f8d828da7bfb, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.IntChannel, Assembly-CSharp
         m_MethodName: Raise
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

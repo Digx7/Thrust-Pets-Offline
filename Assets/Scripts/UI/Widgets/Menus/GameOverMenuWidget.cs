@@ -10,6 +10,7 @@ public class GameOverMenuWidget : UIMenu
     [SerializeField] TextMeshProUGUI titleTMPro;
     [SerializeField] TextMeshProUGUI levelReachedTMPro;
     [SerializeField] TextMeshProUGUI coinsCollectedTMPro;
+    [SerializeField] TextMeshProUGUI timeRemainingTMPro;
     [SerializeField] TextMeshProUGUI scoreTMPro;
 
     [Header("Incomming Channels")]
@@ -52,6 +53,19 @@ public class GameOverMenuWidget : UIMenu
         
         levelReachedTMPro.text = $"Level Reached: {gameEndResults.levelReached}";
         coinsCollectedTMPro.text = $"Coins Collected: {gameEndResults.coins}";
+
+        if(gameEndResults.time >= -1 && timeRemainingTMPro != null)
+        {
+            int minutes = Mathf.FloorToInt(gameEndResults.time / 60f);
+            int seconds = Mathf.FloorToInt(gameEndResults.time % 60f);
+
+            if(minutes < 0) minutes = 0;
+            if(seconds < 0) seconds = 0;
+
+            timeRemainingTMPro.text = $"Time: {minutes:00}:{seconds:00}";
+        }
+
+
         scoreTMPro.text = $"Score: {gameEndResults.score}";
     }
 
