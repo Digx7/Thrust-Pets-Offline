@@ -8,7 +8,7 @@ on:
 
 jobs:
   discordMessage_ProcessStarted:
-    uses: ./.github/workflows/Reusable/discordMessage.yml
+    uses: ./.github/workflows/discordMessage.yml
     with:
       message: "A new game build ${{ github.ref_name }} for ${{ github.repository }} is being processed! Stay tuned for updates on GitHub Releases and Itch.io!  You can view the workflow [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{github.run_id}})"
     secrets:
@@ -18,11 +18,11 @@ jobs:
   # Web Build
 
   build_Itch_Web_Game:
-    uses: ./.github/workflows/Reusable/buildFromUnity.yml
+    uses: ./.github/workflows/buildFromUnity.yml
     with:
       build_name: "${{ github.ref_name }}_Itch_Web_Game"
       target_Platform: WebGL
-      build_Profile: "Assets\Settings\Build Profiles\Itch_Web_Game.asset"
+      build_Profile: 'Assets/Settings/Build Profiles/Itch_Web_Game.asset'
     secrets:
       UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -31,7 +31,7 @@ jobs:
 
   deploy_Itch_Web_Game:
     needs: build_Itch_Web_Game
-    uses: ./.github/workflows/Reusable/deployToItch.yml
+    uses: ./.github/workflows/deployToItch.yml
     with:
       run_id: ${{ github.run_id }}
       build_name: "${{ github.ref_name }}_Itch_Web_Game"
@@ -44,7 +44,7 @@ jobs:
 
   discordMessage_ProcessFinished_Client:
     needs: deploy_Itch_Web_Game
-    uses: ./.github/workflows/Reusable/discordMessage.yml
+    uses: ./.github/workflows/discordMessage.yml
     with:
       message: "@Thrust Pets A new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n${{ github.ref_name }} Patch Notes\n${{ github.event.head_commit.message }}"
     secrets:
@@ -53,11 +53,11 @@ jobs:
   # Windows Build
 
   build_Itch_Win_Game:
-    uses: ./.github/workflows/Reusable/buildFromUnity.yml
+    uses: ./.github/workflows/buildFromUnity.yml
     with:
       build_name: "${{ github.ref_name }}_Itch_Win_Game"
       target_Platform: StandaloneWindows64
-      build_Profile: "Assets\Settings\Build Profiles\Itch_Win_Game.asset"
+      build_Profile: 'Assets/Settings/Build Profiles/Itch_Win_Game.asset'
     secrets:
       UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -66,7 +66,7 @@ jobs:
 
   deploy_Itch_Win_Game:
     needs: build_Itch_Win_Game
-    uses: ./.github/workflows/Reusable/deployToItch.yml
+    uses: ./.github/workflows/deployToItch.yml
     with:
       run_id: ${{ github.run_id }}
       build_name: "${{ github.ref_name }}_Itch_Win_Game"

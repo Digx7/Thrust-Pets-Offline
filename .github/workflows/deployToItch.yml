@@ -69,8 +69,8 @@ jobs:
           itchUsername: ${{secrets.ITCH_USERNAME}}
           itchGameId: ${{ secrets.ITCH_GAME_ID }}
           buildChannel: ${{ inputs.channel }}
-      - if: inputs.send_DiscordMessages == true
-          uses: appleboy/discord-action@v1.2.0
-          with:
-            webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-            message: "Deployed build ${{ inputs.build_name }} to Itch"
+      - uses: appleboy/discord-action@v1.2.0
+        if: inputs.send_DiscordMessages == true
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          message: "Deployed build ${{ inputs.build_name }} to Itch"

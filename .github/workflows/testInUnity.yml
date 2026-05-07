@@ -29,7 +29,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: CacheLibrary/
-            key: CacheLibrary-${{ matrix.testMode }}
+          key: CacheLibrary-${{ matrix.testMode }}
           restore-keys: |
             Library-
       - uses: game-ci/unity-test-runner@v4
