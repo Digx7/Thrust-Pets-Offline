@@ -115,7 +115,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         CurrentHealth = _startingHealth;
         
         playerSkin = Instantiate(PlayerDataManager.Instance.PlayerSkin.RuntimePrefab, playerSkinHolder);
-        animator = playerSkin.GetComponent<Animator>();
+        animator = playerSkin.GetComponentInChildren<Animator>();
 
         animator.SetBool("GamePlay", true);
 
