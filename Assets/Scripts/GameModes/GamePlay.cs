@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace Digx7.Zygote
 {
@@ -59,10 +60,7 @@ namespace Digx7.Zygote
 
             OnRequestLoadSaveDataEvent?.Invoke();
 
-            if(_levelWidgetData != null)
-            {
-                OnRequestLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
-            }
+            StartCoroutine(LoadRunUI());
         }
 
         public override void Teardown()
@@ -192,6 +190,17 @@ namespace Digx7.Zygote
             {
                 OnRequestLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
             }
+        }
+
+        public virtual IEnumerator LoadRunUI()
+        {
+            yield return new WaitForSeconds(0.1f);
+            
+            if(_levelWidgetData != null)
+            {
+                OnRequestLoadUIWidgetDataEvent?.Invoke(_levelWidgetData);
+            }
+            yield return null;
         }
 
         #endregion

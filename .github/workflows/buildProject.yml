@@ -15,7 +15,7 @@ jobs:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
   
   
-  # Web Build
+  # Itch Web Build
 
   build_Itch_Web_Game:
     uses: ./.github/workflows/buildFromUnity.yml
@@ -23,6 +23,7 @@ jobs:
       build_name: "${{ github.ref_name }}_Itch_Web_Game"
       target_Platform: WebGL
       build_Profile: 'Assets/Settings/Build Profiles/Itch_Web_Game.asset'
+      send_DiscordMessages: true
     secrets:
       UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -36,6 +37,7 @@ jobs:
       run_id: ${{ github.run_id }}
       build_name: "${{ github.ref_name }}_Itch_Web_Game"
       channel: WebGL
+      send_DiscordMessages: true
     secrets:
       BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
       ITCH_USERNAME: ${{ secrets.ITCH_USERNAME }}
@@ -46,11 +48,11 @@ jobs:
     needs: deploy_Itch_Web_Game
     uses: ./.github/workflows/discordMessage.yml
     with:
-      message: "@Thrust Pets A new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n${{ github.ref_name }} Patch Notes\n${{ github.event.head_commit.message }}"
+      message: "@Thrust Pets \nA new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n** # ${{ github.ref_name }}Patch Notes**\n${{ github.event.head_commit.message }}"
     secrets:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CLIENT }}
 
-  # Windows Build
+  # Itch Windows Build
 
   build_Itch_Win_Game:
     uses: ./.github/workflows/buildFromUnity.yml
@@ -58,6 +60,7 @@ jobs:
       build_name: "${{ github.ref_name }}_Itch_Win_Game"
       target_Platform: StandaloneWindows64
       build_Profile: 'Assets/Settings/Build Profiles/Itch_Win_Game.asset'
+      send_DiscordMessages: true
     secrets:
       UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -71,11 +74,58 @@ jobs:
       run_id: ${{ github.run_id }}
       build_name: "${{ github.ref_name }}_Itch_Win_Game"
       channel: StandaloneWindows64
+      send_DiscordMessages: true
     secrets:
       BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
       ITCH_USERNAME: ${{ secrets.ITCH_USERNAME }}
       ITCH_GAME_ID: ${{ secrets.ITCH_GAME_ID }}
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
+  # Steam Windows Build
+
+  # build_Steam_Win_Game:
+  #   uses: ./.github/workflows/buildFromUnity.yml
+  #   with:
+  #     build_name: "${{ github.ref_name }}_Steam_Win_Game"
+  #     target_Platform: StandaloneWindows64
+  #     build_Profile: 'Assets/Settings/Build Profiles/Steam_Win_Game.asset'
+  #     send_DiscordMessages: true
+  #   secrets:
+  #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+  
+  # deploy_Steam_Win_Game:
+  #     needs: build_Steam_Win_Game
+  #     uses: ???
+  #     with:
+  #       ???
+  #     secrets:
+  #       ???
+
+  # GooglePlay Android Build
+
+  # build_Google_Android_Game:
+  #   uses: ./.github/workflows/buildFromUnity.yml
+  #   with:
+  #     build_name: "${{ github.ref_name }}_Google_Android_Game"
+  #     target_Platform: Android
+  #     build_Profile: 'Assets/Settings/Build Profiles/Google_Android_Game.asset'
+  #     send_DiscordMessages: true
+  #   secrets:
+  #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+  
+  # deploy_Google_Android_Game:
+  #     needs: build_Google_Android_Game
+  #     uses: ???
+  #     with:
+  #       ???
+  #     secrets:
+  #       ???
 
   
   
