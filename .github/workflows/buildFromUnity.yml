@@ -64,9 +64,9 @@ jobs:
             lfs: true
         - uses: actions/cache@v4.2.0
           with:
-            path: CacheLibrary/
-            key: CacheLibrary-${{ inputs.build_name }}
-            restore-keys: CacheLibrary-
+            path: Library/
+            key: Library-${{ inputs.target_Platform }}
+            restore-keys: Library-
         - if: inputs.target_Platform == 'Android'
           uses: jlumbroso/free-disk-space@v1.3.1
         - uses: game-ci/unity-builder@v4
