@@ -11,6 +11,7 @@ namespace Digx7.Zygote
         [Header("Variables")]
         [SerializeField] protected UIWidgetData _pauseMenuWidgetData;
         [SerializeField] protected UIWidgetData _levelWidgetData;
+        [SerializeField] protected float _levelLoadDelay = 0.1f;
         [SerializeField] protected UIWidgetData _gameOverWidgetData;
         [SerializeField] protected int startingLevel = 1;
         [SerializeField] protected int currentLevel = 1;
@@ -194,7 +195,7 @@ namespace Digx7.Zygote
 
         public virtual IEnumerator LoadRunUI()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(_levelLoadDelay);
             
             if(_levelWidgetData != null)
             {

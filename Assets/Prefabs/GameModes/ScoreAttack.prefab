@@ -106,6 +106,7 @@ MonoBehaviour:
       m_Calls: []
   _pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
   _levelWidgetData: {fileID: 11400000, guid: 23cea4c4351d6314f8f4c8ab0859ce28, type: 2}
+  _levelLoadDelay: 10
   _gameOverWidgetData: {fileID: 11400000, guid: 364cfc764e22bdf4daba349546ca9628, type: 2}
   startingLevel: 1
   currentLevel: 1
