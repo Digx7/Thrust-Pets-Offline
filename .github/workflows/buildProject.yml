@@ -17,40 +17,40 @@ jobs:
   
   # Itch Web Build
 
-  build_Itch_Web_Game:
-    uses: ./.github/workflows/buildFromUnity.yml
-    with:
-      build_name: "${{ github.ref_name }}_Itch_Web_Game"
-      target_Platform: WebGL
-      build_Profile: 'Assets/Settings/Build Profiles/Itch_Web_Game.asset'
-      send_DiscordMessages: true
-    secrets:
-      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+  # build_Itch_Web_Game:
+  #   uses: ./.github/workflows/buildFromUnity.yml
+  #   with:
+  #     build_name: "${{ github.ref_name }}_Itch_Web_Game"
+  #     target_Platform: WebGL
+  #     build_Profile: 'Assets/Settings/Build Profiles/Itch_Web_Game.asset'
+  #     send_DiscordMessages: true
+  #   secrets:
+  #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  #     UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  #     UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
-  deploy_Itch_Web_Game:
-    needs: build_Itch_Web_Game
-    uses: ./.github/workflows/deployToItch.yml
-    with:
-      run_id: ${{ github.run_id }}
-      build_name: "${{ github.ref_name }}_Itch_Web_Game"
-      channel: WebGL
-      send_DiscordMessages: true
-    secrets:
-      BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-      ITCH_USERNAME: ${{ secrets.ITCH_USERNAME }}
-      ITCH_GAME_ID: ${{ secrets.ITCH_GAME_ID }}
-      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+  # deploy_Itch_Web_Game:
+  #   needs: build_Itch_Web_Game
+  #   uses: ./.github/workflows/deployToItch.yml
+  #   with:
+  #     run_id: ${{ github.run_id }}
+  #     build_name: "${{ github.ref_name }}_Itch_Web_Game"
+  #     channel: WebGL
+  #     send_DiscordMessages: true
+  #   secrets:
+  #     BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+  #     ITCH_USERNAME: ${{ secrets.ITCH_USERNAME }}
+  #     ITCH_GAME_ID: ${{ secrets.ITCH_GAME_ID }}
+  #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
-  discordMessage_ProcessFinished_Client:
-    needs: deploy_Itch_Web_Game
-    uses: ./.github/workflows/discordMessage.yml
-    with:
-      message: "@Thrust Pets \nA new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n** # ${{ github.ref_name }}Patch Notes**\n${{ github.event.head_commit.message }}"
-    secrets:
-      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CLIENT }}
+  # discordMessage_ProcessFinished_Client:
+  #   needs: deploy_Itch_Web_Game
+  #   uses: ./.github/workflows/discordMessage.yml
+  #   with:
+  #     message: "@Thrust Pets \nA new game build ${{ github.ref_name }} has been deployed to [Itch.io](${{ vars.ITCH_URL }})!\nCheck it out!\nReminder the password is \"Aaron\"\n\n** # ${{ github.ref_name }}Patch Notes**\n${{ github.event.head_commit.message }}"
+  #   secrets:
+  #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CLIENT }}
 
   # Itch Windows Build
 
