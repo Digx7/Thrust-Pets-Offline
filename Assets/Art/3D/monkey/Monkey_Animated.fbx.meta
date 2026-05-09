@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e48a5dd14023984c995dff9a1047505
+guid: b6fe8e602ae4f5b419201a5b5b524b19
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,9 +31,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Bear_Idle
-      takeName: Armature|Bear_Idle
-      internalID: 6073161621452528767
+      name: Armature|Monkey_Idle
+      takeName: Armature|Monkey_Idle
+      internalID: -745541869787452176
       firstFrame: 0
       lastFrame: 249
       wrapMode: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Bear_Run
-      takeName: Armature|Bear_Run
-      internalID: 320150703321838344
+      name: Armature|Monkey_Run
+      takeName: Armature|Monkey_Run
+      internalID: 7272715428863113673
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,9 +89,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Bear_Die
-      takeName: Armature|Bear_Die
-      internalID: -6289599178948523789
+      name: Armature|Monkey_Die
+      takeName: Armature|Monkey_Die
+      internalID: 6156740501701986715
       firstFrame: 0
       lastFrame: 249
       wrapMode: 0
@@ -118,9 +118,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Bear_Hurt
-      takeName: Armature|Bear_Hurt
-      internalID: 8966288361295326870
+      name: Armature|Monkey_Jump
+      takeName: Armature|Monkey_Jump
+      internalID: -1334495491870807090
       firstFrame: 0
       lastFrame: 249
       wrapMode: 0
@@ -147,9 +147,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Bear_Jump
-      takeName: Armature|Bear_Jump
-      internalID: 8313786001590817364
+      name: Armature|Monkey_Hurt
+      takeName: Armature|Monkey_Hurt
+      internalID: 6943945897567960112
       firstFrame: 0
       lastFrame: 249
       wrapMode: 0
