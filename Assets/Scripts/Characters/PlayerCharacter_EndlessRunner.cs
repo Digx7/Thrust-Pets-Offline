@@ -82,6 +82,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
             if(value is bool)
             {
                 _isDead = value;
+                animator?.SetBool("Dead", _isDead);
             }
         }
     }
@@ -101,6 +102,23 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     [Header("Outgoing Events")]
     public IntEvent OnCurrentHealthUpdate;
     public UnityEvent OnDie;
+
+    bool _isGrounded;
+    public bool IsGrounded
+    {
+        get
+        {
+            return _isGrounded;
+        }
+        set
+        {
+            if(value is bool && _isGrounded != value)
+            {
+                _isGrounded = value;
+                animator?.SetBool("Grounded", _isGrounded);
+            }
+        }
+    }
 
     public bool IsInvincible = false;
 
@@ -157,6 +175,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         // Debug.Log($"PlayerCharacter_EndlessRunner: TakeDamage() IsInvincible = {IsInvincible}");
 
         CurrentHealth--;
+        animator.SetTrigger("Hurt");
         StartCoroutine(StopAndStartPlayer(1f));
     }
 
@@ -183,7 +202,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     IEnumerator StopAndStartPlayer(float timeDelay) 
     {
         laneMovement.enabled = false;
-        animator.SetBool("Stuck", true);
+        // animator.SetBool("Stuck", true);
 
         // playerMeshRenderer.material = invisibleMaterials[1];
 
@@ -216,7 +235,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         if (!IsDead) 
         {
             laneMovement.enabled = true;
-            animator.SetBool("Stuck", false);
+            // animator.SetBool("Stuck", false);
         }
     }
 

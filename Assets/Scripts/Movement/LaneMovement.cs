@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using Digx7.Zygote;
 
 public class LaneMovement : MonoBehaviour 
 {
@@ -15,11 +17,28 @@ public class LaneMovement : MonoBehaviour
     public float groundCheckDistance = 0.2f;
     public LayerMask groundMask;
 
+    public BooleanEvent OnGroundedEvent;
+
     public int currentLane = 1; // 0: left, 1: middle, 2: right
     Vector3 targetPosition;
     bool isChangingLane = false;
     Vector3 velocity;
-    bool isGrounded;
+    bool _isGrounded;
+    public bool IsGrounded
+    {
+        get
+        {
+            return _isGrounded;
+        }
+        set
+        {
+            if(value is bool)
+            {
+                _isGrounded = value;
+                OnGroundedEvent?.Invoke(_isGrounded);
+            }
+        }
+    }
     float lastJumpTime = -1f;
 
     void Start()
@@ -31,9 +50,9 @@ public class LaneMovement : MonoBehaviour
     {
         // if (hasAuthority == false) return;
 
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+        IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (IsGrounded && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
@@ -133,9 +152,9 @@ public class LaneMovement : MonoBehaviour
 
     public void TryJump()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+        IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if(isGrounded && Time.time > lastJumpTime + jumpCooldown)
+        if(IsGrounded && Time.time > lastJumpTime + jumpCooldown)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
             lastJumpTime = Time.time; // Record jump time
