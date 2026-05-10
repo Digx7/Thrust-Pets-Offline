@@ -19,6 +19,7 @@ public class LevelGenerator : MonoBehaviour
     public float blockLength = 10f;
     public float obstacleSpawnChance = 0.3f;
     public float reuseDistance = 30f;
+    public float laneDistance = 3f;
 
     public Queue<GameObject> activeBlocks = new Queue<GameObject>();
     public Queue<GameObject> activeObstacles = new Queue<GameObject>();
@@ -120,9 +121,9 @@ public class LevelGenerator : MonoBehaviour
             int rTwo = sharedRandom.Next(0, 3);
 
             Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[r].transform.position.y, obstacleNextZPos);
-            if (rTwo == 0) { obstaclePosition.x = 3; }
+            if (rTwo == 0) { obstaclePosition.x = laneDistance; }
             else if (rTwo == 1) { obstaclePosition.x = 0; }
-            else if (rTwo == 2) { obstaclePosition.x = -3; }
+            else if (rTwo == 2) { obstaclePosition.x = -1 * laneDistance; }
 
             Vector3 coinPosition = new Vector3(obstaclePosition.x, coinPrefab.transform.position.y, coinNextZPos);
             
@@ -184,9 +185,9 @@ public class LevelGenerator : MonoBehaviour
         int rTwo = sharedRandom.Next(0, 3);
 
         Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, obstacleNextZPos);
-        if (rTwo == 0) { obstaclePosition.x = 3; }
+        if (rTwo == 0) { obstaclePosition.x = laneDistance; }
         else if (rTwo == 1) { obstaclePosition.x = 0; }
-        else if (rTwo == 2) { obstaclePosition.x = -3; }
+        else if (rTwo == 2) { obstaclePosition.x = -1 * laneDistance; }
 
         oldObstacle.transform.position = obstaclePosition;
         obstacleNextZPos += 15;

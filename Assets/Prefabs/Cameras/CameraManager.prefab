@@ -47,7 +47,8 @@ MonoBehaviour:
   _ID: 1
   _cameraPrefab: {fileID: 5535170761093406067, guid: c194064714b80314fa05a9211ade9d60, type: 3}
   _camera: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0.8, z: -1.5}
+  _cameraOffset: {x: 0.022, y: 1.05, z: -1.4780006}
+  _cameraRotation: {x: 20.75874, y: 0, z: 0}
   _connectedPlayerController: {fileID: 0}
   _playerCharacter: {fileID: 0}
   _runSetupOnEnable: 1

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LaneMovement
   controller: {fileID: 6015637040896787873}
   forwardSpeed: 11
-  laneDistance: 3
+  laneDistance: 1.5
   laneChangeSpeed: 10
   minSpeed: 11
   maxSpeed: 20

@@ -12,6 +12,7 @@ namespace Digx7.Zygote
         [SerializeField] protected GameObject _cameraPrefab;
         [SerializeField] Camera _camera;
         [SerializeField] Vector3 _cameraOffset;
+        [SerializeField] Vector3 _cameraRotation;
         public Camera Camera => _camera;
         [SerializeField] PlayerController _connectedPlayerController;
         [SerializeField] PlayerCharacter _playerCharacter;
@@ -46,7 +47,7 @@ namespace Digx7.Zygote
             CreateCamera();
             ConnectToPlayerController(controllerToConnectTo);
             ConnectToPlayerCharacter(newPlayerCharacter);
-            PositionCamera(_playerCharacter, _cameraOffset);
+            PositionCamera(_playerCharacter, _cameraOffset, _cameraRotation);
             OnCameraManagerFinishedSetupEvent?.Invoke(_ID);
         }
 
@@ -89,7 +90,7 @@ namespace Digx7.Zygote
             }
         }
 
-        public void PositionCamera(PlayerCharacter playerCharacter, Vector3 offset)
+        public void PositionCamera(PlayerCharacter playerCharacter, Vector3 offset, Vector3 rotation)
         {
             if(!IsPlayerCharacterValid(playerCharacter)) return;
             if(_camera == null) return;
@@ -98,6 +99,7 @@ namespace Digx7.Zygote
 
             _camera.transform.SetParent(playerCharacter.transform);
             _camera.transform.localPosition = offset;
+            _camera.transform.localEulerAngles = rotation;
         }
 
         public bool ConnectToPlayerController(PlayerController newPlayerController)

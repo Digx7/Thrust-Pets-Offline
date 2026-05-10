@@ -80,6 +80,7 @@ MonoBehaviour:
   blockLength: 80
   obstacleSpawnChance: 1
   reuseDistance: 30
+  laneDistance: 1.5
   nextSpawnPoint: {x: 0, y: 0, z: 0}
   obstacleNextZPos: 0
   coinNextZPos: 0
