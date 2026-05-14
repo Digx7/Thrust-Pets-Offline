@@ -125,18 +125,14 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     {
         get
         {
-            return _isSliding
-    ;
+            return _isSliding;
         }
         set
         {
-            if(value is bool && _isSliding
-     != value)
+            if(value is bool && _isSliding!= value)
             {
-                _isSliding
-         = value;
-                animator?.SetBool("Sliding", _isSliding
-        );
+                _isSliding = value;
+                animator?.SetBool("Sliding", _isSliding);
             }
         }
     }
