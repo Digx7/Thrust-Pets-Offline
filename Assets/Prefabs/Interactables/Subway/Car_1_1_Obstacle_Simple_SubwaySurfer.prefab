@@ -75,8 +75,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1220109061593607075, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4413475603730248206}
   m_SourcePrefab: {fileID: 100100000, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
+--- !u!1 &5077366287317883565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1220109061593607075, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
+  m_PrefabInstance: {fileID: 6239982503229518094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4413475603730248206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077366287317883565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0
 --- !u!4 &5565812591530344471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1992106259917435161, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
@@ -152,30 +175,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5565812591530344471}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3253960853557624567}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10adea24633814a478df47da9521b960, type: 3}
 --- !u!4 &1677493787597784050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
   m_PrefabInstance: {fileID: 7055012666685480257}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1972275924301595028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
-  m_PrefabInstance: {fileID: 7055012666685480257}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3253960853557624567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972275924301595028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper

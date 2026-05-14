@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Digx7.Zygote;
+using System.Collections;
 
 public class LaneMovement : MonoBehaviour 
 {
@@ -14,32 +15,55 @@ public class LaneMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 2f;   
     public float jumpCooldown = 0.3f; 
+    public float slideTime = 0.5f;
+    public float slideCooldown = 0.5f;
     public float groundCheckDistance = 0.2f;
     public LayerMask groundMask;
 
     public BooleanEvent OnGroundedEvent;
+    public BooleanEvent OnSlideEvent;
 
     public int currentLane = 1; // 0: left, 1: middle, 2: right
     Vector3 targetPosition;
     bool isChangingLane = false;
     Vector3 velocity;
-    bool _isGrounded;
-    public bool IsGrounded
+    public bool IsGrounded()
+    {
+        // get
+        // {
+        //     return _isGrounded;
+        // }
+        // set
+        // {
+        //     if(value is bool)
+        //     {
+        //         _isGrounded = value;
+        //         OnGroundedEvent?.Invoke(_isGrounded);
+        //     }
+        // }
+
+        bool output = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+        OnGroundedEvent?.Invoke(output);
+        return output;
+    }
+    float lastJumpTime = -1f;
+    float lastSlideTime = -1f;
+    bool _isSliding = false;
+    public bool IsSliding
     {
         get
         {
-            return _isGrounded;
+            return _isSliding;
         }
-        set
+        private set
         {
             if(value is bool)
             {
-                _isGrounded = value;
-                OnGroundedEvent?.Invoke(_isGrounded);
+                _isSliding = value;
+                OnSlideEvent?.Invoke(_isSliding);
             }
         }
     }
-    float lastJumpTime = -1f;
 
     void Start()
     {
@@ -48,58 +72,14 @@ public class LaneMovement : MonoBehaviour
 
     void Update()
     {
-        // if (hasAuthority == false) return;
 
-        IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if (IsGrounded && velocity.y < 0)
+        if (IsGrounded() && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
 
         Vector3 moveVector = Vector3.forward * forwardSpeed * Time.deltaTime;
-
-        // if (!isChangingLane)
-        // {
-        //     if (Input.GetKeyDown(KeyCode.A))
-        //     {
-        //         if (currentLane > 0)
-        //         {
-        //             currentLane--;
-        //             isChangingLane = true;
-        //             targetPosition.x = (currentLane - 1) * laneDistance;
-        //         }
-        //     }
-        //     else if (Input.GetKeyDown(KeyCode.D)) 
-        //     {
-        //         if (currentLane < 2)
-        //         {
-        //             currentLane++;
-        //             isChangingLane = true;
-        //             targetPosition.x = (currentLane - 1) * laneDistance;
-        //         }
-        //     }
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     forwardSpeed = Mathf.Max(minSpeed, forwardSpeed - speedChangeAmount);
-        // }
-        // else if (Input.GetKeyDown(KeyCode.E))
-        // {
-        //     forwardSpeed = Mathf.Min(maxSpeed, forwardSpeed + speedChangeAmount);
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Space) && isGrounded && Time.time > lastJumpTime + jumpCooldown)
-        // {
-        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
-        //     lastJumpTime = Time.time; // Record jump time
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     TryJump();
-        // }
 
         if (isChangingLane)
         {
@@ -152,13 +132,35 @@ public class LaneMovement : MonoBehaviour
 
     public void TryJump()
     {
-        IsGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if(IsGrounded && Time.time > lastJumpTime + jumpCooldown)
+        if(IsGrounded() && !IsSliding && Time.time > lastJumpTime + jumpCooldown)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
             lastJumpTime = Time.time; // Record jump time
         }
+    }
+
+    public void TrySlide()
+    {
+        if(IsGrounded())
+        {
+            // Slide
+            if(Time.time > lastSlideTime + slideCooldown)
+            {
+                StartCoroutine(Slide());
+            }
+        }
+        else
+        {
+            // TODO Fast fall
+        }
+    }
+
+    protected IEnumerator Slide()
+    {
+        IsSliding = true;
+        yield return new WaitForSeconds(slideTime);
+        IsSliding = false;
     }
 
     public void IncreaseSpeed() 

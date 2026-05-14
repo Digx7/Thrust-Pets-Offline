@@ -1,14 +1,16 @@
 using UnityEngine;
 using Digx7.Zygote;
 using Digx7.ThrustPets;
+using System.Collections.Generic;
 
 public class PlayerPowerUpComponent : MonoBehaviour 
 {
     [Header("Reffernces")]
     [SerializeField] PowerUpData _currentPowerUp;
+    [SerializeField] List<PowerUpData> _currentPowerUps;
 
     [Header("Incoming Channels")]
-    [SerializeField] Channel _request_TryToUsePowerUp_channel;
+    [SerializeField] IntChannel _request_TryToUsePowerUp_channel;
 
     public void Start()
     {
@@ -25,11 +27,28 @@ public class PlayerPowerUpComponent : MonoBehaviour
         _request_TryToUsePowerUp_channel.channelEvent.RemoveListener(TryUsePowerUp);
     }
 
-    public void TryUsePowerUp()
+    public void TryUsePowerUp(int powerUpIndex = -1)
     {
-        if(_currentPowerUp.TryUse(out GameObject powerupRuntimePrefab))
+        if(powerUpIndex == -1)
+        {    
+            if(_currentPowerUp.TryUse(out GameObject powerupRuntimePrefab))
+            {
+                GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab, this.transform);
+            }
+        }
+        else
         {
-            GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab, this.transform);
+            if(powerUpIndex < _currentPowerUps.Count)
+            {
+                if(_currentPowerUps[powerUpIndex].TryUse(out GameObject powerupRuntimePrefab))
+                {
+                    GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab, this.transform);
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"PlayerPowerUpComponent just tried to use the powerup at index {powerUpIndex} but this is out of bounds\nThe component currently only has {_currentPowerUps.Count} powerups");
+            }
         }
     }
 }

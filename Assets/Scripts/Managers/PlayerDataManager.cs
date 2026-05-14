@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Collections.Generic;
 using Digx7.ThrustPets;
 using Digx7.Zygote;
 
@@ -27,18 +28,28 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     }
 
     [SerializeField] PowerUpData _activePowerUp;
+    [SerializeField] List<PowerUpData> _activePowerUps;
     public PowerUpData ActivePowerUp
     {
         get
         {
-            return _activePowerUp;
+            if(_activePowerUps.Count > 1)
+            {
+                return _activePowerUps[0];
+            }
+            else
+            {
+                return _activePowerUp;
+            }
+            
         }
         private set
         {
             if (value is PowerUpData)
             {
                 _activePowerUp = value;
-                OnUpdateActivePowerUp.Invoke(_activePowerUp);
+                _activePowerUps[0] = value;
+                OnUpdateActivePowerUp.Invoke(_activePowerUps[0]);
             }
         }
     }

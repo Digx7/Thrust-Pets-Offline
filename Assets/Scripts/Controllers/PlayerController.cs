@@ -86,7 +86,7 @@ namespace Digx7.Zygote
         {
             
             // The direction the player is inputing on the keyboard or gamepad
-            Vector2 direction = callbackContext.ReadValue<Vector2>();
+            float direction = callbackContext.ReadValue<float>();
             
             // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
             switch (callbackContext.phase)
@@ -99,11 +99,11 @@ namespace Digx7.Zygote
                     break;
                 case InputActionPhase.Started:
                     // Add Code here
-                    possessedPlayer.UpdateDesiredMoveDirection(direction);
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(direction,0));
                     break;
                 case InputActionPhase.Performed:
                     // Add Code here
-                    possessedPlayer.UpdateDesiredMoveDirection(direction);
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(direction,0));
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here
@@ -115,7 +115,40 @@ namespace Digx7.Zygote
             }
         }
 
-        public void OnPowerUp(InputAction.CallbackContext callbackContext)
+        public void OnJumpAndSlide(InputAction.CallbackContext callbackContext)
+        {
+            
+            // The direction the player is inputing on the keyboard or gamepad
+            float direction = callbackContext.ReadValue<float>();
+            
+            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
+            switch (callbackContext.phase)
+            {
+                case InputActionPhase.Disabled:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Waiting:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Started:
+                    // Add Code here
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(0,direction));
+                    break;
+                case InputActionPhase.Performed:
+                    // Add Code here
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(0,direction));
+                    break;
+                case InputActionPhase.Canceled:
+                    // Add Code here
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(0,0));
+                    break;
+                default:
+                    // Add Code here
+                    break;
+            }
+        }
+
+        public void OnPowerUp1(InputAction.CallbackContext callbackContext)
         {
             
             // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
@@ -132,7 +165,7 @@ namespace Digx7.Zygote
                     break;
                 case InputActionPhase.Performed:
                     // Add Code here
-                    possessedPlayer.TryToUsePowerUp();
+                    possessedPlayer.TryToUsePowerUp(1);
                     break;
                 case InputActionPhase.Canceled:
                     // Add Code here
@@ -142,6 +175,64 @@ namespace Digx7.Zygote
                     break;
             }
         }
+
+        public void OnPowerUp2(InputAction.CallbackContext callbackContext)
+        {
+            
+            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
+            switch (callbackContext.phase)
+            {
+                case InputActionPhase.Disabled:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Waiting:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Started:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Performed:
+                    // Add Code here
+                    possessedPlayer.TryToUsePowerUp(2);
+                    break;
+                case InputActionPhase.Canceled:
+                    // Add Code here
+                    break;
+                default:
+                    // Add Code here
+                    break;
+            }
+        }
+
+        public void OnPowerUp3(InputAction.CallbackContext callbackContext)
+        {
+            
+            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
+            switch (callbackContext.phase)
+            {
+                case InputActionPhase.Disabled:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Waiting:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Started:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Performed:
+                    // Add Code here
+                    possessedPlayer.TryToUsePowerUp(3);
+                    break;
+                case InputActionPhase.Canceled:
+                    // Add Code here
+                    break;
+                default:
+                    // Add Code here
+                    break;
+            }
+        }
+
+
 
         public void OnPause(InputAction.CallbackContext callbackContext)
         {

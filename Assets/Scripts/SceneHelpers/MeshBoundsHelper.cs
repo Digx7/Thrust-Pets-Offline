@@ -32,7 +32,7 @@ public class MeshBoundsHelper : MonoBehaviour
 
     void UpdateBounds()
     {
-        Bounds bounds = mesh.bounds;
+        Bounds bounds = _mesh.bounds;
         bounds.size *= boundsSizeMultiplier;
 
 

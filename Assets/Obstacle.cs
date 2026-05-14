@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public ObstacleType type;
+    public bool canSlideUnder = false;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,19 @@ public class Obstacle : MonoBehaviour
 
             if (player != null)
             {
-                player.TakeDamage();
+                if(canSlideUnder)
+                {
+                    LaneMovement laneMovement = player.gameObject.GetComponent<LaneMovement>();
+                    if(!laneMovement.IsSliding)
+                    {
+                       player.TakeDamage(); 
+                    }    
+                }
+                else
+                {
+                    player.TakeDamage();
+                }
+                
             }
         }
     }

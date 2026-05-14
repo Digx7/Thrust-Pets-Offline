@@ -259,6 +259,8 @@ MonoBehaviour:
   gravity: -19.62
   jumpHeight: 1.5
   jumpCooldown: 0.3
+  slideTime: 0.5
+  slideCooldown: 0.5
   groundCheckDistance: 0.2
   groundMask:
     serializedVersion: 2
@@ -278,6 +280,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnSlideEvent:
+    m_PersistentCalls:
+      m_Calls: []
   currentLane: 1
 --- !u!114 &2197803437422542608
 MonoBehaviour:
@@ -292,7 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPowerUpComponent
   _currentPowerUp: {fileID: 0}
-  _request_TryToUsePowerUp_channel: {fileID: 11400000, guid: 05ebef08e6ad92f43badac2f5cdabd4e, type: 2}
+  _currentPowerUps: []
+  _request_TryToUsePowerUp_channel: {fileID: 11400000, guid: df756f41c39393046bb3355015c8f076, type: 2}
 --- !u!1 &6356730977410194264
 GameObject:
   m_ObjectHideFlags: 0

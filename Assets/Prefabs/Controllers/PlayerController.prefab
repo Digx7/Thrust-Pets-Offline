@@ -178,7 +178,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6651588715944437}
         m_TargetAssemblyTypeName: Digx7.Zygote.PlayerController, Assembly-CSharp
-        m_MethodName: OnPowerUp
+        m_MethodName: OnPowerUp1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -366,8 +366,56 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bdecdcf6-9590-4701-8aa3-b2b7bf82bf10
     m_ActionName: 'Player/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6651588715944437}
+        m_TargetAssemblyTypeName: Digx7.Zygote.PlayerController, Assembly-CSharp
+        m_MethodName: OnJumpAndSlide
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2faa8b4b-403e-4ff4-b49a-f7f46c6410af
+    m_ActionName: 'Player/JumpAndSlide[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow,/Keyboard/shift,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6651588715944437}
+        m_TargetAssemblyTypeName: Digx7.Zygote.PlayerController, Assembly-CSharp
+        m_MethodName: OnPowerUp2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0860cab8-5bdb-4f8a-ad75-ad8fbb8b21a9
+    m_ActionName: 'Player/PowerUp_2[/Keyboard/2,/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6651588715944437}
+        m_TargetAssemblyTypeName: Digx7.Zygote.PlayerController, Assembly-CSharp
+        m_MethodName: OnPowerUp3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f29b443b-a403-4571-8599-9aa9e6a64193
+    m_ActionName: 'Player/PowerUp_3[/Keyboard/3,/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: df70fa95-8a34-4494-b137-73ab6b9c7d37
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

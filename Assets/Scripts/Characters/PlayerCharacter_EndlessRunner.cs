@@ -120,6 +120,27 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         }
     }
 
+    bool _isSliding;
+    public bool IsSliding
+    {
+        get
+        {
+            return _isSliding
+    ;
+        }
+        set
+        {
+            if(value is bool && _isSliding
+     != value)
+            {
+                _isSliding
+         = value;
+                animator?.SetBool("Sliding", _isSliding
+        );
+            }
+        }
+    }
+
     public bool IsInvincible = false;
 
     #endregion
@@ -166,6 +187,15 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         base.UpdateDesiredMoveDirection(newDesiredDirection);
 
         laneMovement.TryChangeLanes(desiredMoveDirection.x);
+
+        if(desiredMoveDirection.y > 0.1)
+        {
+            laneMovement.TryJump();
+        }
+        else if(desiredMoveDirection.y < -0.1)
+        {
+            laneMovement.TrySlide();
+        }
     }
 
     public void TakeDamage()
@@ -194,9 +224,9 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
     }
 
-    public void TryToUsePowerUp()
+    public void TryToUsePowerUp(int powerUpIndex = -1)
     {
-        playerPowerUpComponent.TryUsePowerUp();
+        playerPowerUpComponent.TryUsePowerUp(powerUpIndex);
     }
 
     IEnumerator StopAndStartPlayer(float timeDelay) 
