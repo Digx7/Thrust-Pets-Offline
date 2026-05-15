@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Digx7.Zygote
 {
@@ -18,6 +21,12 @@ namespace Digx7.Zygote
             var to = toAbs + toMin;
         
             return to;
+        }
+
+        public static IEnumerable<T> Randomize<T>(this IEnumerable<T> source)
+        {
+            System.Random rnd = new System.Random();
+            return source.OrderBy(_ => rnd.Next());
         }
     }
 }

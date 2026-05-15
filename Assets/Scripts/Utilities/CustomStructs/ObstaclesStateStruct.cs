@@ -18,6 +18,12 @@ namespace Digx7.Zygote
         public int maxObstacleOffset;
 
         public int numberOfObstacles;
+
+        [Range(0f, 1f)]
+        public float chanceOfDoubleObstacles;
+
+        [Range(0f, 1f)]
+        public float chanceOfTrippleObstacles;
         public int numberOfCoins;
         #endregion
 
@@ -34,6 +40,32 @@ namespace Digx7.Zygote
                 return false;
             }
             return true;
+        }
+
+        public int GetNumberOfObstaclesToSpawnAtOneTime()
+        {
+            int output = 1;
+
+            if (ShouldSpawnTrippleObstacles())
+            {
+                output = 3;
+            }
+            else if (ShouldSpawnDoubleObstacles())
+            {
+                output = 2;
+            }
+
+            return output;
+        }
+
+        public bool ShouldSpawnDoubleObstacles()
+        {
+            return UnityEngine.Random.Range(0f, 1f) <= chanceOfDoubleObstacles;
+        }
+
+        public bool ShouldSpawnTrippleObstacles()
+        {
+            return UnityEngine.Random.Range(0f, 1f) <= chanceOfTrippleObstacles;
         }
 
         public int GetRandomObstacleOffset()

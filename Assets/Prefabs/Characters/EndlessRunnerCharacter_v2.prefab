@@ -258,7 +258,7 @@ MonoBehaviour:
   speedChangeAmount: 2
   gravity: -19.62
   jumpHeight: 1.5
-  jumpCooldown: 0.3
+  jumpCooldown: 0.1
   slideTime: 0.5
   slideCooldown: 0.5
   groundCheckDistance: 0.2

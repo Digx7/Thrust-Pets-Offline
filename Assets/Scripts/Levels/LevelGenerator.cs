@@ -1,6 +1,8 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Digx7.Zygote;
 
 public class LevelGenerator : MonoBehaviour 
@@ -12,6 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject blockPrefab;
     public GameObject coinPrefab;
     public GameObject[] obstaclePrefabs;
+    public TrippleObstaclePair[] trippleObstaclePairPrefabs;
     public Transform levelObjectsParent;
     // TODO: Get player to reference the player object in the scene
     public Transform player;
@@ -36,6 +39,8 @@ public class LevelGenerator : MonoBehaviour
             minObstacleOffset = 3,
             maxObstacleOffset = 5,
             numberOfObstacles = 25,
+            chanceOfDoubleObstacles = 0.2f,
+            chanceOfTrippleObstacles = 0.05f,
             numberOfCoins = 40
         },
         new ObstaclesState() {
@@ -46,6 +51,8 @@ public class LevelGenerator : MonoBehaviour
             minObstacleOffset = 7,
             maxObstacleOffset = 10,
             numberOfObstacles = 20,
+            chanceOfDoubleObstacles = 0.1f,
+            chanceOfTrippleObstacles = 0.05f,
             numberOfCoins = 25
         },
         new ObstaclesState() {
@@ -56,6 +63,8 @@ public class LevelGenerator : MonoBehaviour
             minObstacleOffset = 8,
             maxObstacleOffset = 12,
             numberOfObstacles = 15,
+            chanceOfDoubleObstacles = 0.01f,
+            chanceOfTrippleObstacles = 0.05f,
             numberOfCoins = 25
         },
         new ObstaclesState() {
@@ -66,6 +75,8 @@ public class LevelGenerator : MonoBehaviour
             minObstacleOffset = 10,
             maxObstacleOffset = 15,
             numberOfObstacles = 10,
+            chanceOfDoubleObstacles = 0.01f,
+            chanceOfTrippleObstacles = 0.05f,
             numberOfCoins = 25
         }
     };
@@ -76,21 +87,6 @@ public class LevelGenerator : MonoBehaviour
     private float _timeSinceLevelLoad = 0f;
     public int GetNextObstacleZPos() 
     {
-        // int offsetMax = 15;
-        // int offsetMin = 10;
-
-        // foreach (ObstaclesState offset in obstacleStates)
-        // {
-        //     if(offset.IsActive(_timeSinceLevelLoad)) 
-        //     {
-        //         Debug.Log("Increasing difficulty: LevelGenerator.GetNextObstacleZPos() _timeSinceLevelLoad > " + offset.minTimeActive);
-            
-        //         offsetMax = offset.maxObstacleOffset;
-        //         offsetMin = offset.minObstacleOffset;
-        //         break;
-        //     }
-        // }
-
         ObstaclesState currentState = GetCurrentObstaclesState();
 
         _obstacleNextZPos += currentState.GetRandomObstacleOffset();
@@ -161,7 +157,7 @@ public class LevelGenerator : MonoBehaviour
     public void Setup()
     {
         
-        seed = Random.Range(1, 99999);
+        seed = UnityEngine.Random.Range(1, 99999);
 
         sharedRandom = new System.Random(seed);
 
@@ -258,6 +254,77 @@ public class LevelGenerator : MonoBehaviour
     void ReuseObstacle() 
     {
         ObstaclesState currentState = GetCurrentObstaclesState();
+        
+        BalanceObstacles(currentState);
+
+        int obstaclesToSpawnAtOneTime = currentState.GetNumberOfObstaclesToSpawnAtOneTime();
+
+        if(obstaclesToSpawnAtOneTime == 1) 
+        {
+            ReuseSingleObstacle(GetNextObstacleZPos(), currentState);
+        }
+        else if (obstaclesToSpawnAtOneTime == 2) 
+        {
+            ReuseDoubleObstacles(GetNextObstacleZPos(), currentState);
+        }
+        else if (obstaclesToSpawnAtOneTime == 3) 
+        {
+            ReuseTrippleObstacles(GetNextObstacleZPos(), currentState);
+        }
+        
+        // GameObject oldObstacle = activeObstacles.Dequeue();
+
+        // // Select random lane
+        // int randomLaneIndex = sharedRandom.Next(0, 3);
+
+        // // Get obstacle offset based on current difficulty state
+        // int obstacleOffset = GetNextObstacleZPos();
+
+        // // Set obstacle position based on lane and offset
+        // Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, obstacleOffset);
+        // if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
+        // else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
+        // else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
+
+        // // Set obstacle position and add it back to the active queue
+        // oldObstacle.transform.position = obstaclePosition;
+        // activeObstacles.Enqueue(oldObstacle);
+
+        // if(currentState.ShouldSpawnDoubleObstacles()) 
+        // {
+        //     // Select random obstacle
+        //     int randomObstacleIndex2 = sharedRandom.Next(0, obstaclePrefabs.Length);
+
+        //     // Select random lane for second obstacle, ensuring it's different from the first obstacle's lane
+        //     int randomLaneIndex2 = -1;
+        //     do 
+        //     {
+        //         randomLaneIndex2 = sharedRandom.Next(0, 3);
+        //     } while (randomLaneIndex2 == randomLaneIndex);
+
+        //     // Set obstacle position based on lane and offset
+        //     Vector3 obstaclePosition2 = new Vector3(0f, obstaclePrefabs[randomObstacleIndex2].transform.position.y, obstacleOffset);
+        //     if (randomLaneIndex2 == 0) { obstaclePosition2.x = laneDistance; }
+        //     else if (randomLaneIndex2 == 1) { obstaclePosition2.x = 0; }
+        //     else if (randomLaneIndex2 == 2) { obstaclePosition2.x = -1 * laneDistance; }
+
+        //     // Spawn second obstacle and add to active queue
+        //     GameObject oldObstacle2 = Instantiate(obstaclePrefabs[randomObstacleIndex2], obstaclePosition2, obstaclePrefabs[randomObstacleIndex2].transform.rotation);
+        //     activeObstacles.Enqueue(oldObstacle2);
+        // }
+    }
+
+    void BalanceObstacles(ObstaclesState currentState)
+    {
+        // If there are more active obstacles than the current state's number of obstacles, destroy the excess obstacles
+        if(activeObstacles.Count > currentState.numberOfObstacles && activeObstacles.Count > 0) 
+        {
+            GameObject oldObstacleToDelete = activeObstacles.Dequeue();
+            Destroy(oldObstacleToDelete);
+            return;
+        }
+        
+        // If there are less active obstacles than the current state's number of obstacles, instantiate new obstacles
         if(currentState.numberOfObstacles > activeObstacles.Count) 
         {
             int obstaclesToSpawn = currentState.numberOfObstacles - activeObstacles.Count;
@@ -267,20 +334,64 @@ public class LevelGenerator : MonoBehaviour
                 InstantiateNewObstacle();
             }
         }
-        
+    }
+
+    void ReuseSingleObstacle(int obstacleOffset, ObstaclesState currentState)
+    {
         GameObject oldObstacle = activeObstacles.Dequeue();
+
+        // Select random lane
         int randomLaneIndex = sharedRandom.Next(0, 3);
 
-        Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, GetNextObstacleZPos());
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, obstacleOffset);
         if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
         else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
         else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
 
+        // Set obstacle position and add it back to the active queue
         oldObstacle.transform.position = obstaclePosition;
-        // _obstacleNextZPos += 15;
+        activeObstacles.Enqueue(oldObstacle);
+    }
+
+    void ReuseDoubleObstacles(int obstacleOffset, ObstaclesState currentState)
+    {
+        GameObject oldObstacle = activeObstacles.Dequeue();
+        int randomObstacleIndex2 = sharedRandom.Next(0, obstaclePrefabs.Length);
+
+        // Select random lane
+        int randomLaneIndex = sharedRandom.Next(0, 3);
+        int randomLaneIndex2 = -1;
+        do 
+        {
+            randomLaneIndex2 = sharedRandom.Next(0, 3);
+        } while (randomLaneIndex2 == randomLaneIndex);
+
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, obstacleOffset);
+        if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
+        else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
+        else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
+
+        Vector3 obstaclePosition2 = new Vector3(0f, obstaclePrefabs[randomObstacleIndex2].transform.position.y, obstacleOffset);
+        if (randomLaneIndex2 == 0) { obstaclePosition2.x = laneDistance; }
+        else if (randomLaneIndex2 == 1) { obstaclePosition2.x = 0; }
+        else if (randomLaneIndex2 == 2) { obstaclePosition2.x = -1 * laneDistance; }
+
+        // Set obstacle position and add it back to the active queue
+        oldObstacle.transform.position = obstaclePosition;
         activeObstacles.Enqueue(oldObstacle);
 
-        
+        GameObject oldObstacle2 = Instantiate(obstaclePrefabs[randomObstacleIndex2], obstaclePosition2, obstaclePrefabs[randomObstacleIndex2].transform.rotation);
+        activeObstacles.Enqueue(oldObstacle2);
+    }
+
+    void ReuseTrippleObstacles(int obstacleOffset, ObstaclesState currentState)
+    {
+        GameObject oldObstacleToDelete = activeObstacles.Dequeue();
+        Destroy(oldObstacleToDelete);
+
+        InstantiateTrippleObstacles(obstacleOffset, currentState);
     }
 
     void ReuseCoin()
@@ -314,16 +425,158 @@ public class LevelGenerator : MonoBehaviour
 
     void InstantiateNewObstacle()
     {
+        ObstaclesState currentState = GetCurrentObstaclesState();
+        int obstacleOffset = GetNextObstacleZPos();
+        int numberOfObstaclesToSpawn = currentState.GetNumberOfObstaclesToSpawnAtOneTime();
+
+        if(numberOfObstaclesToSpawn == 1) 
+        {
+            InstantiateSingleObstacle(obstacleOffset, currentState);
+        }
+        else if (numberOfObstaclesToSpawn == 2) 
+        {
+            InstantiateDoubleObstacles(obstacleOffset, currentState);
+        }
+        else if (numberOfObstaclesToSpawn == 3) 
+        {
+            InstantiateTrippleObstacles(obstacleOffset, currentState);
+        }
+
+        // bool shouldSpawnDoubleObstacles = currentState.ShouldSpawnDoubleObstacles();
+
+        // // Select random obstacle
+        // int randomObstacleIndex = sharedRandom.Next(0, obstaclePrefabs.Length);
+        
+        // // Select random lane
+        // int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
+
+        // // Set obstacle position based on lane and offset
+        // Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[randomObstacleIndex].transform.position.y, obstacleOffset);
+        // if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
+        // else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
+        // else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
+
+        // // Instantiate obstacle and add to active queue
+        // GameObject o = Instantiate(obstaclePrefabs[randomObstacleIndex], obstaclePosition, obstaclePrefabs[randomObstacleIndex].transform.rotation);
+        // activeObstacles.Enqueue(o);
+
+        // if(currentState.ShouldSpawnDoubleObstacles()) 
+        // {
+        //     // Select random obstacle
+        //     int randomObstacleIndex2 = sharedRandom.Next(0, obstaclePrefabs.Length);
+            
+        //     // Select random lane for second obstacle, ensuring it's different from the first obstacle's lane
+        //     int randomLaneIndex2 = -1;
+        //     do 
+        //     {
+        //         randomLaneIndex2 = sharedRandom.Next(0, numberOfLanes);
+        //     } while (randomLaneIndex2 == randomLaneIndex);
+
+        //     // Set obstacle position based on lane and offset
+        //     Vector3 obstaclePosition2 = new Vector3(0f, obstaclePrefabs[randomObstacleIndex2].transform.position.y, obstacleOffset);
+        //     if (randomLaneIndex2 == 0) { obstaclePosition2.x = laneDistance; }
+        //     else if (randomLaneIndex2 == 1) { obstaclePosition2.x = 0; }
+        //     else if (randomLaneIndex2 == 2) { obstaclePosition2.x = -1 * laneDistance; }
+
+        //     // Instantiate obstacle and add to active queue
+        //     GameObject o2 = Instantiate(obstaclePrefabs[randomObstacleIndex2], obstaclePosition2, obstaclePrefabs[randomObstacleIndex2].transform.rotation);
+        //     activeObstacles.Enqueue(o2);
+        // }
+    }
+
+    void InstantiateSingleObstacle(int obstacleOffset, ObstaclesState currentState) 
+    {
+        // Select random obstacle
         int randomObstacleIndex = sharedRandom.Next(0, obstaclePrefabs.Length);
+        
+        // Select random lane
         int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
 
-        Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[randomObstacleIndex].transform.position.y, GetNextObstacleZPos());
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[randomObstacleIndex].transform.position.y, obstacleOffset);
         if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
         else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
         else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
 
+        // Instantiate obstacle and add to active queue
         GameObject o = Instantiate(obstaclePrefabs[randomObstacleIndex], obstaclePosition, obstaclePrefabs[randomObstacleIndex].transform.rotation);
         activeObstacles.Enqueue(o);
+    }
+
+    void InstantiateDoubleObstacles(int obstacleOffset, ObstaclesState currentState) 
+    {
+        // Select random obstacle
+        int randomObstacleIndex = sharedRandom.Next(0, obstaclePrefabs.Length);
+        
+        // Select random lane
+        int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
+
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[randomObstacleIndex].transform.position.y, obstacleOffset);
+        if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
+        else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
+        else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
+
+        // Instantiate obstacle and add to active queue
+        GameObject o = Instantiate(obstaclePrefabs[randomObstacleIndex], obstaclePosition, obstaclePrefabs[randomObstacleIndex].transform.rotation);
+        activeObstacles.Enqueue(o);
+
+        // Select random obstacle
+        int randomObstacleIndex2 = sharedRandom.Next(0, obstaclePrefabs.Length);
+        
+        // Select random lane for second obstacle, ensuring it's different from the first obstacle's lane
+        int randomLaneIndex2 = -1;
+        do 
+        {
+            randomLaneIndex2 = sharedRandom.Next(0, numberOfLanes);
+        } while (randomLaneIndex2 == randomLaneIndex);
+
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition2 = new Vector3(0f, obstaclePrefabs[randomObstacleIndex2].transform.position.y, obstacleOffset);
+        if (randomLaneIndex2 == 0) { obstaclePosition2.x = laneDistance; }
+        else if (randomLaneIndex2 == 1) { obstaclePosition2.x = 0; }
+        else if (randomLaneIndex2 == 2) { obstaclePosition2.x = -1 * laneDistance; }
+
+        // Instantiate obstacle and add to active queue
+        GameObject o2 = Instantiate(obstaclePrefabs[randomObstacleIndex2], obstaclePosition2, obstaclePrefabs[randomObstacleIndex2].transform.rotation);
+        activeObstacles.Enqueue(o2);
+    }
+
+    void InstantiateTrippleObstacles(int obstacleOffset, ObstaclesState currentState) 
+    {
+        // Select random tripple obstacle pair
+        int randomTrippleObstaclePairIndex = sharedRandom.Next(0, trippleObstaclePairPrefabs.Length);
+
+        // Assign lanes for the tripple obstacles
+        List<int> laneIndices = new List<int>() { 0, 1, 2 };
+        laneIndices = laneIndices.Randomize().ToList();
+
+        // Set obstacle position based on lane and offset
+        Vector3 obstaclePosition1 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.position.y, obstacleOffset);
+        if (laneIndices[0] == 0) { obstaclePosition1.x = laneDistance; }
+        else if (laneIndices[0] == 1) { obstaclePosition1.x = 0; }
+        else if (laneIndices[0] == 2) { obstaclePosition1.x = -1 * laneDistance; }
+
+        Vector3 obstaclePosition2 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.position.y, obstacleOffset);
+        if (laneIndices[1] == 0) { obstaclePosition2.x = laneDistance; }
+        else if (laneIndices[1] == 1) { obstaclePosition2.x = 0; }
+        else if (laneIndices[1] == 2) { obstaclePosition2.x = -1 * laneDistance; }
+
+        Vector3 obstaclePosition3 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.position.y, obstacleOffset);
+        if (laneIndices[2] == 0) { obstaclePosition3.x = laneDistance; }
+        else if (laneIndices[2] == 1) { obstaclePosition3.x = 0; }
+        else if (laneIndices[2] == 2) { obstaclePosition3.x = -1 * laneDistance; }
+
+        // Instantiate obstacles and add to active queue
+        GameObject o1 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1, obstaclePosition1, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.rotation);
+        activeObstacles.Enqueue(o1);
+
+        GameObject o2 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2, obstaclePosition2, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.rotation);
+        activeObstacles.Enqueue(o2);
+
+        GameObject o3 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3, obstaclePosition3, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.rotation);
+        activeObstacles.Enqueue(o3);
+
     }
 
     void InstantiateNewCoin()
