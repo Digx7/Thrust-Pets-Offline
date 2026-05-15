@@ -47,33 +47,17 @@ MonoBehaviour:
   blockPrefab: {fileID: 116082084770635873, guid: 53df0761646bb004c81b2e49e34178a0, type: 3}
   coinPrefab: {fileID: 4098068139002126875, guid: 0d122bd8588d160419215ff347d62201, type: 3}
   obstaclePrefabs:
-  - {fileID: 7441237209274732961, guid: a8d94299b18782f428d970c795729298, type: 3}
-  - {fileID: 7107286234516479534, guid: febc9f220b861c94aa6ccd71089208af, type: 3}
-  - {fileID: 1161897005284677161, guid: d99f8eb0467aa6b4487f71abbd205555, type: 3}
-  - {fileID: 7616500051302402436, guid: 7412cd25234b17641b571af9f6431456, type: 3}
-  - {fileID: 1972275924301595028, guid: 600608ab342723749b1ade5115899e32, type: 3}
-  - {fileID: 1972275924301595028, guid: 123789579c852484fac773d08e665963, type: 3}
-  - {fileID: 1972275924301595028, guid: 5394e396b703a0747b9d61b20225a54c, type: 3}
-  - {fileID: 1972275924301595028, guid: 1fb1fc4fac633a141bf0ac78f92eb92c, type: 3}
-  - {fileID: 1972275924301595028, guid: 4e7c88b6563e88d4e9bf5c4fbd45175a, type: 3}
-  - {fileID: 1972275924301595028, guid: c911f8649d2b28e4cb265bde9e69d843, type: 3}
-  - {fileID: 1972275924301595028, guid: 94086b3086fe7e34b915e292a2b994d1, type: 3}
-  - {fileID: 1972275924301595028, guid: 59e49d1be9c1dcb4bae95a0a1584e4bf, type: 3}
-  - {fileID: 1972275924301595028, guid: ceb3f4baf7493e24bb04a445b5791c65, type: 3}
-  - {fileID: 1972275924301595028, guid: 667973e4835f9c147a77605704d4fa0d, type: 3}
-  - {fileID: 1972275924301595028, guid: b1441a8065018f34fa5a373121824789, type: 3}
-  - {fileID: 1972275924301595028, guid: a5ff692f98e542441a0568d8a8a55d38, type: 3}
-  - {fileID: 1972275924301595028, guid: a345c306fd3331e4c8c6083cde1b92f4, type: 3}
-  - {fileID: 1972275924301595028, guid: 50a4f93669e5fc04aa04884e05f6ea7e, type: 3}
-  - {fileID: 1972275924301595028, guid: 7f97bebc471b2764b87b0147c1902b6e, type: 3}
-  - {fileID: 1972275924301595028, guid: 8d58f25764658af44a04fcbc1862917b, type: 3}
-  - {fileID: 1972275924301595028, guid: bfa272c2dd4353145b4e020611e4078c, type: 3}
-  - {fileID: 1972275924301595028, guid: 3cdea71dd3fd512489bfdf83e2053d7a, type: 3}
-  - {fileID: 1972275924301595028, guid: b2dcfde0e95f1154ab68ae4f6814e3d7, type: 3}
-  - {fileID: 1972275924301595028, guid: e3b7f5e88cb5c024dba29c67a214f1f9, type: 3}
-  - {fileID: 1972275924301595028, guid: 3005e0daa3933c142b6d8f0f21deefe6, type: 3}
-  - {fileID: 1972275924301595028, guid: 3991b441d27c7e44796da2592a2a49bc, type: 3}
-  - {fileID: 1972275924301595028, guid: 682ff74fb93c9434f83cd99219ccd196, type: 3}
+  - {fileID: 1972275924301595028, guid: bf2ac42d337abac4b888753df87bfd5f, type: 3}
+  - {fileID: 8951142863276476746, guid: 03ab5187f5d270140860316574f87fa6, type: 3}
+  - {fileID: 8951142863276476746, guid: 25d0286d674fb8849a5a94b3e14e4744, type: 3}
+  - {fileID: 1972275924301595028, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+  trippleObstaclePairDataPrefabs:
+  - {fileID: 11400000, guid: d335f0fb2083c4847bbcfda15bc94d9e, type: 2}
+  - {fileID: 11400000, guid: 1fe629f9016f70648a56373f452693a9, type: 2}
+  - {fileID: 11400000, guid: dcccfbdba613b6448b81edd18a2be529, type: 2}
+  - {fileID: 11400000, guid: ceabfc80200bb694eb1120044a127ff9, type: 2}
+  - {fileID: 11400000, guid: b3f76ccae53937547bd040c936c6dff0, type: 2}
+  - {fileID: 11400000, guid: 813139f51c6494a42a098d8e185f5f46, type: 2}
   levelObjectsParent: {fileID: 0}
   player: {fileID: 0}
   numberOfBlocks: 7
@@ -81,8 +65,58 @@ MonoBehaviour:
   obstacleSpawnChance: 1
   reuseDistance: 30
   laneDistance: 1.5
+  numberOfLanes: 3
+  obstacleStates:
+  - checkStartTimeActive: 1
+    startTimeActive: 120
+    checkEndTimeActive: 0
+    endTimeActive: 120
+    minObstacleOffset: 3
+    maxObstacleOffset: 5
+    numberOfObstacles: 40
+    chanceOfDoubleObstacles: 0.2
+    chanceOfTrippleObstacles: 0.2
+    minCoinLineOffset: 15
+    maxCoinLineOffset: 30
+    numberOfCoinLines: 30
+  - checkStartTimeActive: 1
+    startTimeActive: 60
+    checkEndTimeActive: 0
+    endTimeActive: 60
+    minObstacleOffset: 4
+    maxObstacleOffset: 8
+    numberOfObstacles: 30
+    chanceOfDoubleObstacles: 0.25
+    chanceOfTrippleObstacles: 0.2
+    minCoinLineOffset: 15
+    maxCoinLineOffset: 30
+    numberOfCoinLines: 20
+  - checkStartTimeActive: 1
+    startTimeActive: 30
+    checkEndTimeActive: 0
+    endTimeActive: 30
+    minObstacleOffset: 5
+    maxObstacleOffset: 12
+    numberOfObstacles: 20
+    chanceOfDoubleObstacles: 0.402
+    chanceOfTrippleObstacles: 0.3
+    minCoinLineOffset: 15
+    maxCoinLineOffset: 30
+    numberOfCoinLines: 10
+  - checkStartTimeActive: 0
+    startTimeActive: 0
+    checkEndTimeActive: 0
+    endTimeActive: 0
+    minObstacleOffset: 10
+    maxObstacleOffset: 15
+    numberOfObstacles: 10
+    chanceOfDoubleObstacles: 0.396
+    chanceOfTrippleObstacles: 0.3
+    minCoinLineOffset: 15
+    maxCoinLineOffset: 30
+    numberOfCoinLines: 10
   nextSpawnPoint: {x: 0, y: 0, z: 0}
-  obstacleNextZPos: 0
-  coinNextZPos: 0
+  _obstacleNextZPos: 0
+  _coinNextZPos: 0
   seed: 0
   _on_PlayerSpawned_Channel: {fileID: 11400000, guid: 30fc6d32be1762245829ba3e0f089640, type: 2}

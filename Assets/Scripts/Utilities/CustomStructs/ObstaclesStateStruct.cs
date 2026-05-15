@@ -24,7 +24,10 @@ namespace Digx7.Zygote
 
         [Range(0f, 1f)]
         public float chanceOfTrippleObstacles;
-        public int numberOfCoins;
+
+        public int minCoinLineOffset;
+        public int maxCoinLineOffset;
+        public int numberOfCoinLines;
         #endregion
 
         #region Main Methods ============================
@@ -71,6 +74,11 @@ namespace Digx7.Zygote
         public int GetRandomObstacleOffset()
         {
             return UnityEngine.Random.Range(minObstacleOffset, maxObstacleOffset);
+        }
+
+        public int GetRandomCoinLineOffset()
+        {
+            return UnityEngine.Random.Range(minCoinLineOffset, maxCoinLineOffset);
         }
 
         #endregion

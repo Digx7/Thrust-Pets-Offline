@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject blockPrefab;
     public GameObject coinPrefab;
     public GameObject[] obstaclePrefabs;
-    public TrippleObstaclePair[] trippleObstaclePairPrefabs;
+    public ObstaclePairData[] trippleObstaclePairDataPrefabs;
     public Transform levelObjectsParent;
     // TODO: Get player to reference the player object in the scene
     public Transform player;
@@ -29,6 +29,7 @@ public class LevelGenerator : MonoBehaviour
     public Queue<GameObject> activeBlocks = new Queue<GameObject>();
     public Queue<GameObject> activeObstacles = new Queue<GameObject>();
     public Queue<GameObject> activeCoins = new Queue<GameObject>();
+    public Queue<GameObject> standbyCoins = new Queue<GameObject>();
 
     public List<ObstaclesState> obstacleStates = new List<ObstaclesState>() {
         new ObstaclesState() {
@@ -41,7 +42,9 @@ public class LevelGenerator : MonoBehaviour
             numberOfObstacles = 25,
             chanceOfDoubleObstacles = 0.2f,
             chanceOfTrippleObstacles = 0.05f,
-            numberOfCoins = 40
+            minCoinLineOffset = 15,
+            maxCoinLineOffset = 30,
+            numberOfCoinLines = 30
         },
         new ObstaclesState() {
             checkStartTimeActive = true,
@@ -53,7 +56,9 @@ public class LevelGenerator : MonoBehaviour
             numberOfObstacles = 20,
             chanceOfDoubleObstacles = 0.1f,
             chanceOfTrippleObstacles = 0.05f,
-            numberOfCoins = 25
+            minCoinLineOffset = 15,
+            maxCoinLineOffset = 30,
+            numberOfCoinLines = 20
         },
         new ObstaclesState() {
             checkStartTimeActive = true,
@@ -65,7 +70,9 @@ public class LevelGenerator : MonoBehaviour
             numberOfObstacles = 15,
             chanceOfDoubleObstacles = 0.01f,
             chanceOfTrippleObstacles = 0.05f,
-            numberOfCoins = 25
+            minCoinLineOffset = 15,
+            maxCoinLineOffset = 30,
+            numberOfCoinLines = 10
         },
         new ObstaclesState() {
             checkStartTimeActive = false,
@@ -77,7 +84,9 @@ public class LevelGenerator : MonoBehaviour
             numberOfObstacles = 10,
             chanceOfDoubleObstacles = 0.01f,
             chanceOfTrippleObstacles = 0.05f,
-            numberOfCoins = 25
+            minCoinLineOffset = 15,
+            maxCoinLineOffset = 30,
+            numberOfCoinLines = 10
         }
     };
 
@@ -93,7 +102,15 @@ public class LevelGenerator : MonoBehaviour
 
         return _obstacleNextZPos;        
     }
-    public int coinNextZPos = 0;
+    public int _coinNextZPos = 0;
+    public int GetNextCoinLineZStartPos() 
+    {
+        ObstaclesState currentState = GetCurrentObstaclesState();
+
+        _coinNextZPos += currentState.GetRandomCoinLineOffset();
+
+        return _coinNextZPos;
+    }
 
     public int seed = 0;
     public System.Random sharedRandom;
@@ -178,44 +195,16 @@ public class LevelGenerator : MonoBehaviour
         yield return new WaitUntil(() => seed != 0);
 
         ObstaclesState currentState = GetCurrentObstaclesState();
-        for (int j = 0; j < currentState.numberOfObstacles; j++)
+
+        BalanceObstacles(currentState);
+
+        for (int j = 0; j < currentState.numberOfCoinLines; j++)
         {
-            InstantiateNewObstacle();
+            InstantiateNewCoinLine();
         }
-
-        for (int j = 0; j < currentState.numberOfCoins; j++)
-        {
-            InstantiateNewCoin();
-        }
-
-        // for (int i = 0; i < numberOfCoins; i++)
-        // {
-        //     // int randomObstacleIndex = sharedRandom.Next(0, obstaclePrefabs.Length);
-        //     // int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
-
-        //     // Vector3 obstaclePosition = new Vector3(0f, obstaclePrefabs[randomObstacleIndex].transform.position.y, GetNextObstacleZPos());
-        //     // if (randomLaneIndex == 0) { obstaclePosition.x = laneDistance; }
-        //     // else if (randomLaneIndex == 1) { obstaclePosition.x = 0; }
-        //     // else if (randomLaneIndex == 2) { obstaclePosition.x = -1 * laneDistance; }
-
-            
-        //     // GameObject o = Instantiate(obstaclePrefabs[randomObstacleIndex], obstaclePosition, obstaclePrefabs[randomObstacleIndex].transform.rotation);
-        //     // activeObstacles.Enqueue(o);
-        //     // InstantiateNewObstacle();
-        //     // _obstacleNextZPos += 15;
-            
-        //     Vector3 coinPosition = new Vector3(obstaclePosition.x, coinPrefab.transform.position.y, coinNextZPos);
-
-        //     GameObject c = Instantiate(coinPrefab, coinPosition, coinPrefab.transform.rotation);
-        //     activeCoins.Enqueue(c);
-
-        //     coinNextZPos += 54;
-        // }
 
         _isSetup = true;
     }
-
-    // TODO: add 7 blocks to the Map in the scene
 
     void Update()
     {
@@ -397,22 +386,17 @@ public class LevelGenerator : MonoBehaviour
     void ReuseCoin()
     {
         GameObject oldCoin = activeCoins.Dequeue();
+        standbyCoins.Enqueue(oldCoin);
 
-        float coinLanePosition = 0f;
-        int randomLaneIndex = sharedRandom.Next(0, 3);
-        if (randomLaneIndex == 0) { coinLanePosition = laneDistance; }
-        else if (randomLaneIndex == 1) { coinLanePosition = 0; }
-        else if (randomLaneIndex == 2) { coinLanePosition = -1 * laneDistance; }
-
-        Vector3 coinPosition = new Vector3(coinLanePosition, oldCoin.transform.position.y, coinNextZPos);
-        if (oldCoin.activeSelf == false)
+        if(standbyCoins.Count >= 4)
         {
-            oldCoin.SetActive(true);
+            List<GameObject> coinsToReuse = new List<GameObject>();
+            for (int i = 0; i < 4; i++)
+            {
+                coinsToReuse.Add(standbyCoins.Dequeue());
+            }
+            StartCoroutine(ReuseCoinsInNewLine(coinsToReuse, GetNextCoinLineZStartPos(), sharedRandom.Next(0, numberOfLanes)));
         }
-
-        oldCoin.transform.position = coinPosition;
-        coinNextZPos += 54;
-        activeCoins.Enqueue(oldCoin);
     }
 
     void ReuseBlock()
@@ -545,53 +529,102 @@ public class LevelGenerator : MonoBehaviour
     void InstantiateTrippleObstacles(int obstacleOffset, ObstaclesState currentState) 
     {
         // Select random tripple obstacle pair
-        int randomTrippleObstaclePairIndex = sharedRandom.Next(0, trippleObstaclePairPrefabs.Length);
+        int randomTrippleObstaclePairIndex = sharedRandom.Next(0, trippleObstaclePairDataPrefabs.Length);
 
         // Assign lanes for the tripple obstacles
         List<int> laneIndices = new List<int>() { 0, 1, 2 };
         laneIndices = laneIndices.Randomize().ToList();
 
         // Set obstacle position based on lane and offset
-        Vector3 obstaclePosition1 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.position.y, obstacleOffset);
+        Vector3 obstaclePosition1 = new Vector3(0f, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.position.y, obstacleOffset);
         if (laneIndices[0] == 0) { obstaclePosition1.x = laneDistance; }
         else if (laneIndices[0] == 1) { obstaclePosition1.x = 0; }
         else if (laneIndices[0] == 2) { obstaclePosition1.x = -1 * laneDistance; }
 
-        Vector3 obstaclePosition2 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.position.y, obstacleOffset);
+        Vector3 obstaclePosition2 = new Vector3(0f, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.position.y, obstacleOffset);
         if (laneIndices[1] == 0) { obstaclePosition2.x = laneDistance; }
         else if (laneIndices[1] == 1) { obstaclePosition2.x = 0; }
         else if (laneIndices[1] == 2) { obstaclePosition2.x = -1 * laneDistance; }
 
-        Vector3 obstaclePosition3 = new Vector3(0f, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.position.y, obstacleOffset);
+        Vector3 obstaclePosition3 = new Vector3(0f, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.position.y, obstacleOffset);
         if (laneIndices[2] == 0) { obstaclePosition3.x = laneDistance; }
         else if (laneIndices[2] == 1) { obstaclePosition3.x = 0; }
         else if (laneIndices[2] == 2) { obstaclePosition3.x = -1 * laneDistance; }
 
         // Instantiate obstacles and add to active queue
-        GameObject o1 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1, obstaclePosition1, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.rotation);
+        GameObject o1 = Instantiate(trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1, obstaclePosition1, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab1.transform.rotation);
         activeObstacles.Enqueue(o1);
 
-        GameObject o2 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2, obstaclePosition2, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.rotation);
+        GameObject o2 = Instantiate(trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2, obstaclePosition2, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab2.transform.rotation);
         activeObstacles.Enqueue(o2);
 
-        GameObject o3 = Instantiate(trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3, obstaclePosition3, trippleObstaclePairPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.rotation);
+        GameObject o3 = Instantiate(trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3, obstaclePosition3, trippleObstaclePairDataPrefabs[randomTrippleObstaclePairIndex].obstaclePrefab3.transform.rotation);
         activeObstacles.Enqueue(o3);
 
     }
 
-    void InstantiateNewCoin()
+    void InstantiateNewCoinLine()
     {
         int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
+        int coinLineZStartPos = GetNextCoinLineZStartPos();
 
-        Vector3 coinPosition = new Vector3(0f, coinPrefab.transform.position.y, coinNextZPos);
-        if (randomLaneIndex == 0) { coinPosition.x = laneDistance; }
-        else if (randomLaneIndex == 1) { coinPosition.x = 0; }
-        else if (randomLaneIndex == 2) { coinPosition.x = -1 * laneDistance; }
+        StartCoroutine(InstantiateCoinLine(4, coinLineZStartPos, randomLaneIndex));
+    }
 
-        GameObject c = Instantiate(coinPrefab, coinPosition, coinPrefab.transform.rotation);
-        activeCoins.Enqueue(c);
+    IEnumerator InstantiateCoinLine(int numberOfCoinsToSpawn, int startingZPos, int laneIndex)
+    {
+        for (int i = 0; i < numberOfCoinsToSpawn; i++)
+        {
+            float coinPositionY = coinPrefab.transform.position.y;
+            float coinPositionZ = startingZPos + (i * 2);
 
-        coinNextZPos += 54;
+            if(Physics.Raycast(new Ray(new Vector3(0, coinPositionY + 5f, coinPositionZ), Vector3.down), out RaycastHit hitInfo, 10f)) 
+            {
+                coinPositionY = hitInfo.point.y + coinPrefab.transform.position.y;
+            }
+
+            Vector3 coinPosition = new Vector3(0f, coinPositionY, coinPositionZ);
+
+            if (laneIndex == 0) { coinPosition.x = laneDistance; }
+            else if (laneIndex == 1) { coinPosition.x = 0; }
+            else if (laneIndex == 2) { coinPosition.x = -1 * laneDistance; }
+
+            GameObject c = Instantiate(coinPrefab, coinPosition, coinPrefab.transform.rotation);
+            activeCoins.Enqueue(c);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator ReuseCoinsInNewLine(List<GameObject> coinsToReuse, int startingZPos, int laneIndex)
+    {
+        for (int i = 0; i < coinsToReuse.Count; i++)
+        {
+            GameObject coin = coinsToReuse[i];
+
+            float coinPositionY = coin.transform.position.y;
+            float coinPositionZ = startingZPos + (i * 2);
+
+            if(Physics.Raycast(new Ray(new Vector3(0, coinPositionY + 5f, coinPositionZ), Vector3.down), out RaycastHit hitInfo, 10f)) 
+            {
+                coinPositionY = hitInfo.point.y + coinPrefab.transform.position.y;
+            }
+
+            Vector3 coinPosition = new Vector3(0f, coinPositionY, coinPositionZ);
+
+            if (laneIndex == 0) { coinPosition.x = laneDistance; }
+            else if (laneIndex == 1) { coinPosition.x = 0; }
+            else if (laneIndex == 2) { coinPosition.x = -1 * laneDistance; }
+
+            coin.transform.position = coinPosition;
+            if (!coin.activeSelf)
+            {
+                coin.SetActive(true);
+            }
+            activeCoins.Enqueue(coin);
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     ObstaclesState GetCurrentObstaclesState() 
@@ -613,7 +646,11 @@ public class LevelGenerator : MonoBehaviour
             minObstacleOffset = 10,
             maxObstacleOffset = 15,
             numberOfObstacles = 10,
-            numberOfCoins = 25
+            chanceOfDoubleObstacles = 0.01f,
+            chanceOfTrippleObstacles = 0.05f,
+            minCoinLineOffset = 40,
+            maxCoinLineOffset = 60,
+            numberOfCoinLines = 4
         };
     }
 
