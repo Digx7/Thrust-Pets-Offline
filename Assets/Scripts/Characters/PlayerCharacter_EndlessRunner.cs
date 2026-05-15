@@ -228,40 +228,17 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
     IEnumerator StopAndStartPlayer(float timeDelay) 
     {
         laneMovement.enabled = false;
-        // animator.SetBool("Stuck", true);
 
-        // playerMeshRenderer.material = invisibleMaterials[1];
-
-        // yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(timeDelay);
 
         Vector3 pos = transform.position;
         pos.z += 1.7f;
+        pos.y += 0.5f;
         transform.position = pos;
-
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[2];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[3];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[1];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[2];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[3];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[1];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[2];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[3];
-        // yield return new WaitForSeconds(0.1f);
-        // playerMeshRenderer.material = invisibleMaterials[0];
 
         if (!IsDead) 
         {
             laneMovement.enabled = true;
-            // animator.SetBool("Stuck", false);
         }
     }
 
