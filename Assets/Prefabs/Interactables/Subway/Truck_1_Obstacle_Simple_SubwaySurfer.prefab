@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1411168145691625063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3213037936004827819}
+  - component: {fileID: 76181400268714028}
+  - component: {fileID: 6991414794790508911}
+  m_Layer: 8
+  m_Name: CoinCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3213037936004827819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411168145691625063}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.989, z: -0.079}
+  m_LocalScale: {x: 1, y: 1.8360368, z: 2.2788322}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677493787597784050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &76181400268714028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411168145691625063}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 247
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6991414794790508911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411168145691625063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9e5991dbca27444bb8df1d08c8edda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+  type: 0
+  canSlideUnder: 0
 --- !u!1 &9213990908991105258
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +79,7 @@ GameObject:
   - component: {fileID: 2906110537198333388}
   - component: {fileID: 7868513340386666181}
   - component: {fileID: 2941417795154169021}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DeathCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +114,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -140,6 +208,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2906110537198333388}
+    - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3213037936004827819}
     - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2566743944458541592}

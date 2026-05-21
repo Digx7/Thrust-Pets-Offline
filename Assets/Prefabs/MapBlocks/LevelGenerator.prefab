@@ -66,6 +66,9 @@ MonoBehaviour:
   reuseDistance: 30
   laneDistance: 1.5
   numberOfLanes: 3
+  coinPlacementLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   obstacleStates:
   - checkStartTimeActive: 1
     startTimeActive: 120
@@ -73,48 +76,48 @@ MonoBehaviour:
     endTimeActive: 120
     minObstacleOffset: 3
     maxObstacleOffset: 5
-    numberOfObstacles: 40
+    numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.2
     chanceOfTrippleObstacles: 0.2
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
-    numberOfCoinLines: 30
+    numberOfCoinLines: 4
   - checkStartTimeActive: 1
     startTimeActive: 60
     checkEndTimeActive: 0
     endTimeActive: 60
     minObstacleOffset: 4
     maxObstacleOffset: 8
-    numberOfObstacles: 30
+    numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.25
     chanceOfTrippleObstacles: 0.2
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
-    numberOfCoinLines: 20
+    numberOfCoinLines: 4
   - checkStartTimeActive: 1
     startTimeActive: 30
     checkEndTimeActive: 0
     endTimeActive: 30
     minObstacleOffset: 5
     maxObstacleOffset: 12
-    numberOfObstacles: 20
+    numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.402
     chanceOfTrippleObstacles: 0.3
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
-    numberOfCoinLines: 10
+    numberOfCoinLines: 4
   - checkStartTimeActive: 0
     startTimeActive: 0
     checkEndTimeActive: 0
     endTimeActive: 0
     minObstacleOffset: 10
     maxObstacleOffset: 15
-    numberOfObstacles: 10
+    numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.396
     chanceOfTrippleObstacles: 0.3
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
-    numberOfCoinLines: 10
+    numberOfCoinLines: 4
   nextSpawnPoint: {x: 0, y: 0, z: 0}
   _obstacleNextZPos: 0
   _coinNextZPos: 0
