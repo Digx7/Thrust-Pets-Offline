@@ -526,33 +526,29 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator InstantiateCoinLine(int numberOfCoinsToSpawn, int startingZPos, int laneIndex)
     {
-        List<float> valideLaneIndecies = new List<float>() { 0f, 1f, 2f };
+        int startingLaneIndex = laneIndex;
 
-        for (int i = 0; i < numberOfCoinsToSpawn; i++)
+        Vector3 coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos, ref startingLaneIndex);
+
+        List<float> valideLaneIndecies = GetValidLaneIndeciesForCoinLine(startingLaneIndex);
+
+        GameObject firstCoin = Instantiate(coinPrefab, coinPosition, coinPrefab.transform.rotation);
+        activeCoins.Enqueue(firstCoin);
+
+        yield return new WaitForSeconds(0.01f);
+
+        for (int i = 1; i < numberOfCoinsToSpawn; i++)
         {
 
-            // Vector3 coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, laneIndex);
-            Vector3 coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, valideLaneIndecies, out float selectedLaneIndex);
+            coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, valideLaneIndecies, out float selectedLaneIndex);
 
-            switch (selectedLaneIndex)
+            valideLaneIndecies = GetValidLaneIndeciesForCoinLine(selectedLaneIndex);
+
+            if(coinPosition.y > 2f) 
             {
-                case 0f:
-                    valideLaneIndecies = new List<float>() { 0f, 0.5f};
-                    break;
-                case 0.5f:
-                    valideLaneIndecies = new List<float>() { 0f, 1f};
-                    break;
-                case 1f:
-                    valideLaneIndecies = new List<float>() { 1f, 0.5f, 1.5f};
-                    break;
-                case 1.5f:
-                    valideLaneIndecies = new List<float>() { 1f, 2f };
-                    break;
-                case 2f:
-                    valideLaneIndecies = new List<float>() { 2f, 1.5f};
-                    break;
-                default:
-                    break;
+                // If the coin position is too high, skip spawning this coin and continue to the next one
+                yield return new WaitForSeconds(0.01f);
+                continue;
             }
 
             GameObject c = Instantiate(coinPrefab, coinPosition, coinPrefab.transform.rotation);
@@ -564,34 +560,39 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator ReuseCoinsInNewLine(List<GameObject> coinsToReuse, int startingZPos, int laneIndex)
     {
-        List<float> valideLaneIndecies = new List<float>() { 0f, 1f, 2f };
+        int startingLaneIndex = laneIndex;
 
-        for (int i = 0; i < coinsToReuse.Count; i++)
+        Vector3 coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos, ref startingLaneIndex);
+
+        List<float> valideLaneIndecies = GetValidLaneIndeciesForCoinLine(startingLaneIndex);
+
+        GameObject coin = coinsToReuse[0];
+
+        
+
+        coin.transform.position = coinPosition;
+        if (!coin.activeSelf)
         {
-            GameObject coin = coinsToReuse[i];
+            coin.SetActive(true);
+        }
+        activeCoins.Enqueue(coin);
 
-            // coin.transform.position = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, laneIndex);
-            Vector3 coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, valideLaneIndecies, out float selectedLaneIndex);
+        yield return new WaitForSeconds(0.01f);
 
-            switch (selectedLaneIndex)
+        for (int i = 1; i < coinsToReuse.Count; i++)
+        {
+            coin = coinsToReuse[i];
+
+            coinPosition = FindCoinPosition(coinPrefab.transform.position.y, startingZPos + i, valideLaneIndecies, out float selectedLaneIndex);
+
+            valideLaneIndecies = GetValidLaneIndeciesForCoinLine(selectedLaneIndex);
+
+            if(coinPosition.y > 2f) 
             {
-                case 0f:
-                    valideLaneIndecies = new List<float>() { 0f, 0.5f};
-                    break;
-                case 0.5f:
-                    valideLaneIndecies = new List<float>() { 0f, 1f};
-                    break;
-                case 1f:
-                    valideLaneIndecies = new List<float>() { 1f, 0.5f, 1.5f};
-                    break;
-                case 1.5f:
-                    valideLaneIndecies = new List<float>() { 1f, 2f };
-                    break;
-                case 2f:
-                    valideLaneIndecies = new List<float>() { 2f, 1.5f};
-                    break;
-                default:
-                    break;
+                // If the coin position is too high, skip spawning this coin and continue to the next one
+                standbyCoins.Enqueue(coin);
+                yield return new WaitForSeconds(0.01f);
+                continue;
             }
 
             coin.transform.position = coinPosition;
@@ -605,7 +606,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private Vector3 FindCoinPosition(float startingY, float startingZ, int laneIndex, float maxCoinHeight = 1.75f)
+    private Vector3 FindCoinPosition(float startingY, float startingZ, ref int laneIndex, float maxCoinHeight = 2f)
     {
         float coinPositionY = startingY;
         float coinPositionZ = startingZ;
@@ -618,14 +619,14 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < numberOfLanes; i++) 
         {
-            Ray ray = new Ray(new Vector3(coinPositionX, coinPositionY + 5f, coinPositionZ), Vector3.down);
+            Ray ray = new Ray(new Vector3(coinPositionX, coinPositionY + 20f, coinPositionZ), Vector3.down);
 
-            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 60f);
-            DebugUtilities.DrawPrimitive(ray.origin, 0.2f, PrimitiveType.Sphere, Color.red, 60f);
+            // Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 60f);
+            // DebugUtilities.DrawPrimitive(ray.origin, 0.2f, PrimitiveType.Sphere, Color.red, 60f);
 
-            if(Physics.Raycast(ray, out RaycastHit hitInfo, 10f, coinPlacementLayerMask)) 
+            if(Physics.Raycast(ray, out RaycastHit hitInfo, 60f, coinPlacementLayerMask)) 
             {
-                DebugUtilities.DrawPrimitive(hitInfo.point, 0.2f, PrimitiveType.Sphere, Color.green, 60f);
+                // DebugUtilities.DrawPrimitive(hitInfo.point, 0.2f, PrimitiveType.Sphere, Color.green, 60f);
 
                 coinPositionY = hitInfo.point.y + coinPrefab.transform.position.y;
             }
@@ -656,7 +657,7 @@ public class LevelGenerator : MonoBehaviour
         return coinPosition;
     }
 
-    private Vector3 FindCoinPosition(float startingY, float startingZ, List<float> valideLaneIndecies, out float selectedLaneIndex, float maxCoinHeight = 1.75f)
+    private Vector3 FindCoinPosition(float startingY, float startingZ, List<float> valideLaneIndecies, out float selectedLaneIndex, float maxCoinHeight = 2f)
     {
         float coinPositionY = startingY;
         float coinPositionZ = startingZ;
@@ -672,12 +673,12 @@ public class LevelGenerator : MonoBehaviour
             coinPositionX = laneIndexToXPos_includeBetweenLanes(valideLaneIndecies[i]);
             selectedLaneIndex = valideLaneIndecies[i];
             
-            Ray ray = new Ray(new Vector3(coinPositionX, coinPositionY + 5f, coinPositionZ), Vector3.down);
+            Ray ray = new Ray(new Vector3(coinPositionX, coinPositionY + 20f, coinPositionZ), Vector3.down);
 
             // Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 60f);
             // DebugUtilities.DrawPrimitive(ray.origin, 0.2f, PrimitiveType.Sphere, Color.red, 60f);
 
-            if(Physics.Raycast(ray, out RaycastHit hitInfo, 10f, coinPlacementLayerMask)) 
+            if(Physics.Raycast(ray, out RaycastHit hitInfo, 60f, coinPlacementLayerMask)) 
             {
                 // DebugUtilities.DrawPrimitive(hitInfo.point, 0.2f, PrimitiveType.Sphere, Color.green, 60f);
 
@@ -754,6 +755,56 @@ public class LevelGenerator : MonoBehaviour
             maxCoinLineOffset = 60,
             numberOfCoinLines = 4
         };
+    }
+
+    List<float> GetValidLaneIndeciesForCoinLine(int startingLaneIndex)
+    {
+        List<float> valideLaneIndecies = new List<float>() { 0f, 1f, 2f };
+
+        switch (startingLaneIndex)
+        {
+            case 0:
+                valideLaneIndecies = new List<float>() { 0f, 0.5f};
+                break;
+            case 1:
+                valideLaneIndecies = new List<float>() { 1f, 0.5f, 1.5f};
+                break;
+            case 2:
+                valideLaneIndecies = new List<float>() { 2f, 1.5f};
+                break;
+            default:
+                break;
+        }
+
+        return valideLaneIndecies;
+    }
+
+    List<float> GetValidLaneIndeciesForCoinLine(float startingLaneIndex)
+    {
+        List<float> valideLaneIndecies = new List<float>() { 0f, 1f, 2f };
+
+        switch (startingLaneIndex)
+        {
+            case 0f:
+                    valideLaneIndecies = new List<float>() { 0f, 0.5f, 1f };
+                    break;
+                case 0.5f:
+                    valideLaneIndecies = new List<float>() { 0f, 1f};
+                    break;
+                case 1f:
+                    valideLaneIndecies = new List<float>() { 1f, 0.5f, 0f, 1.5f, 2f};
+                    break;
+                case 1.5f:
+                    valideLaneIndecies = new List<float>() { 1f, 2f };
+                    break;
+                case 2f:
+                    valideLaneIndecies = new List<float>() { 2f, 1.5f, 1f};
+                    break;
+                default:
+                    break;
+        }
+
+        return valideLaneIndecies;
     }
 
     #endregion
