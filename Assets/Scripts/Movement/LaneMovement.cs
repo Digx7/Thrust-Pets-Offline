@@ -18,6 +18,7 @@ public class LaneMovement : MonoBehaviour
     public float slideTime = 0.5f;
     public float slideCooldown = 0.5f;
     public float groundCheckDistance = 0.2f;
+    public float fastFallSpeed = 5f;
     public LayerMask groundMask;
 
     public BooleanEvent OnGroundedEvent;
@@ -49,6 +50,18 @@ public class LaneMovement : MonoBehaviour
     float lastJumpTime = -1f;
     float lastSlideTime = -1f;
     bool _isSliding = false;
+    bool _isFastFalling = false;
+    public float GetGravity()
+    {
+        if(_isFastFalling)
+        {
+            return fastFallSpeed * gravity * Time.deltaTime;
+        }
+        else
+        {
+            return gravity * Time.deltaTime;
+        }
+    }
     public bool IsSliding
     {
         get
@@ -95,10 +108,17 @@ public class LaneMovement : MonoBehaviour
             }
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        // velocity.y += gravity * Time.deltaTime;
+        velocity.y += GetGravity();
         moveVector.y = velocity.y * Time.deltaTime;
 
         controller.Move(moveVector);
+
+        if (_isFastFalling && IsGrounded())
+        {
+            // Cleans up any fast fall
+            _isFastFalling = false;
+        }
     }
 
     public bool TryChangeLanes(float moveDirection)
@@ -133,7 +153,7 @@ public class LaneMovement : MonoBehaviour
     public void TryJump()
     {
 
-        if(IsGrounded() && !IsSliding && Time.time > lastJumpTime + jumpCooldown)
+        if(IsGrounded() && Time.time > lastJumpTime + jumpCooldown)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
             lastJumpTime = Time.time; // Record jump time
@@ -153,6 +173,8 @@ public class LaneMovement : MonoBehaviour
         else
         {
             // TODO Fast fall
+            velocity.y = 0; // Cancle out any upward velocity
+            _isFastFalling = true;
         }
     }
 

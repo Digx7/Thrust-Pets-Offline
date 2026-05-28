@@ -74,8 +74,8 @@ MonoBehaviour:
     startTimeActive: 120
     checkEndTimeActive: 0
     endTimeActive: 120
-    minObstacleOffset: 3
-    maxObstacleOffset: 5
+    minObstacleOffset: 4
+    maxObstacleOffset: 6
     numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.2
     chanceOfTrippleObstacles: 0.2
