@@ -75,6 +75,9 @@ MonoBehaviour:
   coinPlacementLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  obstaclePlacementLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   standbyBlocks: []
   specialBlocks: []
   obstacleStates:
