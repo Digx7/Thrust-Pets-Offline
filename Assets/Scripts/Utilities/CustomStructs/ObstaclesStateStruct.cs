@@ -25,6 +25,9 @@ namespace Digx7.Zygote
         [Range(0f, 1f)]
         public float chanceOfTrippleObstacles;
 
+        [Range(0f, 1f)]
+        public float chanceOfSpecialBlock;
+
         public int minCoinLineOffset;
         public int maxCoinLineOffset;
         public int numberOfCoinLines;
@@ -69,6 +72,11 @@ namespace Digx7.Zygote
         public bool ShouldSpawnTrippleObstacles()
         {
             return UnityEngine.Random.Range(0f, 1f) <= chanceOfTrippleObstacles;
+        }
+
+        public bool ShouldSpawnSpecialBlock()
+        {
+            return UnityEngine.Random.Range(0f, 1f) <= chanceOfSpecialBlock;
         }
 
         public int GetRandomObstacleOffset()

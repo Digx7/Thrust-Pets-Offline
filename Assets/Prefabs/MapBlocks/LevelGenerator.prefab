@@ -51,6 +51,11 @@ MonoBehaviour:
   - {fileID: 8951142863276476746, guid: 03ab5187f5d270140860316574f87fa6, type: 3}
   - {fileID: 8951142863276476746, guid: 25d0286d674fb8849a5a94b3e14e4744, type: 3}
   - {fileID: 1972275924301595028, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+  obstacleDatas:
+  - {fileID: 11400000, guid: a9adb12412533e54d84501ca9c578d6b, type: 2}
+  - {fileID: 11400000, guid: d47c1ec8043d6464d839155dc4f42d1e, type: 2}
+  - {fileID: 11400000, guid: fbf8c5bc27e27ae4398c966c96a5344e, type: 2}
+  - {fileID: 11400000, guid: 9c2373686c65896498fc2fc620f138fc, type: 2}
   trippleObstaclePairDataPrefabs:
   - {fileID: 11400000, guid: d335f0fb2083c4847bbcfda15bc94d9e, type: 2}
   - {fileID: 11400000, guid: 1fe629f9016f70648a56373f452693a9, type: 2}
@@ -62,13 +67,16 @@ MonoBehaviour:
   player: {fileID: 0}
   numberOfBlocks: 7
   blockLength: 80
-  obstacleSpawnChance: 1
   reuseDistance: 30
+  obstacleSpawnDistance: 150
+  coinSpawnDistance: 140
   laneDistance: 1.5
   numberOfLanes: 3
   coinPlacementLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  standbyBlocks: []
+  specialBlocks: []
   obstacleStates:
   - checkStartTimeActive: 1
     startTimeActive: 120
@@ -79,6 +87,7 @@ MonoBehaviour:
     numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.2
     chanceOfTrippleObstacles: 0.2
+    chanceOfSpecialBlock: 0.01
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
     numberOfCoinLines: 4
@@ -91,6 +100,7 @@ MonoBehaviour:
     numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.25
     chanceOfTrippleObstacles: 0.2
+    chanceOfSpecialBlock: 0.01
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
     numberOfCoinLines: 4
@@ -103,6 +113,7 @@ MonoBehaviour:
     numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.402
     chanceOfTrippleObstacles: 0.3
+    chanceOfSpecialBlock: 0.01
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
     numberOfCoinLines: 4
@@ -115,10 +126,11 @@ MonoBehaviour:
     numberOfObstacles: 60
     chanceOfDoubleObstacles: 0.396
     chanceOfTrippleObstacles: 0.3
+    chanceOfSpecialBlock: 0.01
     minCoinLineOffset: 15
     maxCoinLineOffset: 30
     numberOfCoinLines: 4
-  nextSpawnPoint: {x: 0, y: 0, z: 0}
+  nextBlockPoint: {x: 0, y: 0, z: 0}
   _obstacleNextZPos: 0
   _coinNextZPos: 0
   seed: 0

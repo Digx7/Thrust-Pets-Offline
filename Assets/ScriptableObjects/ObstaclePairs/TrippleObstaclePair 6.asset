@@ -15,3 +15,6 @@ MonoBehaviour:
   obstaclePrefab1: {fileID: 1972275924301595028, guid: 0cebff691dda5d340afc9a1d91d5eca2, type: 3}
   obstaclePrefab2: {fileID: 1972275924301595028, guid: 0cebff691dda5d340afc9a1d91d5eca2, type: 3}
   obstaclePrefab3: {fileID: 8951142863276476746, guid: 03ab5187f5d270140860316574f87fa6, type: 3}
+  obstacleData1: {fileID: 11400000, guid: 9c2373686c65896498fc2fc620f138fc, type: 2}
+  obstacleData2: {fileID: 11400000, guid: 9c2373686c65896498fc2fc620f138fc, type: 2}
+  obstacleData3: {fileID: 11400000, guid: d47c1ec8043d6464d839155dc4f42d1e, type: 2}
