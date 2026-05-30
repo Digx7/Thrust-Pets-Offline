@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.5, g: 0.57254905, b: 0.59607846, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -26,8 +26,8 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6a9a29d807a43624b8d8758de7c530d6, type: 2}
+  m_HaloStrength: 0.025
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -314,19 +314,19 @@ PrefabInstance:
       objectReference: {fileID: 5846007316817113727}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[1].chanceOfSpecialBlock
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[2].chanceOfSpecialBlock
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[3].chanceOfSpecialBlock
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8196643889954835969, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: m_LocalPosition.x
