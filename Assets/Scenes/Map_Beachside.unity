@@ -314,19 +314,19 @@ PrefabInstance:
       objectReference: {fileID: 5846007316817113727}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[1].chanceOfSpecialBlock
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[2].chanceOfSpecialBlock
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[3].chanceOfSpecialBlock
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8196643889954835969, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: m_LocalPosition.x
