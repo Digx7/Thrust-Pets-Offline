@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3014142784213972012}
   - component: {fileID: 5571080847656992098}
   - component: {fileID: 1808122515768279794}
+  - component: {fileID: 5267794665026235526}
   m_Layer: 0
   m_Name: EA04_Wooden_Floor_01b_LOD0_SubwaySurfer
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4357141810463342339}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8443657, y: 3.29, z: -10.129998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,3 +114,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 328652950757911482, guid: 2fb5304977a34484cb6a801ae9aa2177, type: 3}
+--- !u!114 &5267794665026235526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357141810463342339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0

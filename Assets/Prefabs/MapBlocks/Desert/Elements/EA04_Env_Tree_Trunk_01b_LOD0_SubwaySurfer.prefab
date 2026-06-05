@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3758724836452619001}
   - component: {fileID: 3769028125635287197}
   - component: {fileID: 3777267966167771175}
+  - component: {fileID: 171427953061342881}
   m_Layer: 0
   m_Name: EA04_Env_Tree_Trunk_01b_LOD0_SubwaySurfer
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3764298081619611247}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16399753, y: -0.10354626, z: 0.049146406, w: 0.97977936}
+  m_LocalRotation: {x: -0.16400103, y: -0.103548735, z: 0.049149297, w: 0.97977835}
   m_LocalPosition: {x: 7.3, y: 6.113123, z: -54.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.131, y: -13.325, z: 7.879}
 --- !u!33 &3769028125635287197
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,3 +91,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &171427953061342881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764298081619611247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0
