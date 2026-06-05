@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2598320761341187104}
   - component: {fileID: 3775280474489785764}
   - component: {fileID: 4048136378523864566}
-  - component: {fileID: 1954780894674328571}
   - component: {fileID: 8179887711656044184}
   m_Layer: 0
   m_Name: EA04_Env_Rocks_p_Flat_01c_LOD0_SubwaySurfer
@@ -92,28 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1954780894674328571
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115141217085644983}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2902200727145940321, guid: 86c3b69a2f8879b42929f9e5dac02093, type: 3}
 --- !u!114 &8179887711656044184
 MonoBehaviour:
   m_ObjectHideFlags: 0

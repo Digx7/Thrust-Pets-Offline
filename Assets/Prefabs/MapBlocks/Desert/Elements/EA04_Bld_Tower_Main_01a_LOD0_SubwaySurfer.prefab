@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9047396316514099297}
   - component: {fileID: 5946997441543097237}
   - component: {fileID: 759001634674638672}
-  - component: {fileID: 5954194336764426854}
   - component: {fileID: 862962853794270778}
   m_Layer: 0
   m_Name: EA04_Bld_Tower_Main_01a_LOD0_SubwaySurfer
@@ -92,28 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5954194336764426854
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194306642541130025}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8479361982383234728, guid: 297975397d7341a479be6fb952c00c39, type: 3}
 --- !u!114 &862962853794270778
 MonoBehaviour:
   m_ObjectHideFlags: 0

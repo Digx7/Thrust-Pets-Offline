@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8875155133628589667}
   - component: {fileID: 3014142784213972012}
   - component: {fileID: 5571080847656992098}
-  - component: {fileID: 1808122515768279794}
   - component: {fileID: 5267794665026235526}
   m_Layer: 0
   m_Name: EA04_Wooden_Floor_01b_LOD0_SubwaySurfer
@@ -92,28 +91,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1808122515768279794
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4357141810463342339}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 328652950757911482, guid: 2fb5304977a34484cb6a801ae9aa2177, type: 3}
 --- !u!114 &5267794665026235526
 MonoBehaviour:
   m_ObjectHideFlags: 0
