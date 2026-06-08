@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6565377358052117940}
   - component: {fileID: 6565377358052887956}
   - component: {fileID: 6565377358054018900}
+  - component: {fileID: 160317535360686860}
   m_Layer: 0
   m_Name: BigRock2_SubwaySurfer
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6565377358051758484}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -25.509624, y: 6.5756803, z: -13.838409}
   m_LocalScale: {x: 218.84923, y: 218.84923, z: 218.84923}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &6565377358052887956
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,3 +91,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &160317535360686860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565377358051758484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0

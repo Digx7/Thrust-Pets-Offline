@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5196753260847853457}
   - component: {fileID: 5196753260844953521}
   - component: {fileID: 5196753260846083441}
+  - component: {fileID: 7345243389203034022}
   m_Layer: 0
   m_Name: DeadOak3_SubwaySurfer
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5196753260848346033}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7313709, y: 0.0060394714, z: -0.0005730642, w: 0.68195295}
+  m_LocalRotation: {x: -0.73137206, y: 0.006038402, z: -0.0005745702, w: 0.68195164}
   m_LocalPosition: {x: -86.28, y: 8.885448, z: -22.62}
-  m_LocalScale: {x: 312.7476, y: 312.7476, z: 312.74756}
+  m_LocalScale: {x: 312.74762, y: 312.7476, z: 312.74753}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -94.041, y: -7.399994, z: 7.8430023}
 --- !u!33 &5196753260844953521
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,3 +91,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7345243389203034022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5196753260848346033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0

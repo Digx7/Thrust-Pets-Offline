@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1563695415124466319}
   - component: {fileID: 1563695415123172015}
   - component: {fileID: 1563695415122172015}
+  - component: {fileID: 4258695201274504245}
   m_Layer: 0
   m_Name: Rock_25_SubwaySurfer
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563695415124100783}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -49.26, y: 4.1940813, z: 4.39}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &1563695415123172015
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,3 +91,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4258695201274504245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563695415124100783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f1a87a73428b145a3f94e87f489ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeshBoundsHelper
+  boundsSizeMultiplier: 100000
+  runsOnStart: 1
+  runsOnUpdate: 0
