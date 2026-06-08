@@ -88,8 +88,15 @@ TextureImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 141948
-  packageName: Raft on the desert - Free Low Poly Pack
-  packageVersion: 1.3
-  assetPath: Assets/EmaceArt - raft on the desert/Skybox/Textures/desert_skybox.png
-  uploadId: 899464
+  productId: 145043
+  packageName: "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0P\0\0\0\x01"
+  packageVersion: 1.0
+  assetPath: Assets/Art/3D/EmaceArt - raft on the desert/Skybox/Textures/desert_skybox.png
+  uploadId: 832048
+AssetOrigin:
+  serializedVersion: 1
+  productId: 145043
+  packageName: "Free Low Poly \u2013 Lava Plants"
+  packageVersion: 1.0
+  assetPath: Assets/Art/3D/EmaceArt - raft on the desert/Skybox/Textures/desert_skybox.png
+  uploadId: 832048
