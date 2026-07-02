@@ -22,29 +22,32 @@ public class LaneMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public BooleanEvent OnGroundedEvent;
+    public UnityEvent OnLandEvent;
+    public UnityEvent OnFastFallEvent;
     public BooleanEvent OnSlideEvent;
+    public UnityEvent OnSlideStartEvent;
+    public UnityEvent OnSlideEndEvent;
+
+    public BooleanEvent OnJumpEvent;
 
     public int currentLane = 1; // 0: left, 1: middle, 2: right
     Vector3 targetPosition;
     bool isChangingLane = false;
+    bool isAirborne = false;
     Vector3 velocity;
     public bool IsGrounded()
     {
-        // get
-        // {
-        //     return _isGrounded;
-        // }
-        // set
-        // {
-        //     if(value is bool)
-        //     {
-        //         _isGrounded = value;
-        //         OnGroundedEvent?.Invoke(_isGrounded);
-        //     }
-        // }
+        
 
         bool output = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
         OnGroundedEvent?.Invoke(output);
+
+        if(output && isAirborne)
+        {
+            OnLandEvent?.Invoke();
+        }
+
+        isAirborne = !output;
         return output;
     }
     float lastJumpTime = -1f;
@@ -74,6 +77,14 @@ public class LaneMovement : MonoBehaviour
             {
                 _isSliding = value;
                 OnSlideEvent?.Invoke(_isSliding);
+                if(_isSliding)
+                {
+                    OnSlideStartEvent?.Invoke();
+                }
+                else
+                {
+                    OnSlideEndEvent?.Invoke();
+                }
             }
         }
     }
@@ -157,6 +168,7 @@ public class LaneMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Physics-based jump
             lastJumpTime = Time.time; // Record jump time
+            OnJumpEvent?.Invoke(true);
         }
     }
 
@@ -175,6 +187,7 @@ public class LaneMovement : MonoBehaviour
             // TODO Fast fall
             velocity.y = 0; // Cancle out any upward velocity
             _isFastFalling = true;
+            OnFastFallEvent?.Invoke();
         }
     }
 

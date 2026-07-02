@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FlatKitPixelation
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.FlatKitPixelation
   m_Active: 1
-  settings: {fileID: 11400000, guid: c472facfb9eceae4ebca89f811c42f20, type: 2}
+  settings: {fileID: 11400000, guid: d55718ee33b851740b5f323c46d30847, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,7 +40,8 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: -3592795521948342522}
-  m_RendererFeatureMap: 06a7a71b82d323ce
+  - {fileID: 262344874088993767}
+  m_RendererFeatureMap: 06a7a71b82d323cee713b8e44509a403
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -69,6 +70,20 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
+--- !u!114 &262344874088993767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca7768aaaea4b0081f14e7f9d4b5ad, type: 3}
+  m_Name: FlatKitOutline
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.FlatKitOutline
+  m_Active: 0
+  settings: {fileID: 11400000, guid: 052a63ef16447314fb879ace58deba7a, type: 2}
 --- !u!114 &1002035807535710140
 MonoBehaviour:
   m_ObjectHideFlags: 0
