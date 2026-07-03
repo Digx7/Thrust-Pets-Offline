@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.PixelationSettings
   resolution: 720
   renderEvent: 550
-  applyInSceneView: 1
+  applyInSceneView: 0
   effectMaterial: {fileID: 2140409755347951874}
 --- !u!21 &2140409755347951874
 Material:

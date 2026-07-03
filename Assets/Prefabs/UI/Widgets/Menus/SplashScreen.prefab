@@ -66,6 +66,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  requestUpdateFallBackSelection:
+    m_PersistentCalls:
+      m_Calls: []
+  requestSelectFallBack:
+    m_PersistentCalls:
+      m_Calls: []
+  fallBackSelection: {fileID: 0}
+  uiNavigateAction: {fileID: 0}
   mainMenuWidgetData: {fileID: 11400000, guid: ded42b706e85a2f41835bfbacdce83d1, type: 2}
   requestLoadUIWidgetEvent:
     m_PersistentCalls:
@@ -189,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4652179534513012889, guid: b209f9a6350bba64b86ede31de293e5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -242,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_text
       value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
+      propertyPath: m_fontSize
+      value: 58.4
       objectReference: {fileID: 0}
     - target: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_Pivot.x
@@ -431,7 +447,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
       propertyPath: m_fontSize
-      value: 300
+      value: 204.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_margin.x
+      value: 83.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_margin.z
+      value: 28.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 318f84b160940634ea7a1fddcb8531c2, type: 2}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7326942308417900330, guid: 318f84b160940634ea7a1fddcb8531c2, type: 2}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732099593534810254, guid: f5fb38a070db5ff4d897f3c2a88a6b99, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
