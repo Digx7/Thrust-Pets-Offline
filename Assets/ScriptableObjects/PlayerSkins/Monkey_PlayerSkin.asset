@@ -15,5 +15,5 @@ MonoBehaviour:
   _displayName: Monkey
   _itemID: 0
   _unlockType: 2
-  _menuImage: {fileID: 21300000, guid: 90ced0d333f83724dbaf486b5b9b566c, type: 3}
+  _menuImage: {fileID: 21300000, guid: a875ad0a3e8d17d49837dd30515d7b02, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: b9866a690081afc499e1591d6e183cf9, type: 3}

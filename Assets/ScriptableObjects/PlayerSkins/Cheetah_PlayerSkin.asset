@@ -15,5 +15,5 @@ MonoBehaviour:
   _displayName: Cheetah
   _itemID: 0
   _unlockType: 2
-  _menuImage: {fileID: 21300000, guid: 5968cfe0a861fa54587b527082d8b205, type: 3}
+  _menuImage: {fileID: 21300000, guid: 406b782939d08d24fac41058232fbc4b, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: e1436637488a824459c27c7cb53efc9d, type: 3}

@@ -15,5 +15,5 @@ MonoBehaviour:
   _displayName: Cat
   _itemID: 0
   _unlockType: 0
-  _menuImage: {fileID: 21300000, guid: a969cd49431e04d4fa1413f522561f5a, type: 3}
+  _menuImage: {fileID: 21300000, guid: 1afc5fe9d5bb15342a539651cae36859, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: b3f726aaaae62a34ca00e6b759b124e4, type: 3}

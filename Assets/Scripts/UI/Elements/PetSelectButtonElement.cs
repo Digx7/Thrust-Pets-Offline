@@ -32,7 +32,8 @@ public class PetSelectButtonElement : UIElement
     public void Refreash()
     {
         
-        if(_icon != null)_icon.sprite = _playerSkin.MenuImage;
+        // if(_icon != null)_icon.sprite = _playerSkin.MenuImage;
+        _icon.sprite = _playerSkin.MenuImage;
         _playerSkinDataChannelRaiser?.SetData(_playerSkin);
     }
 }
