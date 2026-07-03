@@ -16,4 +16,5 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: d33c16ad497893945a0fdb8d7e11cc0c, type: 3}
+  _photoImage: {fileID: 21300000, guid: d93a153ae84f4724bb649ef6e32894f6, type: 3}
   _runtimePrefab: {fileID: 2667299071972735997, guid: 2ddb7edbde927ca4db2659e6a1e834e9, type: 3}

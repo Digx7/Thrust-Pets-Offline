@@ -15,6 +15,9 @@ namespace Digx7.ThrustPets
         public ItemUnlockType UnlockType => _unlockType;
         [SerializeField] Sprite _menuImage;
         public Sprite MenuImage => _menuImage;
+
+        [SerializeField] Sprite _photoImage;
+        public Sprite PhotoImage => _photoImage;
         [SerializeField] GameObject _runtimePrefab;
         public GameObject RuntimePrefab => _runtimePrefab;
     }
