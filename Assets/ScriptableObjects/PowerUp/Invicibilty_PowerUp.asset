@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Digx7.ThrustPets.PowerUpData
   _displayName: Ivincibility
   _itemID: 0
-  _menuImage: {fileID: 21300000, guid: 82759a53bae196b41a1ccfc439a10e96, type: 3}
+  _menuImage: {fileID: 21300000, guid: f408fb1f86eac3b4ea1a441a15b02a32, type: 3}
+  _menuPhoto: {fileID: 0}
+  _menuDescription: 
   _runtimePrefab: {fileID: 2504992391054070168, guid: 0ea9d75924eb84a41bd5a61928c70488, type: 3}
-  _usesLeft: 99
+  _cooldownTime: 10
   OnTryToUse:
     m_PersistentCalls:
       m_Calls: []

@@ -17,7 +17,7 @@ public class MainMenuSelectedPowerUpElment : UIElement
 
     public void Refreash(PowerUpData powerUpData)
     {
-        _count.text = powerUpData.UsesLeft.ToString();
+        // _count.text = powerUpData.UsesLeft.ToString();
         
         if(powerUpData.MenuImage != null)
         {

@@ -33,14 +33,16 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     {
         get
         {
-            if(_activePowerUps.Count > 1)
-            {
-                return _activePowerUps[0];
-            }
-            else
-            {
-                return _activePowerUp;
-            }
+            // if(_activePowerUps.Count > 1)
+            // {
+            //     return _activePowerUps[0];
+            // }
+            // else
+            // {
+            //     return _activePowerUp;
+            // }
+
+            return _activePowerUp;
             
         }
         private set
@@ -48,8 +50,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             if (value is PowerUpData)
             {
                 _activePowerUp = value;
-                _activePowerUps[0] = value;
-                OnUpdateActivePowerUp.Invoke(_activePowerUps[0]);
+                // _activePowerUps[0] = value;
+                OnUpdateActivePowerUp.Invoke(_activePowerUp);
             }
         }
     }

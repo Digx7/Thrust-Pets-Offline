@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoostRunTime
   lifeTime: 5
-  boostDuration: 4
+  boostDuration: 0.5
   boostMultiplier: 3

@@ -15,11 +15,19 @@ namespace Digx7.ThrustPets
         public int ItemID => _itemID;
         [SerializeField] Sprite _menuImage;
         public Sprite MenuImage => _menuImage;
+
+        [SerializeField] Sprite _menuPhoto;
+        public Sprite MenuPhoto => _menuPhoto;
+
+        [SerializeField] string _menuDescription;
+        public string MenuDescription => _menuDescription;
         [SerializeField] GameObject _runtimePrefab;
         public GameObject RuntimePrefab => _runtimePrefab;
 
-        [SerializeField] int _usesLeft;
-        public int UsesLeft => _usesLeft;
+        [SerializeField] float _cooldownTime;
+        public float CooldownTime => _cooldownTime;
+
+        private float _lastUsedTime;
 
         [Header("")]
         public BooleanEvent OnTryToUse;
@@ -28,7 +36,7 @@ namespace Digx7.ThrustPets
 
         private void OnEnable() 
         {
-            _usesLeft = 99;
+            _lastUsedTime = -_cooldownTime;
         }
 
         public bool TryUse(out GameObject runtimePrefab)
@@ -47,16 +55,20 @@ namespace Digx7.ThrustPets
 
         public bool TryUse()
         {
-            if(_usesLeft > 0)
+            
+            if(Time.time - _lastUsedTime >= _cooldownTime)
             {
-                _usesLeft--;
+                _lastUsedTime = Time.time;
                 OnTryToUse.Invoke(true);
                 OnSuccessfullyUse.Invoke();
                 return true;
             }
-            OnTryToUse.Invoke(false);
-            OnFailToUse.Invoke();
-            return false;
+            else
+            {
+                OnTryToUse.Invoke(false);
+                OnFailToUse.Invoke();
+                return false;
+            }
         }
     }
 }

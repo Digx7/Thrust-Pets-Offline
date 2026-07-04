@@ -42,6 +42,8 @@ public class PlayerPowerUpComponent : MonoBehaviour
             {
                 if(_currentPowerUps[powerUpIndex].TryUse(out GameObject powerupRuntimePrefab))
                 {
+                    Debug.Log($"PlayerPowerUpComponent just used the powerup at index {powerUpIndex} which is {_currentPowerUps[powerUpIndex].name}");
+                    
                     GameObject powerupRuntimeObj = Instantiate(powerupRuntimePrefab, this.transform);
                 }
             }

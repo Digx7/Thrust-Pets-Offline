@@ -14949,7 +14949,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPowerUpComponent
   _currentPowerUp: {fileID: 0}
-  _currentPowerUps: []
+  _currentPowerUps:
+  - {fileID: 11400000, guid: 56ac1624ce84c9f4aa55167bf16642a3, type: 2}
+  - {fileID: 11400000, guid: bbc7d80c9b17ab241aebcca56ba8f765, type: 2}
+  - {fileID: 11400000, guid: 0987063590b936747a95818330d3e9f5, type: 2}
   _request_TryToUsePowerUp_channel: {fileID: 11400000, guid: df756f41c39393046bb3355015c8f076, type: 2}
 --- !u!1 &6318319081599574975
 GameObject:
