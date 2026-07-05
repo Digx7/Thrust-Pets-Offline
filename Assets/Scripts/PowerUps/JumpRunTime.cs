@@ -18,7 +18,7 @@ public class JumpRunTime : PowerUpRuntime
     {
         LaneMovement laneMovement = GetComponentInParent<LaneMovement>();
 
-        laneMovement.TryJump();
+        laneMovement.TryJump(5f);
 
         yield return null;
         // new

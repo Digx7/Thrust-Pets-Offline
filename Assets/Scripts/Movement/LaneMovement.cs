@@ -172,6 +172,16 @@ public class LaneMovement : MonoBehaviour
         }
     }
 
+    public void TryJump(float jumpHeightOverride)
+    {
+        if(IsGrounded() && Time.time > lastJumpTime + jumpCooldown)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeightOverride * -2f * gravity); // Physics-based jump
+            lastJumpTime = Time.time; // Record jump time
+            OnJumpEvent?.Invoke(true);
+        }
+    }
+
     public void TrySlide()
     {
         if(IsGrounded())
