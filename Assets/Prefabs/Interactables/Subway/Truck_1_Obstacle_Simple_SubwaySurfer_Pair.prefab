@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   type: 0
   canSlideUnder: 0
+  destroyEffect: {fileID: 3305296438427125256, guid: 5fbad2bc043dd05429fd58083c5da45e, type: 3}
+  parentObject: {fileID: 1972275924301595028}
 --- !u!1001 &7055012666685480257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,6 +238,11 @@ PrefabInstance:
 --- !u!4 &1677493787597784050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
+  m_PrefabInstance: {fileID: 7055012666685480257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1972275924301595028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
   m_PrefabInstance: {fileID: 7055012666685480257}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8197248034672331494

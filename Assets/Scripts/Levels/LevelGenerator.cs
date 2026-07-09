@@ -272,7 +272,15 @@ public class LevelGenerator : MonoBehaviour
         if(activeObstacles.Count > 0) 
         {
             
-            if (player.position.z > activeObstacles.Peek().transform.position.z + (reuseDistance / 2))
+            if (activeObstacles.Peek() == null)
+            {
+                activeObstacles.Dequeue();
+
+                // When the player runs into an obstacle, the obstacle is destroyed and removed from the active queue. 
+                // This can cause the next obstacle in the queue to be null, so we check if the next obstacle reference is valid.  
+                // If it is not valid, we remove the empty reference from the queue and continue to the next frame.
+            }
+            else if (player.position.z > activeObstacles.Peek().transform.position.z + (reuseDistance / 2))
             {
                 ReuseObstacle();
             }
@@ -351,14 +359,6 @@ public class LevelGenerator : MonoBehaviour
 
         // Select random lane
         int randomLaneIndex = sharedRandom.Next(0, 3);
-
-        // // Set obstacle position based on lane and offset
-        // Vector3 obstaclePosition = new Vector3(0f, oldObstacle.transform.position.y, obstacleOffset);
-        // obstaclePosition.x = laneIndexToXPos(randomLaneIndex);
-
-        // // Set obstacle position and add it back to the active queue
-        // oldObstacle.transform.position = obstaclePosition;
-        // activeObstacles.Enqueue(oldObstacle);
 
         if(TryToFindObstaclePosition(oldObstacle.transform.position.y, obstacleOffset, ref randomLaneIndex, out Vector3 obstaclePosition))
         {

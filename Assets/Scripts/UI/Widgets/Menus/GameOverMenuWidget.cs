@@ -51,8 +51,8 @@ public class GameOverMenuWidget : UIMenu
         }
         
         
-        levelReachedTMPro.text = $"Level Reached: {gameEndResults.levelReached}";
-        coinsCollectedTMPro.text = $"Coins Collected: {gameEndResults.coins}";
+        levelReachedTMPro.text = $"Distance: {gameEndResults.levelReached}";
+        coinsCollectedTMPro.text = $"Coins: {gameEndResults.coins}";
 
         if(gameEndResults.time >= -1 && timeRemainingTMPro != null)
         {

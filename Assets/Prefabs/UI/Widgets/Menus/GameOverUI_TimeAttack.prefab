@@ -337,6 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3923132228297864218}
   - component: {fileID: 5433933715219495228}
+  - component: {fileID: 4275988869600659087}
   m_Layer: 5
   m_Name: Elements
   m_TagString: Untagged
@@ -580,6 +581,18 @@ MonoBehaviour:
           m_CallState: 2
   updateInEditMode: 0
   updateOnStart: 1
+--- !u!225 &4275988869600659087
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831218048926217464}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4252776170710052174
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4795403318333189277}
   - component: {fileID: 166476029375791301}
+  - component: {fileID: 3044338930256877230}
   m_Layer: 5
   m_Name: GameOverUI_TimeAttack
   m_TagString: Untagged
@@ -875,6 +889,28 @@ MonoBehaviour:
   timeRemainingTMPro: {fileID: 7660055697406604739}
   scoreTMPro: {fileID: 3094323014301005457}
   _On_GameEnd_Channel: {fileID: 11400000, guid: d1f49df5619dccf45b8d83a230bb37f4, type: 2}
+--- !u!95 &3044338930256877230
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178392673657786732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 012de6b8b9a0bee489fe1f08963e3b77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5907510699591247997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Digx7.Zygote.UIWidgetDataChannelRaiser
   channelToRaise: {fileID: 11400000, guid: 292c0aaffbdafba418055e6a3626d74c, type: 2}
-  m_data: {fileID: 11400000, guid: 1ba3c1e3de4d1824aa0e8a5735ddfdf7, type: 2}
+  m_data: {fileID: 11400000, guid: 8b3838433be5a464ba362e1b3ed4f33c, type: 2}
 --- !u!1 &8332080392116286861
 GameObject:
   m_ObjectHideFlags: 0

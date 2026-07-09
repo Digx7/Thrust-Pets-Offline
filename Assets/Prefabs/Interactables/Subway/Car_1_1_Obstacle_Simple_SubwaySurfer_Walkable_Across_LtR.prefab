@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1898806564460196137, guid: bf2ac42d337abac4b888753df87bfd5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1972275924301595028, guid: bf2ac42d337abac4b888753df87bfd5f, type: 3}
       propertyPath: m_Name
       value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across_LtR
