@@ -82,13 +82,16 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
             if(value is bool)
             {
                 _isDead = value;
-                animator?.SetBool("Dead", _isDead);
+                playerSkinAnimator?.SetBool("Dead", _isDead);
+                endlessRunnerCharacterAnimator?.SetBool("IsDead", _isDead);
             }
         }
     }
 
     [Header("References")]
-    [SerializeField] Animator animator;
+    [SerializeField] Animator playerSkinAnimator;
+    [SerializeField] Animator adventurerAnimator;
+    [SerializeField] Animator endlessRunnerCharacterAnimator;
     [SerializeField] LaneMovement laneMovement;
     [SerializeField] Transform playerSkinHolder;
     [SerializeField] PlayerPowerUpComponent playerPowerUpComponent;
@@ -115,7 +118,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
             if(value is bool && _isGrounded != value)
             {
                 _isGrounded = value;
-                animator?.SetBool("Grounded", _isGrounded);
+                playerSkinAnimator?.SetBool("Grounded", _isGrounded);
             }
         }
     }
@@ -132,7 +135,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
             if(value is bool && _isSliding!= value)
             {
                 _isSliding = value;
-                animator?.SetBool("Sliding", _isSliding);
+                playerSkinAnimator?.SetBool("Sliding", _isSliding);
             }
         }
     }
@@ -150,9 +153,9 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         CurrentHealth = _startingHealth;
         
         playerSkin = Instantiate(PlayerDataManager.Instance.PlayerSkin.RuntimePrefab, playerSkinHolder);
-        animator = playerSkin.GetComponentInChildren<Animator>();
+        playerSkinAnimator = playerSkin.GetComponentInChildren<Animator>();
 
-        animator.SetBool("GamePlay", true);
+        playerSkinAnimator.SetBool("GamePlay", true);
 
         
         base.Setup(newID);
@@ -201,7 +204,7 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
         // Debug.Log($"PlayerCharacter_EndlessRunner: TakeDamage() IsInvincible = {IsInvincible}");
 
         CurrentHealth--;
-        animator.SetTrigger("Hurt");
+        playerSkinAnimator.SetTrigger("Hurt");
         StartCoroutine(StopAndStartPlayer(1f));
     }
 
@@ -231,14 +234,47 @@ public class PlayerCharacter_EndlessRunner : PlayerCharacter
 
         yield return new WaitForSeconds(timeDelay);
 
-        Vector3 pos = transform.position;
-        pos.z += 1.7f;
-        pos.y += 0.5f;
-        transform.position = pos;
+        // Vector3 pos = transform.position;
+        // pos.z += 1.7f;
+        // pos.y += 0.5f;
+        // transform.position = pos;
 
         if (!IsDead) 
         {
             laneMovement.enabled = true;
+        }
+    }
+
+    public void AdventurerStopRunning()
+    {
+        SetAdventurerIsRunning(false);
+    }
+
+    public void AdventurerStartGrabbing()
+    {
+        SetAdventurerIsGrabbing(true);
+    }
+
+    public void AdventurerStopGrabbing()
+    {
+        SetAdventurerIsGrabbing(false);
+    }
+
+    public void SetAdventurerIsRunning(bool value)
+    {
+        SetAdventurerBool("IsRunning", value);
+    }
+
+    public void SetAdventurerIsGrabbing(bool value)
+    {
+        SetAdventurerBool("IsGrabbing", value);
+    }
+
+    public void SetAdventurerBool(string boolName, bool value)
+    {
+        if(adventurerAnimator != null)
+        {
+            adventurerAnimator.SetBool(boolName, value);
         }
     }
 
