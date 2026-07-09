@@ -233,7 +233,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2566743944458541592}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7193841331401552517}
   m_SourcePrefab: {fileID: 100100000, guid: 10adea24633814a478df47da9521b960, type: 3}
 --- !u!4 &1677493787597784050 stripped
 Transform:
@@ -245,6 +248,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
   m_PrefabInstance: {fileID: 7055012666685480257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7193841331401552517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972275924301595028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df43bd890bc94a4a96e7e662ded0ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleObstacleHelper
+  vehicleMeshes:
+  - {fileID: -2971661163974314768, guid: 49c26b01a602bba4896bfacf2ed9eeb3, type: 3}
+  - {fileID: -2172140114879642740, guid: 61cd4b416075d314a996d28c4c151f29, type: 3}
+  - {fileID: 7105177328941068650, guid: 1d1d8edad1737f443814063e4837158b, type: 3}
+  meshFilter: {fileID: 1455000856387196349}
 --- !u!1001 &8197248034672331494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +338,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0364cb90f8382f840bcbb80c4970ccae, type: 3}
+--- !u!33 &1455000856387196349 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 7346297029916680027, guid: 0364cb90f8382f840bcbb80c4970ccae, type: 3}
+  m_PrefabInstance: {fileID: 8197248034672331494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2566743944458541592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5934778579920343294, guid: 0364cb90f8382f840bcbb80c4970ccae, type: 3}

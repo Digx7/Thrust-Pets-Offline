@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3173552864009846460, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4378140252650412528, guid: 78cc35139669f954a8c9f025310f8afa, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -671,6 +675,11 @@ MonoBehaviour:
 --- !u!4 &5565812591530344471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1992106259917435161, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
+  m_PrefabInstance: {fileID: 6239982503229518094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &8832234542298238898 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 3173552864009846460, guid: e1d32747d09c9db4ebaeb409cbf1a9d1, type: 3}
   m_PrefabInstance: {fileID: 6239982503229518094}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7055012666685480257
@@ -745,7 +754,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8552290691338444467, guid: 10adea24633814a478df47da9521b960, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1531861235833428118}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3613991320131197439}
   m_SourcePrefab: {fileID: 100100000, guid: 10adea24633814a478df47da9521b960, type: 3}
 --- !u!4 &1677493787597784050 stripped
 Transform:
@@ -757,3 +769,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8842428799076670677, guid: 10adea24633814a478df47da9521b960, type: 3}
   m_PrefabInstance: {fileID: 7055012666685480257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3613991320131197439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972275924301595028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df43bd890bc94a4a96e7e662ded0ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleObstacleHelper
+  vehicleMeshes:
+  - {fileID: 4378140252650412528, guid: 78cc35139669f954a8c9f025310f8afa, type: 3}
+  - {fileID: -6288713683864380228, guid: 51f1152715beffc479574be51b23d625, type: 3}
+  - {fileID: 6602302412831896246, guid: 6881d3df53d65c141a8c1d5ce0dbf93c, type: 3}
+  - {fileID: -8189487360084506886, guid: 5eac0803a389c9b48aaeedf9a9ac90a5, type: 3}
+  - {fileID: -1865019909623949850, guid: 9576c5701b9355f48863af294eb28189, type: 3}
+  - {fileID: 4596163830256115807, guid: 9728311a5cd638b49b6ef0888d7a049b, type: 3}
+  - {fileID: 4137198676853901245, guid: 3d96142ff3be9344fadf194269659785, type: 3}
+  - {fileID: 4711252246474066524, guid: 68199d01a2b63d245a3d7f2e85637814, type: 3}
+  - {fileID: -9198059039356404674, guid: 3f7e3b45e3ed82e41935d2113100ee56, type: 3}
+  meshFilter: {fileID: 8832234542298238898}
