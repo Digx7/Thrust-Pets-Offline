@@ -19,6 +19,7 @@ namespace Digx7.ThrustPets
         [SerializeField] Sprite _menuPhoto;
         public Sprite MenuPhoto => _menuPhoto;
 
+        [TextArea(3,5)]
         [SerializeField] string _menuDescription;
         public string MenuDescription => _menuDescription;
         [SerializeField] GameObject _runtimePrefab;

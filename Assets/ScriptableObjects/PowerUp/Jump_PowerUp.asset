@@ -15,8 +15,8 @@ MonoBehaviour:
   _displayName: Jump
   _itemID: 0
   _menuImage: {fileID: 21300000, guid: ccb0bf77806fe1541924b2ecb0520c24, type: 3}
-  _menuPhoto: {fileID: 0}
-  _menuDescription: 
+  _menuPhoto: {fileID: 21300000, guid: 95c1be3b61d647d498bec6e1a733e75b, type: 3}
+  _menuDescription: Leap tall objects in a single bound.
   _runtimePrefab: {fileID: 5536303132746848686, guid: 18ad06b3b95d22540b8e72726b0af862, type: 3}
   _cooldownTime: 3
   OnTryToUse:
