@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Digx7.Zygote;
 using TMPro;
 
@@ -8,7 +9,11 @@ public class RunScoreUIElement : UIElement
 
     [Header("References")]
     [SerializeField] TextMeshProUGUI coinsTMPro;
+    [SerializeField] List<AudioSource> coinsAudioSources;
     [SerializeField] TextMeshProUGUI distanceTMPro;
+
+    private int lastCointAudioSourceIndex = 0;
+    private float lastCoinAudioSourcePlayTime = 0f;
 
     [Header("Incoming Channels")]
     [SerializeField] IntChannel on_CoinsChanged_Channel;
@@ -48,6 +53,19 @@ public class RunScoreUIElement : UIElement
     public void OnRecieve_OnCoinsChanged(int newCoins)
     {
         coins = newCoins;
+
+        if(newCoins > 0)
+        {
+            if(Time.time - lastCoinAudioSourcePlayTime > 0.5f)
+            {
+                lastCointAudioSourceIndex = 0;
+            }
+            lastCoinAudioSourcePlayTime = Time.time;
+            
+            coinsAudioSources[lastCointAudioSourceIndex].Play();
+            lastCointAudioSourceIndex = (lastCointAudioSourceIndex + 1) % coinsAudioSources.Count;
+        }
+
         RefreshUI();
     }
 

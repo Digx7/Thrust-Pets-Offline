@@ -21,6 +21,7 @@ public class LaneMovement : MonoBehaviour
     public float fastFallSpeed = 5f;
     public LayerMask groundMask;
 
+    public UnityEvent OnChangeLaneEvent;
     public BooleanEvent OnGroundedEvent;
     public UnityEvent OnLandEvent;
     public UnityEvent OnFastFallEvent;
@@ -143,6 +144,8 @@ public class LaneMovement : MonoBehaviour
                     currentLane--;
                     isChangingLane = true;
                     targetPosition.x = (currentLane - 1) * laneDistance;
+                    OnChangeLaneEvent?.Invoke();
+
                     return true;
                 }
             }
@@ -153,6 +156,8 @@ public class LaneMovement : MonoBehaviour
                     currentLane++;
                     isChangingLane = true;
                     targetPosition.x = (currentLane - 1) * laneDistance;
+                    OnChangeLaneEvent?.Invoke();
+                    
                     return true;
                 }
             }
