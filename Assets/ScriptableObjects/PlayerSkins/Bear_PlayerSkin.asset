@@ -17,4 +17,15 @@ MonoBehaviour:
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: c6ad658927a91844b980380bca0cd286, type: 3}
   _photoImage: {fileID: 21300000, guid: 7d8debe02bf3b2b4c8f97ec847622744, type: 3}
+  _menuDescription: Do not feed honey
+  _funFacts:
+  - _fact: Research on American black bears shows they can actually count. They can
+      distinguish between large and small numbers of dots with a success rate similar
+      to monkeys.
+  - _fact: American black bears are rarely ever black. Their coats can range from
+      blue-gray and blue-black to cinnamon, brown, and sometimes even white.
+  - _fact: A bear's sense of smell is widely considered the best among all land animals,
+      capable of tracking scents from miles away.
+  - _fact: Brown bears can breed with black and polar bears. A brown/polar hybrid
+      is called a grolar or a pizzly bear.
   _runtimePrefab: {fileID: 2667299071972735997, guid: d7a1de33ef1131c49a52c89575d1324e, type: 3}

@@ -17,4 +17,16 @@ MonoBehaviour:
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: 355b328eb94323f4d9a07b26f98f61f4, type: 3}
   _photoImage: {fileID: 21300000, guid: c48b3b117baed144faa67482fa4cc45c, type: 3}
+  _menuDescription: He can't bark, he'll growl even when he's happy
+  _funFacts:
+  - _fact: Wolf pups are born with bright blue eyes, which typically transition to
+      a golden-yellow or amber color by the time they are 6 to 8 weeks old.
+  - _fact: A wolf's howl can travel up to 10 miles in open terrain. Contrary to popular
+      folklore, they don't howl at the moon; their howling is mostly to locate pack
+      members, communicate with other packs, and defend territory.
+  - _fact: 'Wolf''s fur consists of two layers: coarse outer hairs to repel water
+      and a soft undercoat to insulate them against temperatures far below freezing.'
+  - _fact: "When a wolf pack needs to make a decision about hunting or moving territories,
+      they use body language and vocalizations to display preferences\u2014acting
+      almost like they are \"voting\" on the group's next move."
   _runtimePrefab: {fileID: 2667299071972735997, guid: e7057be0158304c4a83eb8b376c093f3, type: 3}

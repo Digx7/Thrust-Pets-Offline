@@ -17,4 +17,13 @@ MonoBehaviour:
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: d33c16ad497893945a0fdb8d7e11cc0c, type: 3}
   _photoImage: {fileID: 21300000, guid: d93a153ae84f4724bb649ef6e32894f6, type: 3}
+  _menuDescription: Often sports a cop uniform.
+  _funFacts:
+  - _fact: A rabbit's teeth never stop growing, sometimes growing up to five inches
+      a year. They constantly need to chew on tough, fibrous plants like hay to wear
+      them down and prevent dental issues.
+  - _fact: Their iconic ears can rotate independently and detect sounds up to two
+      miles away. They also help keep them cool in the summer.
+  - _fact: A group of rabbits is officially called a "fluffle".
+  - _fact: 'Rabbits communicate joy through a mid-air twist called a "binky". '
   _runtimePrefab: {fileID: 2667299071972735997, guid: 2ddb7edbde927ca4db2659e6a1e834e9, type: 3}

@@ -17,4 +17,16 @@ MonoBehaviour:
   _unlockType: 0
   _menuImage: {fileID: 21300000, guid: 1afc5fe9d5bb15342a539651cae36859, type: 3}
   _photoImage: {fileID: 21300000, guid: 393ec6a4ee4dc9d4d8cabb0ac4909ac6, type: 3}
+  _menuDescription: 'Call: 555-555-5555'
+  _funFacts:
+  - _fact: House cats share 95.6% of their genetic makeup with TIGERS. They also
+      share some of the same behavior habits such as scent and urine marking, prey
+      stalking, and pouncing.
+  - _fact: Cats can rotate their ears 180 degrees.
+  - _fact: Cats might not be able to speak human languages, but they have quite the
+      repertoire of vocalizations. With up to 100 different sounds, they can communicate
+      everything from affection to demands for food.
+  - _fact: "The fastest recorded domestic cat could run about 30 mph. That\u2019s
+      three mph faster than the 27 mph record of Usain Bolt, the fastest man in the
+      world."
   _runtimePrefab: {fileID: 2667299071972735997, guid: b3f726aaaae62a34ca00e6b759b124e4, type: 3}

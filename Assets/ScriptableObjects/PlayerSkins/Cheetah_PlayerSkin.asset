@@ -17,4 +17,17 @@ MonoBehaviour:
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: 406b782939d08d24fac41058232fbc4b, type: 3}
   _photoImage: {fileID: 21300000, guid: d7df517e1afa1ed49a2d7de4efde3030, type: 3}
+  _menuDescription: May try to play cards with you.
+  _funFacts:
+  - _fact: On cheetahs the black "tear lines" running from their eyes down to their
+      mouths aren't just for looks; they act like athletic eye-black, reducing the
+      sun's glare so they can spot prey more easily during the day.
+  - _fact: Cheetahs can spot prey from over 1.5 miles away and use high ground, like
+      termite mounds, to scan the horizon.
+  - _fact: Unlike typical felines, cheetahs have semi-retractable claws that act
+      exactly like football cleats to grip the ground during high-speed, sharp-turning
+      sprints.
+  - _fact: Cheetahs are the only big cats that cannot roar. Instead, they communicate
+      using a range of sounds including chirps, purrs, growls, and hisses. Their
+      bird-like chirps can travel up to a mile away.
   _runtimePrefab: {fileID: 2667299071972735997, guid: e1436637488a824459c27c7cb53efc9d, type: 3}

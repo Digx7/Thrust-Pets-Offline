@@ -17,4 +17,17 @@ MonoBehaviour:
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: fe5d4b65bd8f9d34aacd53019a063e8b, type: 3}
   _photoImage: {fileID: 21300000, guid: ca4192236419e024dac5d6513eb583f1, type: 3}
+  _menuDescription: May be seen chasing a road runner
+  _funFacts:
+  - _fact: Coyotes are the most vocal wild mammals in North America. Researchers
+      have identified 11 different vocalizations they use to communicate, including
+      growls, barks, yelps, and howls.
+  - _fact: Coyotes are omnivores and eat almost anything available, including mice,
+      rabbits, insects, and fruits. This varied diet provides free pest and disease
+      control, especially by managing rodents that carry Lyme disease.
+  - _fact: Coyotes have been known to form unique bonds with other species. They
+      will sometimes hunt alongside badgers to catch ground squirrels, and have been
+      known to travel through wildlife tunnels with them for safety.
+  - _fact: Both male and female coyotes care for their pups, bringing food back to
+      the den until the young ones are nearly 9 months old.
   _runtimePrefab: {fileID: 2667299071972735997, guid: 1b9f503786d29ce45945a7765dccb76e, type: 3}

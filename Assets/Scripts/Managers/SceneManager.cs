@@ -83,6 +83,8 @@ namespace Digx7.Zygote
 
         protected void OnRecieve_OnAddScene(SceneData data)
         {
+            OnChangeSceneEvent.Invoke();
+            
             LoadSceneMode mode = LoadSceneMode.Additive;
             UpdateContext(data.context);
             LoadScene(data.sceneName, mode);
