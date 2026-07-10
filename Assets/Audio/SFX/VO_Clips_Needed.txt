@@ -40,4 +40,3 @@ Effect Chain
 2. TB_TimeMachine -> 8-bit fun
 3. Change Pitch -> Frequency Percent Change -2.000
 4. Reverb -> Vox 2
-5. ???
