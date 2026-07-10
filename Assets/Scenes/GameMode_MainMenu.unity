@@ -5626,6 +5626,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2352506840822014023, guid: ad0bb65841a65dd4ea392abbbce3ede9, type: 3}
+      propertyPath: songToJumpTo
+      value: 
+      objectReference: {fileID: 11400000, guid: 25c0dcfedd746e345873420fb0fb64e6, type: 2}
     - target: {fileID: 6027563644734891476, guid: ad0bb65841a65dd4ea392abbbce3ede9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

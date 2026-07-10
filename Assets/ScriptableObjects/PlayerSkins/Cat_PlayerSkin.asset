@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 0
   _menuImage: {fileID: 21300000, guid: 1afc5fe9d5bb15342a539651cae36859, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: f168e8b888da5b44da950d175f640462, type: 2}
   _photoImage: {fileID: 21300000, guid: 393ec6a4ee4dc9d4d8cabb0ac4909ac6, type: 3}
   _menuDescription: 'Call: 555-555-5555'
   _funFacts:

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
@@ -15,6 +16,9 @@ namespace Digx7.ThrustPets
         public ItemUnlockType UnlockType => _unlockType;
         [SerializeField] Sprite _menuImage;
         public Sprite MenuImage => _menuImage;
+
+        [SerializeField] AudioResource _menuVO;
+        public AudioResource MenuVO => _menuVO;
 
         [SerializeField] Sprite _photoImage;
         public Sprite PhotoImage => _photoImage;

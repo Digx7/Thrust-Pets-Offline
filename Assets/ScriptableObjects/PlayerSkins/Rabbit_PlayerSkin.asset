@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: d33c16ad497893945a0fdb8d7e11cc0c, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: 90855f605b2df8e438e08fed0a30aa56, type: 2}
   _photoImage: {fileID: 21300000, guid: d93a153ae84f4724bb649ef6e32894f6, type: 3}
   _menuDescription: Often sports a cop uniform.
   _funFacts:

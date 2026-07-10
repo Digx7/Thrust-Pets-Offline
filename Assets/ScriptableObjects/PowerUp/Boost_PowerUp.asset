@@ -15,6 +15,7 @@ MonoBehaviour:
   _displayName: Boost
   _itemID: 0
   _menuImage: {fileID: 21300000, guid: 1fa639766a9d2b34f8c3b7757fd939ac, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: c7d2976b75498fd47a58a271f7cd665a, type: 2}
   _menuPhoto: {fileID: 21300000, guid: c2bb2f5796a696c418a416436b185a66, type: 3}
   _menuDescription: Go zooooooomm.
   _runtimePrefab: {fileID: 3862831412638380614, guid: ed5f93e1f0fd9ea41a68ab13166f6867, type: 3}

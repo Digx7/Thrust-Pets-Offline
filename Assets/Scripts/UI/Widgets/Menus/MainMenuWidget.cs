@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using Digx7.ThrustPets;
 
 namespace Digx7.Zygote
 {
@@ -11,11 +13,14 @@ namespace Digx7.Zygote
 
         [Header("Variables")]
         [SerializeField] List<SceneData> gameModeScenes;
+        [SerializeField] List<ThrustPetGameModeData> gameModes;
         [SerializeField] List<SceneData> mapScenes;
+        [SerializeField] List<ThrustPetMapData> maps;
         [SerializeField] SceneData mainMenuScene;
         [SerializeField] UIWidgetData optionsMenuWidgetData;
         [SerializeField] UIWidgetData creditsMenuWidgetData;
         [SerializeField] UIWidgetData quitMenuWidgetData;
+        [SerializeField] AudioSource VOAudioSource;
         
         // [Header("Incoming Channels")]
         [Header("Outgoing Events")]
@@ -116,11 +121,17 @@ namespace Digx7.Zygote
         public void OnSelectGameMode(int index)
         {
             selectedGameModeIndex = index;
+
+            VOAudioSource.generator = (IAudioGenerator)gameModes[selectedGameModeIndex].MenuVO;
+            VOAudioSource.Play();
         }
 
         public void OnSelectMap(int index)
         {
             selectedMapIndex = index;
+
+            VOAudioSource.generator = (IAudioGenerator)maps[selectedMapIndex].MenuVO;
+            VOAudioSource.Play();
         }
 
         private IEnumerator playCoroutine()
@@ -130,13 +141,17 @@ namespace Digx7.Zygote
             onClickPlayCoroutineIsGoing = true;
             mapLoaded = false;
 
-            requestAddSceneDataEvent?.Invoke(gameModeScenes[selectedGameModeIndex]);
-            requestAddSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
+            // requestAddSceneDataEvent?.Invoke(gameModeScenes[selectedGameModeIndex]);
+            // requestAddSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
+
+            requestAddSceneDataEvent?.Invoke(gameModes[selectedGameModeIndex].sceneData);
+            requestAddSceneDataEvent?.Invoke(maps[selectedMapIndex].sceneData);
 
             yield return new WaitUntil(() => mapLoaded);
             yield return new WaitForSeconds(0.1f);
 
-            requestSetActiveSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
+            // requestSetActiveSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
+            requestSetActiveSceneDataEvent?.Invoke(maps[selectedMapIndex].sceneData);
             requestRemoveSceneDataEvent?.Invoke(mainMenuScene);
             requestUnLoadUIWidgetEvent?.Invoke(ownUIWidgetData);
 

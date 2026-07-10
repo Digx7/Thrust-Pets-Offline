@@ -1,0 +1,43 @@
+=====================
+Clips
+=====================
+Cat
+Dog
+Ferret
+Guinea Pig
+Cheetah
+Coyote
+Rabbit
+Bear
+Monkey
+Wolf
+
+Boost
+Jump
+Invincibility
+
+City
+Desert
+Forest
+Snow
+BeachSide
+
+Classic
+ScoreAttack
+TimeAttack
+
+You Lost
+Defeat
+You Died
+You Win
+Victory
+
+---------------------
+=====================
+Effect Chain
+=====================
+1. Raw recording
+2. TB_TimeMachine -> 8-bit fun
+3. Change Pitch -> Frequency Percent Change -2.000
+4. Reverb -> Vox 2
+5. ???

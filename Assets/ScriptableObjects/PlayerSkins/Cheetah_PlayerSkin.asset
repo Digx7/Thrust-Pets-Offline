@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: 406b782939d08d24fac41058232fbc4b, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: db7ab2b227a70114abbd92eaa34c5a01, type: 2}
   _photoImage: {fileID: 21300000, guid: d7df517e1afa1ed49a2d7de4efde3030, type: 3}
   _menuDescription: May try to play cards with you.
   _funFacts:

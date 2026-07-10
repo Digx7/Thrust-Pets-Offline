@@ -15,6 +15,7 @@ MonoBehaviour:
   _displayName: Ivincibility
   _itemID: 0
   _menuImage: {fileID: 21300000, guid: f408fb1f86eac3b4ea1a441a15b02a32, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: daf6971ea7fd71b468495cfd68d08b2c, type: 2}
   _menuPhoto: {fileID: 21300000, guid: b6e45ad44dec8af4592da51602d6d1c4, type: 3}
   _menuDescription: Can't touch this.
   _runtimePrefab: {fileID: 2504992391054070168, guid: 0ea9d75924eb84a41bd5a61928c70488, type: 3}

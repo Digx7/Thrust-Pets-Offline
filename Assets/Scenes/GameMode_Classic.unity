@@ -415,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 2352506840822014023, guid: ad0bb65841a65dd4ea392abbbce3ede9, type: 3}
       propertyPath: songToJumpTo
       value: 
-      objectReference: {fileID: 11400000, guid: d2098f1401741a042b78b160ff0aa7e2, type: 2}
+      objectReference: {fileID: 11400000, guid: 805dfdd4116c5fd44bdf58c6219fe0b2, type: 2}
     - target: {fileID: 2352506840822014023, guid: ad0bb65841a65dd4ea392abbbce3ede9, type: 3}
       propertyPath: gameModeToChangeToOnSetup
       value: Classic

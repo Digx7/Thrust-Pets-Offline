@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using Digx7.Zygote;
 using Digx7.ThrustPets;
@@ -15,6 +16,9 @@ namespace Digx7.ThrustPets
         public int ItemID => _itemID;
         [SerializeField] Sprite _menuImage;
         public Sprite MenuImage => _menuImage;
+
+        [SerializeField] AudioResource _menuVO;
+        public AudioResource MenuVO => _menuVO;
 
         [SerializeField] Sprite _menuPhoto;
         public Sprite MenuPhoto => _menuPhoto;

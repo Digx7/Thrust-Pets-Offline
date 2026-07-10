@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using Digx7.Zygote;
 using TMPro;
 
@@ -12,6 +13,9 @@ public class GameOverMenuWidget : UIMenu
     [SerializeField] TextMeshProUGUI coinsCollectedTMPro;
     [SerializeField] TextMeshProUGUI timeRemainingTMPro;
     [SerializeField] TextMeshProUGUI scoreTMPro;
+    [SerializeField] AudioSource VOAudioSource;
+    [SerializeField] AudioResource VOYouWin;
+    [SerializeField] AudioResource VOYouLose;
 
     [Header("Incomming Channels")]
     [SerializeField] GameEndResultChannel _On_GameEnd_Channel;
@@ -42,9 +46,11 @@ public class GameOverMenuWidget : UIMenu
         {
             case GameEndCondition.Loss:
                 titleTMPro.text = "You Lost";
+                VOAudioSource.generator = (IAudioGenerator)VOYouLose;
                 break;
             case GameEndCondition.Win:
                 titleTMPro.text = "You Win";
+                VOAudioSource.generator = (IAudioGenerator)VOYouWin;
                 break;
             default:
                 break;
@@ -77,6 +83,11 @@ public class GameOverMenuWidget : UIMenu
     public void OnClickPlayAgain()
     {
         
+    }
+
+    public void PlayVO()
+    {
+        VOAudioSource.Play();
     }
 
     #endregion

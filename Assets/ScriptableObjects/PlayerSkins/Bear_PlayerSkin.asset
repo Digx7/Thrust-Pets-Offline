@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: c6ad658927a91844b980380bca0cd286, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: 995a0b2ed8f0ffa4596b0f2a3b8849d8, type: 2}
   _photoImage: {fileID: 21300000, guid: 7d8debe02bf3b2b4c8f97ec847622744, type: 3}
   _menuDescription: Do not feed honey
   _funFacts:

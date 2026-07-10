@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 2
   _menuImage: {fileID: 21300000, guid: 355b328eb94323f4d9a07b26f98f61f4, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: 828fb4b0f56f5bf4da414d5db2a52b25, type: 2}
   _photoImage: {fileID: 21300000, guid: c48b3b117baed144faa67482fa4cc45c, type: 3}
   _menuDescription: He can't bark, he'll growl even when he's happy
   _funFacts:

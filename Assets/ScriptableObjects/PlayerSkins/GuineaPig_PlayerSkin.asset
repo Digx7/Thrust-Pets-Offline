@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemID: 0
   _unlockType: 1
   _menuImage: {fileID: 21300000, guid: bb7180fbc00a92247bd36abd5654d9f8, type: 3}
+  _menuVO: {fileID: 6418180475301049370, guid: 29addacfab255784982a263108ea392c, type: 2}
   _photoImage: {fileID: 21300000, guid: 4113f1cebf323d04d95cf7d1cd12a1e4, type: 3}
   _menuDescription: Last seen on hamster wheel.  Hamster wheel is also missing.
   _funFacts:
