@@ -33,6 +33,7 @@ namespace Digx7.Zygote
 
         private bool onClickPlayCoroutineIsGoing = false;
         private bool mapLoaded = false;
+        private bool gameModeLoaded = false;
 
         private int selectedGameModeIndex = 0;
         private int selectedMapIndex = 0;
@@ -66,6 +67,10 @@ namespace Digx7.Zygote
             if(scene.name == mapScenes[selectedMapIndex].sceneName)
             {
                 mapLoaded = true;
+            }
+            if(scene.name == gameModeScenes[selectedGameModeIndex].sceneName)
+            {
+                gameModeLoaded = true;
             }
         }
 
@@ -136,28 +141,33 @@ namespace Digx7.Zygote
 
         private IEnumerator playCoroutine()
         {
-            Debug.Log($"MenuIssue: MainMenuWidget: playCoroutine() started\nmapLoaded: {mapLoaded}");
+            Debug.Log($"MenuIssue: MainMenuWidget: playCoroutine() started\nmapLoaded: {mapLoaded}, gameModeLoaded: {gameModeLoaded}");
             
             onClickPlayCoroutineIsGoing = true;
             mapLoaded = false;
+            gameModeLoaded = false;
 
-            // requestAddSceneDataEvent?.Invoke(gameModeScenes[selectedGameModeIndex]);
-            // requestAddSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
-
-            requestAddSceneDataEvent?.Invoke(gameModes[selectedGameModeIndex].sceneData);
             requestAddSceneDataEvent?.Invoke(maps[selectedMapIndex].sceneData);
-
             yield return new WaitUntil(() => mapLoaded);
+
             yield return new WaitForSeconds(0.1f);
 
-            // requestSetActiveSceneDataEvent?.Invoke(mapScenes[selectedMapIndex]);
-            requestSetActiveSceneDataEvent?.Invoke(maps[selectedMapIndex].sceneData);
+
+            requestAddSceneDataEvent?.Invoke(gameModes[selectedGameModeIndex].sceneData);
+            yield return new WaitUntil(() => gameModeLoaded);
+
+            yield return new WaitForSeconds(0.1f);
+
+            
             requestRemoveSceneDataEvent?.Invoke(mainMenuScene);
-            requestUnLoadUIWidgetEvent?.Invoke(ownUIWidgetData);
+
+            requestSetActiveSceneDataEvent?.Invoke(maps[selectedMapIndex].sceneData);
+            
 
             onClickPlayCoroutineIsGoing = false;
-
             Debug.Log("MenuIssue: MainMenuWidget: playCoroutine() finished");
+
+            requestUnLoadUIWidgetEvent?.Invoke(ownUIWidgetData);
         }
 
         #endregion

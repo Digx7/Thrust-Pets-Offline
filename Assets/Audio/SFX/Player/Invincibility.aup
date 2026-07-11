@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Invincibility_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="3.9993877551" vpos="0" h="0.0000000000" zoom="107.2663109423" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Invincibility" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="176373">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b97.au" len="176373" min="-0.479745" max="0.573714" rms="0.283851"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="1.873840894072" val="0.936619699001"/>
+				<controlpoint t="2.983229284095" val="0.281690120697"/>
+				<controlpoint t="3.626488098477" val="0.154929578304"/>
+				<controlpoint t="3.822262520246" val="0.098591566086"/>
+				<controlpoint t="3.962101392938" val="0.000000100000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

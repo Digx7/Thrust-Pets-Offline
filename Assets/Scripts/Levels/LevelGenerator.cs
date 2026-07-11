@@ -200,13 +200,14 @@ public class LevelGenerator : MonoBehaviour
     {
 
         player = obj.gameObject.transform;
+        Setup();
 
     }
 
     public void OnRecieve_ActiveSceneChanged(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.Scene scene2)
     {
         
-        Setup();
+        // Setup();
     
     }
 
