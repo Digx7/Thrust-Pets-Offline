@@ -258,7 +258,7 @@ MonoBehaviour:
   startingTime: 0
   currentTime: 0
   isTimerRunning: 0
-  coinGoal: 10
+  coinGoal: 100
   levelScoreAmount: 100
   coinScoreAmount: 10
   missedCoinScoreAmount: 5
