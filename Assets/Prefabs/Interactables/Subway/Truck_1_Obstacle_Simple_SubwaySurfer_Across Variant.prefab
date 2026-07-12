@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6404364563937923945
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972275924301595028, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      propertyPath: m_Name
+      value: Truck_1_Obstacle_Simple_SubwaySurfer_Across Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1972275924301595028, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2279559955638053006}
+  m_SourcePrefab: {fileID: 100100000, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+--- !u!1 &4881393074499212029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1972275924301595028, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+  m_PrefabInstance: {fileID: 6404364563937923945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2279559955638053006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881393074499212029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49e10427f81d97499d16c207f2a3337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleIntersectionHelper
+  DirectionOfTravel: {x: -1, y: 0, z: 0}
+  speed: 5
+  maxDistance: 10
+  resetDistance: 10
+  _transform: {fileID: 5739688285306769563}
+  vehicleObstacleHelper: {fileID: 6848205771124399205}
+--- !u!4 &5739688285306769563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1677493787597784050, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+  m_PrefabInstance: {fileID: 6404364563937923945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6848205771124399205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 570102817947701004, guid: bc7eaa04f4d4ba541849ecb882629633, type: 3}
+  m_PrefabInstance: {fileID: 6404364563937923945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881393074499212029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df43bd890bc94a4a96e7e662ded0ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleObstacleHelper

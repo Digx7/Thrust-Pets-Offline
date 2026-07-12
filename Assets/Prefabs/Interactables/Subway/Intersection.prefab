@@ -30,9 +30,16 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2995117651740406388}
+  - {fileID: 672935253404288202}
   - {fileID: 458690313174593734}
   - {fileID: 5469245543620674651}
+  - {fileID: 3997036642556051406}
   - {fileID: 6693348885831771930}
+  - {fileID: 3407536218938758116}
+  - {fileID: 35596253095787128}
+  - {fileID: 9121026290511184404}
+  - {fileID: 8021812537544326535}
+  - {fileID: 5972157424797486346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &903265374093636877
@@ -82,6 +89,10 @@ PrefabInstance:
     - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940074533367744883, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.06
       objectReference: {fileID: 0}
     - target: {fileID: 6661896412151484529, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
       propertyPath: m_Name
@@ -145,6 +156,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5940074533367744883, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.78
+      objectReference: {fileID: 0}
     - target: {fileID: 6661896412151484529, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
       propertyPath: m_Name
       value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across_LtR
@@ -159,6 +174,196 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
   m_PrefabInstance: {fileID: 1985013844202133068}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2374606559632485660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 4881393074499212029, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_Name
+      value: Truck_1_Obstacle_Simple_SubwaySurfer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+--- !u!4 &8021812537544326535 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+  m_PrefabInstance: {fileID: 2374606559632485660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3545209234012852879
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 4881393074499212029, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_Name
+      value: Truck_1_Obstacle_Simple_SubwaySurfer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+--- !u!4 &9121026290511184404 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5739688285306769563, guid: 5d5f93fce7472be4085fb799fb259e62, type: 3}
+  m_PrefabInstance: {fileID: 3545209234012852879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5770501806163191919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5169983
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940074533367744883, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661896412151484529, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_Name
+      value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across_LtR (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+--- !u!4 &35596253095787128 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+  m_PrefabInstance: {fileID: 5770501806163191919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5914145878891297524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +375,10 @@ PrefabInstance:
     - target: {fileID: 8618419380581518054, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
       propertyPath: m_Name
       value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756805198717965284, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -221,6 +430,200 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
   m_PrefabInstance: {fileID: 5914145878891297524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7132630324696280115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324623061225235295, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+      propertyPath: m_Name
+      value: Truck_1_Obstacle_Simple_SubwaySurfer (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+--- !u!4 &5972157424797486346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3467047084555198777, guid: a46fe8201424c164cbd75066798e0d58, type: 3}
+  m_PrefabInstance: {fileID: 7132630324696280115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7427233949518491097
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.098999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940074533367744883, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661896412151484529, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_Name
+      value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across_LtR (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+--- !u!4 &3997036642556051406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+  m_PrefabInstance: {fileID: 7427233949518491097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8274573737330396234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 8618419380581518054, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_Name
+      value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756805198717965284, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.059747934
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5617027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+--- !u!4 &672935253404288202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+  m_PrefabInstance: {fileID: 8274573737330396234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9069712666204174406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,6 +635,10 @@ PrefabInstance:
     - target: {fileID: 8618419380581518054, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
       propertyPath: m_Name
       value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756805198717965284, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -282,4 +689,70 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8900115571200936064, guid: 33bfc8acfc19c9e4a9998912dbb7a93e, type: 3}
   m_PrefabInstance: {fileID: 9069712666204174406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9160469423711044083
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8246763570250115903}
+    m_Modifications:
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4089982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5169983
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940074533367744883, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661896412151484529, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+      propertyPath: m_Name
+      value: Car_1_1_Obstacle_Simple_SubwaySurfer_Walkable_Across_LtR (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+--- !u!4 &3407536218938758116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5794591528202572311, guid: fdaae8c017185c54cabce0b176a8ba69, type: 3}
+  m_PrefabInstance: {fileID: 9160469423711044083}
   m_PrefabAsset: {fileID: 0}

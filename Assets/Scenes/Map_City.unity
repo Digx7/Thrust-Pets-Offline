@@ -523,11 +523,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
---- !u!1 &1185309962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1997091101194761862, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
-  m_PrefabInstance: {fileID: 1185309961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480385932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,16 +1182,32 @@ PrefabInstance:
       objectReference: {fileID: 1166656458}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: specialBlocks.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: 'specialBlocks.Array.data[0]'
       value: 
-      objectReference: {fileID: 1185309962}
+      objectReference: {fileID: 1552280534}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: 'specialBlocks.Array.data[1]'
       value: 
       objectReference: {fileID: 1552280534}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[1].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[2].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[3].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8196643889954835969, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
