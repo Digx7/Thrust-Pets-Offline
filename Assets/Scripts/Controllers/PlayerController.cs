@@ -15,6 +15,7 @@ namespace Digx7.Zygote
         [SerializeField] private UIWidgetData activeTimeLoreWidgetData;
         [SerializeField] private UIWidgetData pauseMenuWidgetData;
         [SerializeField] private PlayerInput playerInput;
+        [SerializeField] private float minSwipeDistance = 1f;
 
         [Header("Incoming Channels")]
         [SerializeField] StringChannel _On_PlayerControlSchemeChanged_Channel;
@@ -29,6 +30,9 @@ namespace Digx7.Zygote
         private PlayerCharacter_EndlessRunner possessedPlayer;
 
         private bool hasTriedToChangeControlScheme = false;
+
+        private Vector2 touchStartPosition;
+        private Vector2 touchEndPosition;
 
         #endregion
 
@@ -169,6 +173,87 @@ namespace Digx7.Zygote
                     break;
             }
         }
+
+        public void OnMoveAndJumpAndSlide(InputAction.CallbackContext callbackContext)
+        {
+            
+            // The direction the player is inputing on the keyboard or gamepad
+            UnityEngine.InputSystem.LowLevel.TouchState primaryTouch = callbackContext.ReadValue<UnityEngine.InputSystem.LowLevel.TouchState>();
+            
+            // For more on the InputActionPhase see: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.InputActionPhase.html
+            switch (callbackContext.phase)
+            {
+                case InputActionPhase.Disabled:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Waiting:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Started:
+                    // Add Code here
+                    break;
+                case InputActionPhase.Performed:
+                    // Add Code here
+
+                    if(primaryTouch.phase == UnityEngine.InputSystem.TouchPhase.Began)
+                    {
+                        touchStartPosition = primaryTouch.position;
+                    }
+                    else
+
+                    if(primaryTouch.phase == UnityEngine.InputSystem.TouchPhase.Ended)
+                    {
+                        touchEndPosition = primaryTouch.position;
+
+                        Vector2 swipeVector = touchEndPosition - touchStartPosition;
+
+                        ProcessSwipe(swipeVector);
+                    }
+
+                    break;
+                case InputActionPhase.Canceled:
+                    // Add Code here
+                    break;
+                default:
+                    // Add Code here
+                    break;
+            }
+        }
+
+        private void ProcessSwipe(Vector2 swipeVector)
+        {
+            if (swipeVector.magnitude < minSwipeDistance) return;
+
+            if(Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
+            {
+                // Horizontal swipe
+                if(swipeVector.x > 0)
+                {
+                    // Swipe right
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(1,0));
+                }
+                else
+                {
+                    // Swipe left
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(-1,0));
+                }
+            }
+            else
+            {
+                // Vertical swipe
+                if(swipeVector.y > 0)
+                {
+                    // Swipe up
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(0,1));
+                }
+                else
+                {
+                    // Swipe down
+                    possessedPlayer.UpdateDesiredMoveDirection(new Vector2(0,-1));
+                }
+            }
+        }
+
 
         public void OnPowerUp1(InputAction.CallbackContext callbackContext)
         {

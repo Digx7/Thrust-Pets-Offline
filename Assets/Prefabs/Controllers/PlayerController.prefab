@@ -68,6 +68,7 @@ MonoBehaviour:
   activeTimeLoreWidgetData: {fileID: 11400000, guid: 3ed8c7f6340570a4196bbebf2f3e0e76, type: 2}
   pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
   playerInput: {fileID: 5268471269457950749}
+  minSwipeDistance: 1
   _On_PlayerControlSchemeChanged_Channel: {fileID: 11400000, guid: 6fcca1759238ea6498c073c3beed8919, type: 2}
   OnRequestLoadUIWidgetDataEvent:
     m_PersistentCalls:
@@ -431,6 +432,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f29b443b-a403-4571-8599-9aa9e6a64193
     m_ActionName: 'Player/PowerUp_3[/Keyboard/3,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6651588715944437}
+        m_TargetAssemblyTypeName: Digx7.Zygote.PlayerController, Assembly-CSharp
+        m_MethodName: OnMoveAndJumpAndSlide
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2d2b4f10-daff-4045-853b-c9abd668b135
+    m_ActionName: Player/MoveAndJumpAndSlide
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

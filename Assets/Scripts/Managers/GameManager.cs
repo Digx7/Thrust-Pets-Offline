@@ -141,13 +141,13 @@ namespace Digx7.Zygote
             float masterVolumeStoredValue = PlayerPrefs.GetFloat(MasterVolumeKey, 1.0f);
             float musicVolumeStoredValue = PlayerPrefs.GetFloat(MusicVolumeKey, 1.0f);
             float sfxVolumeStoredValue = PlayerPrefs.GetFloat(SFXVolumeKey, 1.0f);
-            int fullScreen = PlayerPrefs.GetInt(FullScreenKey, 0);
-            int resolution = PlayerPrefs.GetInt(ResolutionKey, 0);
+            // int fullScreen = PlayerPrefs.GetInt(FullScreenKey, 0);
+            // int resolution = PlayerPrefs.GetInt(ResolutionKey, 0);
 
-            bool fullScreenValue;
+            // bool fullScreenValue;
 
-            if(fullScreen == 1) fullScreenValue = true;
-            else fullScreenValue = false;
+            // if(fullScreen == 1) fullScreenValue = true;
+            // else fullScreenValue = false;
 
             float masterVolumeAppliedValue = _playerPrefAudioValueToAppliedValue.Evaluate(masterVolumeStoredValue);
             float musicVolumeAppliedValue = _playerPrefAudioValueToAppliedValue.Evaluate(musicVolumeStoredValue);
@@ -158,36 +158,36 @@ namespace Digx7.Zygote
             _masterMixer.SetFloat(MusicVolumeKey, musicVolumeAppliedValue);
             _masterMixer.SetFloat(SFXVolumeKey, sfxVolumeAppliedValue);
 
-            Screen.fullScreen = fullScreenValue;
+            // Screen.fullScreen = fullScreenValue;
 
             int width = 0;
             int height = 0;
 
-            switch (resolution)
-            {
-                case 0:
-                    width = 1920;
-                    height = 1080;
-                    break;
-                case 1:
-                    width = 1280;
-                    height = 720;
-                    break;
-                case 2:
-                    width = 720;
-                    height = 480;
-                    break;
-                default:
-                    break;
-            }
+            // switch (resolution)
+            // {
+            //     case 0:
+            //         width = 1920;
+            //         height = 1080;
+            //         break;
+            //     case 1:
+            //         width = 1280;
+            //         height = 720;
+            //         break;
+            //     case 2:
+            //         width = 720;
+            //         height = 480;
+            //         break;
+            //     default:
+            //         break;
+            // }
 
-            Screen.SetResolution(width, height, fullScreenValue);
+            // Screen.SetResolution(width, height, fullScreenValue);
 
             Debug.Log("masterVolume StoredValue: " + masterVolumeStoredValue + "\nmasterVolume Applied: " + masterVolumeAppliedValue);
             Debug.Log("musicVolume StoredValue: " + musicVolumeStoredValue + "\nmusicVolume Applied: " + musicVolumeAppliedValue);
             Debug.Log("sfxVolume StoredValue: " + sfxVolumeStoredValue + "\nsfxVolume Applied: " + sfxVolumeAppliedValue);
-            Debug.Log("fullscreen value: " + fullScreenValue);
-            Debug.Log("resolution stored: " + resolution + "\nApplied: " + width + " x " + height);
+            // Debug.Log("fullscreen value: " + fullScreenValue);
+            // Debug.Log("resolution stored: " + resolution + "\nApplied: " + width + " x " + height);
         }
 
         public void LoadGameMode(GameObject newGameMode)

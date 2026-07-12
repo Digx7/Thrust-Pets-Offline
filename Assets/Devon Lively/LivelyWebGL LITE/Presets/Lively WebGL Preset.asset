@@ -29,8 +29,8 @@ MonoBehaviour:
       DefaultDPR: 2
       MaxDPR: 2
       DisplayScalingMode: 1
-      DefaultResolution: {x: 1920, y: 1080}
-      AspectRatio: {x: 16, y: 9}
+      DefaultResolution: {x: 1080, y: 1920}
+      AspectRatio: {x: 1, y: 1}
       hideExperimentalSettings: 0
       UseDynamicAspectRatio: 0
     footer:

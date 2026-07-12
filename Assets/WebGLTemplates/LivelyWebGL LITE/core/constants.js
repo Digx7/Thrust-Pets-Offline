@@ -12,10 +12,10 @@ window.ConstantsLib = {
     ////////////////////////////////////////////////////
     displayScalingMode: 1,
     UseDynamicAspectRatio: false,
-    aspectX: 16,          // user wants to set aspect ratio
-    aspectY: 9,          // user wants to set aspect ratio
-    defaultWidth: 1920,
-    defaultHeight: 1080,
+    aspectX: 1,          // user wants to set aspect ratio
+    aspectY: 1,          // user wants to set aspect ratio
+    defaultWidth: 1080,
+    defaultHeight: 1920,
     PageSetup_MaxDPI: 2,
     PageSetup_DefaultDPR: 2,
     fullscreenHidesCornerButton: true,
