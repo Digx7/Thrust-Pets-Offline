@@ -57,11 +57,12 @@ namespace Digx7.Zygote
             // add code here
             OnGameStartEvent?.Invoke();
             
+            StartCoroutine(LoadRunUI());
+
             base.Setup();
 
-            OnRequestLoadSaveDataEvent?.Invoke();
+            // OnRequestLoadSaveDataEvent?.Invoke();
 
-            StartCoroutine(LoadRunUI());
         }
 
         public override void Teardown()

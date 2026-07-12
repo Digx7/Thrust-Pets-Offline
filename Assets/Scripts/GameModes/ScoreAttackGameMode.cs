@@ -38,11 +38,11 @@ namespace Digx7.Zygote
 
         public override void Setup()
         {
-            base.Setup();
-
             OnCoinGoalChangedEvent?.Invoke(coinGoal);
 
             StartTimer();
+            
+            base.Setup();
         }
 
         public override void Teardown()
