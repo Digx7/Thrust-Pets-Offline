@@ -117,6 +117,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d47c1ec8043d6464d839155dc4f42d1e, type: 2}
   - {fileID: 11400000, guid: fbf8c5bc27e27ae4398c966c96a5344e, type: 2}
   - {fileID: 11400000, guid: 9c2373686c65896498fc2fc620f138fc, type: 2}
+  doubleObstaclePairDataPrefabs:
+  - {fileID: 11400000, guid: 358b96a44457f954ab6c3bce2d4d51be, type: 2}
+  - {fileID: 11400000, guid: cb8eeebe55e480d40b1fdfef56839922, type: 2}
+  - {fileID: 11400000, guid: a6f9c869284263740aeec687caecf76f, type: 2}
+  - {fileID: 11400000, guid: 22027e92836b6304cae14379ec69932f, type: 2}
+  - {fileID: 11400000, guid: 17adc89add844d3498ea3df07b7e471f, type: 2}
+  - {fileID: 11400000, guid: 5fb264ac5513e364486c2befbd6f096c, type: 2}
+  - {fileID: 11400000, guid: 86acf2df5556a9b4a86d7e7198059604, type: 2}
+  - {fileID: 11400000, guid: 0517a9ed4f82e264caf64c1bf635303d, type: 2}
+  - {fileID: 11400000, guid: c652c3fd4a9914a47ab6eb566b6e4e4f, type: 2}
   trippleObstaclePairDataPrefabs:
   - {fileID: 11400000, guid: d335f0fb2083c4847bbcfda15bc94d9e, type: 2}
   - {fileID: 11400000, guid: 1fe629f9016f70648a56373f452693a9, type: 2}

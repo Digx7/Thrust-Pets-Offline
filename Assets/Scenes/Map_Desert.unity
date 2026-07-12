@@ -137,12 +137,16 @@ PrefabInstance:
       objectReference: {fileID: 636336460}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: specialBlocks.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: 'specialBlocks.Array.data[0]'
       value: 
       objectReference: {fileID: 1935509162724571875}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: 'specialBlocks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3010845252779809076}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
       value: 1
@@ -618,6 +622,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044ba3bba381f8647b5a5584041d1edc, type: 3}
+--- !u!1 &3010845252779809076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1846422967489404552, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+  m_PrefabInstance: {fileID: 3680662033352424210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3239678017438994127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3079806531726787363, guid: 044ba3bba381f8647b5a5584041d1edc, type: 3}
@@ -633,6 +642,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7477632071782782248, guid: 23f4edacc60ca4844a3598996aa8fc52, type: 3}
   m_PrefabInstance: {fileID: 6410582844603162736}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3680662033352424210
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1846422967489404552, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_Name
+      value: SPECIAL_Desert_SingleLaneBlock 1_SubwaySurfer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.374998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -221.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774629103133169151, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70fc174ab93c72e43b910bc16416c083, type: 3}
 --- !u!4 &3860970022877474073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3239678018129059508, guid: e1fadcf05a5093e4ab6cfbfee24db065, type: 3}
@@ -876,3 +942,4 @@ SceneRoots:
   - {fileID: 55483049}
   - {fileID: 421671944}
   - {fileID: 6281821563583048662}
+  - {fileID: 3680662033352424210}

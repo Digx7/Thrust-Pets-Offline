@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: 'specialBlocks.Array.data[0]'
       value: 
-      objectReference: {fileID: 5997864466068611551}
+      objectReference: {fileID: 1608562395}
     - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
       value: 1
@@ -300,6 +300,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac56536875db0a4c91e38b64bc2441b, type: 3}
+--- !u!1001 &1608562394
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1997091101194761862, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_Name
+      value: SPECIAL_City_Block_Construction_1_SubwaySurfer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.41591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.02506
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -209.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528418145345279538, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+--- !u!1 &1608562395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1997091101194761862, guid: b626d41a36e499d4ea8097df6663d94d, type: 3}
+  m_PrefabInstance: {fileID: 1608562394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1660450211
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,11 +742,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85952fc6eb296ca4eb958bd922d50d38, type: 3}
---- !u!1 &5997864466068611551 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6981044949042838344, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
-  m_PrefabInstance: {fileID: 3191125931031389751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6324428075355053145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -876,3 +933,4 @@ SceneRoots:
   - {fileID: 751447537}
   - {fileID: 1660450213}
   - {fileID: 3191125931031389751}
+  - {fileID: 1608562394}

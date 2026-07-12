@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject coinPrefab;
     public GameObject[] obstaclePrefabs;
     public ObstacleData[] obstacleDatas;
+    public ObstaclePairData[] doubleObstaclePairDataPrefabs;
     public ObstaclePairData[] trippleObstaclePairDataPrefabs;
     public Transform levelObjectsParent;
     // TODO: Get player to reference the player object in the scene
@@ -358,6 +359,13 @@ public class LevelGenerator : MonoBehaviour
     {
         GameObject oldObstacle = activeObstacles.Dequeue();
 
+        if(GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset) == 1)
+        {
+            // If there are not enough valid lanes for single obstacles, do not spawn any obstacles
+            Destroy(oldObstacle);
+            return;
+        }
+
         // Select random lane
         int randomLaneIndex = sharedRandom.Next(0, 3);
 
@@ -381,51 +389,79 @@ public class LevelGenerator : MonoBehaviour
 
     void ReuseDoubleObstacles(int obstacleOffset, ObstaclesState currentState)
     {
-        GameObject oldObstacle = activeObstacles.Dequeue();
-
-        if(!IsNextObstacleZPosInRange())
+        int numberOfValidLanes = GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset);
+        
+        if(numberOfValidLanes < 3)
         {
-            Destroy(oldObstacle);
+            // If there are not enough valid lanes for double obstacles, spawn single obstacle instead
+            ReuseSingleObstacle(obstacleOffset, currentState);
             return;
         }
-
-        int randomObstacleIndex2 = sharedRandom.Next(0, obstacleDatas.Length);
-
-        // Select random lane
-        int randomLaneIndex = sharedRandom.Next(0, 3);
-        int randomLaneIndex2 = -1;
-        do 
+        else if(numberOfValidLanes == 2)
         {
-            randomLaneIndex2 = sharedRandom.Next(0, 3);
-        } while (randomLaneIndex2 == randomLaneIndex);
+            GameObject oldObstacle = activeObstacles.Dequeue();
+            Destroy(oldObstacle);
 
-        if(TryToFindObstaclePosition(oldObstacle.transform.position.y, obstacleOffset, ref randomLaneIndex, out Vector3 obstaclePosition))
+            InstantiateDoubleObstacles(obstacleOffset, currentState);
+            return;
+        }
+        else
         {
-            // Set obstacle position and add it back to the active queue
-            oldObstacle.transform.position = obstaclePosition;
+            GameObject oldObstacle = activeObstacles.Dequeue();
 
-            if(oldObstacle.TryGetComponent<IObstacle>(out IObstacle obstacle))
+            if(!IsNextObstacleZPosInRange())
             {
-                obstacle.Place();
+                Destroy(oldObstacle);
+                return;
             }
 
-            activeObstacles.Enqueue(oldObstacle);
-        }
+            int randomObstacleIndex2 = sharedRandom.Next(0, obstacleDatas.Length);
 
-        if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex2].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex2, out Vector3 obstaclePosition2))
-        {
-            // Set obstacle position and add it back to the active queue
-            GameObject oldObstacle2 = Instantiate(obstacleDatas[randomObstacleIndex2].Prefab, obstaclePosition2, obstacleDatas[randomObstacleIndex2].Prefab.transform.rotation);
-            if(oldObstacle2.TryGetComponent<IObstacle>(out IObstacle obstacle))
+            // Select random lane
+            int randomLaneIndex = sharedRandom.Next(0, 3);
+            int randomLaneIndex2 = -1;
+            do 
             {
-                obstacle.Place();
+                randomLaneIndex2 = sharedRandom.Next(0, 3);
+            } while (randomLaneIndex2 == randomLaneIndex);
+
+            if(TryToFindObstaclePosition(oldObstacle.transform.position.y, obstacleOffset, ref randomLaneIndex, out Vector3 obstaclePosition))
+            {
+                // Set obstacle position and add it back to the active queue
+                oldObstacle.transform.position = obstaclePosition;
+
+                if(oldObstacle.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+
+                activeObstacles.Enqueue(oldObstacle);
             }
-            activeObstacles.Enqueue(oldObstacle2);
+
+            if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex2].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex2, out Vector3 obstaclePosition2))
+            {
+                // Set obstacle position and add it back to the active queue
+                GameObject oldObstacle2 = Instantiate(obstacleDatas[randomObstacleIndex2].Prefab, obstaclePosition2, obstacleDatas[randomObstacleIndex2].Prefab.transform.rotation);
+                if(oldObstacle2.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+                activeObstacles.Enqueue(oldObstacle2);
+            }  
         }
+        
+        
     }
 
     void ReuseTrippleObstacles(int obstacleOffset, ObstaclesState currentState)
     {
+        if(GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset) < 3)
+        {
+            // If there are not enough valid lanes for tripple obstacles, spawn double obstacles instead
+            ReuseDoubleObstacles(obstacleOffset, currentState);
+            return;
+        }
+        
         GameObject oldObstacleToDelete = activeObstacles.Dequeue();
         Destroy(oldObstacleToDelete);
 
@@ -521,6 +557,12 @@ public class LevelGenerator : MonoBehaviour
 
     void InstantiateSingleObstacle(int obstacleOffset, ObstaclesState currentState) 
     {
+        if(GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset) == 1)
+        {
+            // If there are not enough valid lanes for single obstacles, do not spawn any obstacles
+            return;
+        }
+        
         // Select random obstacle
         int randomObstacleIndex = sharedRandom.Next(0, obstacleDatas.Length);
         
@@ -543,51 +585,117 @@ public class LevelGenerator : MonoBehaviour
 
     void InstantiateDoubleObstacles(int obstacleOffset, ObstaclesState currentState) 
     {
-        // Select random obstacle
-        int randomObstacleIndex = sharedRandom.Next(0, obstacleDatas.Length);
+        int numberOfValidLanes = GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset);
         
-        // Select random lane
-        int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
-
-        if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex, out Vector3 obstaclePostition))
+        if(numberOfValidLanes < 2)
         {
-            // Instantiate obstacle and add to active queue
-            GameObject o = Instantiate(obstacleDatas[randomObstacleIndex].Prefab, obstaclePostition, obstacleDatas[randomObstacleIndex].Prefab.transform.rotation);
-                        
-            if(o.TryGetComponent<IObstacle>(out IObstacle obstacle))
+            // If there are not enough valid lanes for double obstacles, spawn single obstacle instead
+            InstantiateSingleObstacle(obstacleOffset, currentState);
+            return;
+        }
+        else if(numberOfValidLanes == 2)
+        {
+            // If there are only two valid lanes, spawn double obstacles in those lanes
+            List<int> validLaneIndices = new List<int>();
+            for (int laneIndex = 0; laneIndex < numberOfLanes; laneIndex++)
             {
-                obstacle.Place();
+                if(CheckIfLaneIsValidForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset, laneIndex))
+                {
+                    validLaneIndices.Add(laneIndex);
+                }
             }
 
-            activeObstacles.Enqueue(o);
+            // Select random double obstacle pair
+            int randomDoubleObstaclePairIndex = sharedRandom.Next(0, doubleObstaclePairDataPrefabs.Length);
+
+            // Set obstacle position based on lane and offset
+            Vector3 obstaclePosition1 = new Vector3(0f, doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData1.Prefab.transform.position.y, obstacleOffset);
+            obstaclePosition1.x = laneIndexToXPos(validLaneIndices[0]);
+
+            Vector3 obstaclePosition2 = new Vector3(0f, doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData2.Prefab.transform.position.y, obstacleOffset);
+            obstaclePosition2.x = laneIndexToXPos(validLaneIndices[1]);
+
+            if(CheckIfLaneIsValidForObstacle(doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData1.Prefab.transform.position.y, obstacleOffset, validLaneIndices[0]))
+            {
+                GameObject o1 = Instantiate(doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData1.Prefab, obstaclePosition1, doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData1.Prefab.transform.rotation);
+                
+                if(o1.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+
+                activeObstacles.Enqueue(o1);
+            }
+
+            if(CheckIfLaneIsValidForObstacle(doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData2.Prefab.transform.position.y, obstacleOffset, validLaneIndices[1]))
+            {
+                GameObject o2 = Instantiate(doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData2.Prefab, obstaclePosition2, doubleObstaclePairDataPrefabs[randomDoubleObstaclePairIndex].obstacleData2.Prefab.transform.rotation);
+                
+                if(o2.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+
+                activeObstacles.Enqueue(o2);
+            }
         }
-
-        // Select random obstacle
-        int randomObstacleIndex2 = sharedRandom.Next(0, obstacleDatas.Length);
-        
-        // Select random lane for second obstacle, ensuring it's different from the first obstacle's lane
-        int randomLaneIndex2 = -1;
-        do 
+        else
         {
-            randomLaneIndex2 = sharedRandom.Next(0, numberOfLanes);
-        } while (randomLaneIndex2 == randomLaneIndex);
-
-        if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex2].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex2, out Vector3 obstacle2Postition))
-        {
-            // Instantiate obstacle and add to active queue
-            GameObject o = Instantiate(obstacleDatas[randomObstacleIndex2].Prefab, obstacle2Postition, obstacleDatas[randomObstacleIndex2].Prefab.transform.rotation);
+            // Select random obstacle
+            int randomObstacleIndex = sharedRandom.Next(0, obstacleDatas.Length);
             
-            if(o.TryGetComponent<IObstacle>(out IObstacle obstacle))
+            // Select random lane
+            int randomLaneIndex = sharedRandom.Next(0, numberOfLanes);
+
+            if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex, out Vector3 obstaclePostition))
             {
-                obstacle.Place();
+                // Instantiate obstacle and add to active queue
+                GameObject o = Instantiate(obstacleDatas[randomObstacleIndex].Prefab, obstaclePostition, obstacleDatas[randomObstacleIndex].Prefab.transform.rotation);
+                            
+                if(o.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+
+                activeObstacles.Enqueue(o);
             }
 
-            activeObstacles.Enqueue(o);
+            // Select random obstacle
+            int randomObstacleIndex2 = sharedRandom.Next(0, obstacleDatas.Length);
+            
+            // Select random lane for second obstacle, ensuring it's different from the first obstacle's lane
+            int randomLaneIndex2 = -1;
+            do 
+            {
+                randomLaneIndex2 = sharedRandom.Next(0, numberOfLanes);
+            } while (randomLaneIndex2 == randomLaneIndex);
+
+            if(TryToFindObstaclePosition(obstacleDatas[randomObstacleIndex2].Prefab.transform.position.y, obstacleOffset, ref randomLaneIndex2, out Vector3 obstacle2Postition))
+            {
+                // Instantiate obstacle and add to active queue
+                GameObject o = Instantiate(obstacleDatas[randomObstacleIndex2].Prefab, obstacle2Postition, obstacleDatas[randomObstacleIndex2].Prefab.transform.rotation);
+                
+                if(o.TryGetComponent<IObstacle>(out IObstacle obstacle))
+                {
+                    obstacle.Place();
+                }
+
+                activeObstacles.Enqueue(o);
+            }
         }
+        
+        
     }
 
     void InstantiateTrippleObstacles(int obstacleOffset, ObstaclesState currentState) 
     {
+        if(GetNumberOfValidLanesForObstacle(obstacleDatas[0].Prefab.transform.position.y, obstacleOffset) < 3)
+        {
+            // If there are not enough valid lanes for tripple obstacles, spawn double obstacles instead
+            InstantiateDoubleObstacles(obstacleOffset, currentState);
+            return;
+        }
+        
         // Select random tripple obstacle pair
         int randomTrippleObstaclePairIndex = sharedRandom.Next(0, trippleObstaclePairDataPrefabs.Length);
 
@@ -781,6 +889,21 @@ public class LevelGenerator : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private int GetNumberOfValidLanesForObstacle(float startingY, float startingZ)
+    {
+        int validLaneCount = 0;
+
+        for (int laneIndex = 0; laneIndex < numberOfLanes; laneIndex++)
+        {
+            if(CheckIfLaneIsValidForObstacle(startingY, startingZ, laneIndex))
+            {
+                validLaneCount++;
+            }
+        }
+
+        return validLaneCount;
     }
 
     private bool CheckIfLaneIsValidForObstacle(float startingY, float startingZ, int laneIndex)
