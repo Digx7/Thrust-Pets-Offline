@@ -170,6 +170,30 @@ PrefabInstance:
       propertyPath: levelObjectsParent
       value: 
       objectReference: {fileID: 707048837}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: specialBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: 'specialBlocks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5997864466068611551}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[1].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[2].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[3].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8196643889954835969, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -542,7 +566,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3247261084693970543, guid: 480bd2c6379ccac4cb3f6d95f1d94f52, type: 3}
   m_PrefabInstance: {fileID: 6324428075355053145}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1024977494530987389
+--- !u!1001 &3191125931031389751
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -550,59 +574,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2146485181893687404, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
-      propertyPath: m_Name
-      value: SPECIAL_Snow_Block Zoo_SubwaySurfer (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2146485181893687404, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.374998
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -112.6
+      value: -120
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290146502903378546, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+    - target: {fileID: 4131631373192610196, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981044949042838344, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
+      propertyPath: m_Name
+      value: SPECIAL_Snow_Intersection 1_SubwaySurfer (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c50a827d74cca84189027fddf04efc7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
 --- !u!1001 &5945666914688866462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +680,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85952fc6eb296ca4eb958bd922d50d38, type: 3}
+--- !u!1 &5997864466068611551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6981044949042838344, guid: a71294e88bf79174693d46ed7d771b36, type: 3}
+  m_PrefabInstance: {fileID: 3191125931031389751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6324428075355053145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -849,5 +874,5 @@ SceneRoots:
   - {fileID: 707048837}
   - {fileID: 1288864187}
   - {fileID: 751447537}
-  - {fileID: 1024977494530987389}
   - {fileID: 1660450213}
+  - {fileID: 3191125931031389751}

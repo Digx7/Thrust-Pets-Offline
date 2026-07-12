@@ -119,67 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &173505563
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4034903623987223856, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_Name
-      value: SPECIAL_Forest_Zoo 1_SubwaySurfer (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034903623987223856, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.18156
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.015000602
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -85.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173544773447467553, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9e592fcb8bff864f9f4dd67cbb9024e, type: 3}
 --- !u!1 &534252535
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +487,30 @@ PrefabInstance:
       propertyPath: levelObjectsParent
       value: 
       objectReference: {fileID: 744675510}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: specialBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: 'specialBlocks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3406155226391939076}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[0].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[1].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[2].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431397307948330415, guid: ce55bc909a0ae9a40805996568375701, type: 3}
+      propertyPath: obstacleStates.Array.data[3].chanceOfSpecialBlock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8196643889954835969, guid: ce55bc909a0ae9a40805996568375701, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -655,6 +618,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8689296996436604346, guid: 960c285bdbd518543bef0763b4511b1f, type: 3}
   m_PrefabInstance: {fileID: 6199462545035158865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3406155226391939076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8594754264148939425, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+  m_PrefabInstance: {fileID: 4321419566477798017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3417938995995712677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -712,6 +680,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c20dd13c8d39e4eae1ea85013bcd16, type: 3}
+--- !u!1001 &4321419566477798017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.374998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -150.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592837558680779289, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594754264148939425, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
+      propertyPath: m_Name
+      value: SPECIAL_Forest_Intersection 1_SubwaySurfer (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 783cd35f029418a42b1422e137e4a5ff, type: 3}
 --- !u!1001 &6199462545035158865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -849,5 +874,5 @@ SceneRoots:
   - {fileID: 744675510}
   - {fileID: 557329542}
   - {fileID: 1877049670}
-  - {fileID: 173505563}
   - {fileID: 1669054741}
+  - {fileID: 4321419566477798017}
