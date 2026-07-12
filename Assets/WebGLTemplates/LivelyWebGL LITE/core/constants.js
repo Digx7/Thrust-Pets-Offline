@@ -11,14 +11,14 @@ window.ConstantsLib = {
     // Display Setup
     ////////////////////////////////////////////////////
     displayScalingMode: 1,
-    UseDynamicAspectRatio: true,
+    UseDynamicAspectRatio: false,
     aspectX: 16,          // user wants to set aspect ratio
     aspectY: 9,          // user wants to set aspect ratio
     defaultWidth: 1920,
     defaultHeight: 1080,
-    PageSetup_MaxDPI: 1,
-    PageSetup_DefaultDPR: 0.5,
-    fullscreenHidesCornerButton: false,
+    PageSetup_MaxDPI: 2,
+    PageSetup_DefaultDPR: 2,
+    fullscreenHidesCornerButton: true,
 
     ////////////////////////////////////////////////////
     // Loading Screen
@@ -39,7 +39,7 @@ window.ConstantsLib = {
     ////////////////////////////////////////////////////
     // Hamburger / Corner Button
     ////////////////////////////////////////////////////
-    hideCornerButton: false,                     // hide fullscreen/menu button
+    hideCornerButton: true,                     // hide fullscreen/menu button
 
     ////////////////////////////////////////////////////
     // Page Setup
