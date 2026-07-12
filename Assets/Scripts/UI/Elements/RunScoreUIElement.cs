@@ -91,14 +91,44 @@ public class RunScoreUIElement : UIElement
     {
         if(coinGoal > 0)
         {
-            coinsTMPro.text = $"Coins: {coins}/{coinGoal}";
+            coinsTMPro.text = $"{coins}/{coinGoal}";
         }
         else
         {
-            coinsTMPro.text = $"Coins: {coins}";
+            coinsTMPro.text = $"{coins}";
         }
 
-        distanceTMPro.text = $"Distance: {level}";
+        distanceTMPro.text = $"{FormatDistance(level)}";
+    }
+
+    private string FormatDistance(int distance)
+    {
+        string colorTagOpen = "<color=#00000011>";
+        string colorTagClose = "</color>";
+        string distanceLeadingZeros = "";
+        
+        if(distance < 10)
+        {
+            distanceLeadingZeros = "00000";
+        }
+        else if(distance < 100)
+        {
+            distanceLeadingZeros = "0000";
+        }
+        else if(distance < 1000)
+        {
+            distanceLeadingZeros = "000";
+        }
+        else if(distance < 10000)
+        {
+            distanceLeadingZeros = "00";
+        }
+        else if(distance < 100000)
+        {
+            distanceLeadingZeros = "0";
+        }
+
+        return $"{colorTagOpen}{distanceLeadingZeros}{colorTagClose}{distance}";
     }
 
     #endregion

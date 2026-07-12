@@ -132,10 +132,10 @@ namespace Digx7.Zygote
         public virtual void IncreaseLevel(int amount)
         {
             currentLevel += amount;
-            if (currentLevel > maxLevel)
-            {
-                currentLevel = maxLevel;
-            }
+            // if (currentLevel > maxLevel)
+            // {
+            //     currentLevel = maxLevel;
+            // }
             OnLevelChangedEvent?.Invoke(currentLevel);
         }
 

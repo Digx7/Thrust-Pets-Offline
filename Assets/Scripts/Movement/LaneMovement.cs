@@ -28,6 +28,7 @@ public class LaneMovement : MonoBehaviour
     public BooleanEvent OnSlideEvent;
     public UnityEvent OnSlideStartEvent;
     public UnityEvent OnSlideEndEvent;
+    public IntEvent RequestLevelIncreaseEvent;
 
     public BooleanEvent OnJumpEvent;
 
@@ -36,6 +37,7 @@ public class LaneMovement : MonoBehaviour
     bool isChangingLane = false;
     bool isAirborne = false;
     Vector3 velocity;
+    float distanceTraveled = 0f;
     public bool IsGrounded()
     {
         
@@ -125,6 +127,15 @@ public class LaneMovement : MonoBehaviour
         moveVector.y = velocity.y * Time.deltaTime;
 
         controller.Move(moveVector);
+
+        distanceTraveled += forwardSpeed * Time.deltaTime;
+        if(distanceTraveled >= 1f)
+        {
+            int distanceTraveled_int = Mathf.FloorToInt(distanceTraveled);
+            distanceTraveled -= distanceTraveled_int;
+
+            RequestLevelIncreaseEvent?.Invoke(distanceTraveled_int);
+        }
 
         if (_isFastFalling && IsGrounded())
         {

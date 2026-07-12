@@ -128,6 +128,12 @@ namespace Digx7.Zygote
             base.EndGame(endCondition);
         }
 
+        public override void Reset()
+        {
+            StartTimer();
+            base.Reset();
+        } 
+
         #endregion
     }
 }
