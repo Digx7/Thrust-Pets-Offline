@@ -67,6 +67,8 @@ MonoBehaviour:
   cameraManager: {fileID: 0}
   activeTimeLoreWidgetData: {fileID: 11400000, guid: 3ed8c7f6340570a4196bbebf2f3e0e76, type: 2}
   pauseMenuWidgetData: {fileID: 11400000, guid: 5dca4f619f5187a4090b83b4e7b856f6, type: 2}
+  playerInput: {fileID: 5268471269457950749}
+  _On_PlayerControlSchemeChanged_Channel: {fileID: 11400000, guid: 6fcca1759238ea6498c073c3beed8919, type: 2}
   OnRequestLoadUIWidgetDataEvent:
     m_PersistentCalls:
       m_Calls:
@@ -89,6 +91,21 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Digx7.Zygote.Channel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPlayerControlSchemeChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 6fcca1759238ea6498c073c3beed8919, type: 2}
+        m_TargetAssemblyTypeName: Digx7.Zygote.StringChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -241,7 +258,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2707968005197875816}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -257,7 +274,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2707968005197875816}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: 
         m_Mode: 1
         m_Arguments:

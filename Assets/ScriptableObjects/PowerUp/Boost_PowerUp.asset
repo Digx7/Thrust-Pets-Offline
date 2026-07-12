@@ -19,7 +19,7 @@ MonoBehaviour:
   _menuPhoto: {fileID: 21300000, guid: c2bb2f5796a696c418a416436b185a66, type: 3}
   _menuDescription: Go zooooooomm.
   _runtimePrefab: {fileID: 3862831412638380614, guid: ed5f93e1f0fd9ea41a68ab13166f6867, type: 3}
-  _cooldownTime: 3
+  _cooldownTime: 8
   OnTryToUse:
     m_PersistentCalls:
       m_Calls: []

@@ -19,7 +19,7 @@ MonoBehaviour:
   _menuPhoto: {fileID: 21300000, guid: 95c1be3b61d647d498bec6e1a733e75b, type: 3}
   _menuDescription: Leap tall objects in a single bound.
   _runtimePrefab: {fileID: 5536303132746848686, guid: 18ad06b3b95d22540b8e72726b0af862, type: 3}
-  _cooldownTime: 3
+  _cooldownTime: 8
   OnTryToUse:
     m_PersistentCalls:
       m_Calls: []

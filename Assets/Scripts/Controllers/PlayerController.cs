@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 namespace Digx7.Zygote
 {
@@ -13,14 +14,35 @@ namespace Digx7.Zygote
         [SerializeField] protected CameraManager cameraManager;
         [SerializeField] private UIWidgetData activeTimeLoreWidgetData;
         [SerializeField] private UIWidgetData pauseMenuWidgetData;
+        [SerializeField] private PlayerInput playerInput;
+
+        [Header("Incoming Channels")]
+        [SerializeField] StringChannel _On_PlayerControlSchemeChanged_Channel;
 
         // [Header("Incoming Channels")]
         [Header("Outgoing Events")]
         public UIWidgetDataEvent OnRequestLoadUIWidgetDataEvent;
         public UnityEvent OnRequestSelectUIFallBack;
+        public StringEvent OnPlayerControlSchemeChangedEvent;
 
         // private PlayerCharacter possessedPlayer;
         private PlayerCharacter_EndlessRunner possessedPlayer;
+
+        private bool hasTriedToChangeControlScheme = false;
+
+        #endregion
+
+        #region Setup ================================
+
+        protected void Start()
+        {
+            
+            if(_On_PlayerControlSchemeChanged_Channel.lastValue != null && _On_PlayerControlSchemeChanged_Channel.lastValue != "")
+            {
+                playerInput.SwitchCurrentControlScheme(_On_PlayerControlSchemeChanged_Channel.lastValue);
+            }
+            
+        }
 
         #endregion
 
@@ -307,17 +329,32 @@ namespace Digx7.Zygote
 
         public void OnDeviceLost(PlayerInput playerInput)
         {
-
+            Debug.Log($"PlayerController: OnDeviceLost() playerInput = {playerInput}");
         }
 
         public void OnDeviceRegained(PlayerInput playerInput)
         {
-
+            Debug.Log($"PlayerController: OnDeviceRegained() playerInput = {playerInput}");
         }
 
         public void OnControlsChanged(PlayerInput playerInput)
         {
+            if(!hasTriedToChangeControlScheme)
+            {
+                hasTriedToChangeControlScheme = true;
+                return;
+            }
+            
+            Debug.Log($"PlayerController: OnControlsChanged() playerInput.currentControlScheme = {playerInput.currentControlScheme}");
 
+            if(playerInput.currentControlScheme != null)
+            {
+                OnPlayerControlSchemeChangedEvent?.Invoke(playerInput.currentControlScheme);
+            }
+            else
+            {
+                Debug.LogWarning($"User {playerInput.user.id} has no control scheme assigned.");
+            }
         }
 
         #endregion
