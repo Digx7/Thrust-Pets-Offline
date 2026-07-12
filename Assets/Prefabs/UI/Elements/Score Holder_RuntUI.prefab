@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 71.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -407,6 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7794945479837613111}
   - component: {fileID: 997672528716946750}
+  - component: {fileID: 4232482690836328620}
   m_Layer: 5
   m_Name: Score Holder_RuntUI
   m_TagString: Untagged
@@ -462,6 +463,45 @@ MonoBehaviour:
   on_CoinsChanged_Channel: {fileID: 11400000, guid: 79b3eadd5d91dd149b5dc60207f9921f, type: 2}
   on_CoinGoalChanged_Channel: {fileID: 11400000, guid: aabeb96de3c1ca744890f8d828da7bfb, type: 2}
   on_LevelChanged_Channel: {fileID: 11400000, guid: 2e9e21ab765aae446bc96cea2c3da1d2, type: 2}
+--- !u!114 &4232482690836328620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786355841405170691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077cc3ed984713d43b985a0a24abacf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIHelper
+  breakPoints:
+  - screenBreakPointData: {fileID: 11400000, guid: 770381e8474435149a59994ff45988ba, type: 2}
+    AnchorMinPoints: {x: 0.37126368, y: 0.8863814}
+    AnchorMaxPoints: {x: 1, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: ec7004e9041890242b8ed6eff9a74bf3, type: 2}
+    AnchorMinPoints: {x: 0.70500004, y: 0.8365187}
+    AnchorMaxPoints: {x: 1, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 9dceb5c105675d441b2bbaa8b453a7c8, type: 2}
+    AnchorMinPoints: {x: 0.37126368, y: 0.8863814}
+    AnchorMaxPoints: {x: 1, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 06793b676c87084499f298011c0fbda4, type: 2}
+    AnchorMinPoints: {x: 0.70500004, y: 0.8365187}
+    AnchorMaxPoints: {x: 1, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  updateInEditMode: 0
+  updateOnStart: 1
 --- !u!1 &3029379564544715632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1572,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.7
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -1579,7 +1579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105ffe8ca2589174ba532529b310a231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponsiveBreakpointHelper
-  breakPoints:
+  breakPoints: []
+  breakPointsDataAndEventPairs:
   - screenBreakPointData: {fileID: 11400000, guid: 770381e8474435149a59994ff45988ba, type: 2}
     onBreakPointApplied:
       m_PersistentCalls:
@@ -1596,7 +1597,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - screenBreakPointData: {fileID: 11400000, guid: d6ed08d07294e3b4eb2f324bfb16ea81, type: 2}
+  - screenBreakPointData: {fileID: 11400000, guid: ec7004e9041890242b8ed6eff9a74bf3, type: 2}
     onBreakPointApplied:
       m_PersistentCalls:
         m_Calls:
@@ -1612,6 +1613,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - screenBreakPointData: {fileID: 11400000, guid: 9dceb5c105675d441b2bbaa8b453a7c8, type: 2}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 330585549}
+          m_TargetAssemblyTypeName: TransformHelper, Assembly-CSharp
+          m_MethodName: SetLocation
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - screenBreakPointData: {fileID: 11400000, guid: 06793b676c87084499f298011c0fbda4, type: 2}
     onBreakPointApplied:
       m_PersistentCalls:
@@ -1623,7 +1640,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1645,8 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransformHelper
   locations:
-  - {x: -7.509, y: 2.831, z: -32.181}
-  - {x: -7.388, y: 2.845, z: -32.264}
+  - {x: -7.932, y: 2.724, z: -32.594}
   - {x: -7.21, y: 2.905, z: -32.41}
 --- !u!114 &330585550
 MonoBehaviour:

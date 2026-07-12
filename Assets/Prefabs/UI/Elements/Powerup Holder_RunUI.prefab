@@ -246,6 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5720271998029787510}
+  - component: {fileID: 7596256567638613741}
   m_Layer: 5
   m_Name: Powerup Holder_RunUI
   m_TagString: Untagged
@@ -273,6 +274,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7596256567638613741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713749577244920034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077cc3ed984713d43b985a0a24abacf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIHelper
+  breakPoints:
+  - screenBreakPointData: {fileID: 11400000, guid: 770381e8474435149a59994ff45988ba, type: 2}
+    AnchorMinPoints: {x: 0.078708135, y: 0}
+    AnchorMaxPoints: {x: 0.9204876, y: 0.105000004}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: ec7004e9041890242b8ed6eff9a74bf3, type: 2}
+    AnchorMinPoints: {x: 0, y: 0}
+    AnchorMaxPoints: {x: 0.365, y: 0.22600001}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 9dceb5c105675d441b2bbaa8b453a7c8, type: 2}
+    AnchorMinPoints: {x: 0.22114268, y: 0}
+    AnchorMaxPoints: {x: 0.7645125, y: 0.06976278}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 06793b676c87084499f298011c0fbda4, type: 2}
+    AnchorMinPoints: {x: 0, y: 0}
+    AnchorMaxPoints: {x: 0.2722917, y: 0.18048151}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  updateInEditMode: 0
+  updateOnStart: 1
 --- !u!1 &1886830600728840598
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +689,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 135.18668}
+  m_SizeDelta: {x: 0, y: 298.22202}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &51123051879691711
 MonoBehaviour:
@@ -1190,7 +1230,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 135.18668}
+  m_SizeDelta: {x: 0, y: 298.22202}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2933852663304622017
 MonoBehaviour:
@@ -2421,7 +2461,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 135.18668}
+  m_SizeDelta: {x: 0, y: 298.22202}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6673075098835119163
 MonoBehaviour:

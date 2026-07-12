@@ -40,6 +40,8 @@ namespace Digx7.Zygote
         private const string FullScreenKey = "FullScreen";
         private const string ResolutionKey = "Resolution";
 
+        public static bool IsEditorMobilePreview = false;
+
         #endregion
 
         #region Setup ================================
@@ -202,6 +204,22 @@ namespace Digx7.Zygote
         }
 
         #endregion
+
+#if !UNITY_EDITOR && UNITY_WEBGL
+
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        public static extern bool IsMobileBrowser();
+      
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        public static extern bool IsPreferredDesktopPlatform();
+#elif UNITY_EDITOR
+        public static bool IsMobileBrowser() => IsEditorMobilePreview;
+        public static bool IsPreferredDesktopPlatform() => !IsEditorMobilePreview;
+#else
+        public static bool IsMobileBrowser() => false;
+        public static bool IsPreferredDesktopPlatform() => true;
+#endif
+
 
     }
 

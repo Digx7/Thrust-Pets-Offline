@@ -12,6 +12,10 @@ namespace Digx7.Zygote
         #region Variables ============================
         public int width;
         public int height;
+        public bool isMobile;
+
+        public bool IsPortrait => height > width;
+        public bool IsLandscape => width > height;
 
         public Vector2Int Resolution => new Vector2Int(width, height);
         #endregion
@@ -30,7 +34,7 @@ namespace Digx7.Zygote
         // Implement IEquatable<T>.Equals(T other) for type-safe, efficient comparison
         public bool Equals(ScreenInfo other)
         {
-            return width == other.width && height == other.height;
+            return width == other.width && height == other.height && isMobile == other.isMobile;
         }
 
         // Override Object.Equals(object obj) to call the type-specific Equals
@@ -42,7 +46,7 @@ namespace Digx7.Zygote
         // Override Object.GetHashCode() so that equal objects have the same hash code
         public override int GetHashCode()
         {
-            return HashCode.Combine(width, height);
+            return HashCode.Combine(width, height, isMobile);
         }
 
         // Overload the == and != operators for intuitive syntax

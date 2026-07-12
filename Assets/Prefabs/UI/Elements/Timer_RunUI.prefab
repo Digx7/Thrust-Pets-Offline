@@ -46,6 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8990080724845041168}
   - component: {fileID: 6065807224163642427}
+  - component: {fileID: 5641157274578296200}
   m_Layer: 5
   m_Name: Timer_RunUI
   m_TagString: Untagged
@@ -87,6 +88,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RunTimerUIElement
   timerTMPro: {fileID: 2393380678423590441}
   on_TimerChanged_Channel: {fileID: 11400000, guid: 19d17f2de3219e043a4963f65fb6574d, type: 2}
+--- !u!114 &5641157274578296200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709604177383195326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077cc3ed984713d43b985a0a24abacf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIHelper
+  breakPoints:
+  - screenBreakPointData: {fileID: 11400000, guid: 770381e8474435149a59994ff45988ba, type: 2}
+    AnchorMinPoints: {x: 0, y: 0.8863814}
+    AnchorMaxPoints: {x: 0.46051246, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: ec7004e9041890242b8ed6eff9a74bf3, type: 2}
+    AnchorMinPoints: {x: 0, y: 0.85300004}
+    AnchorMaxPoints: {x: 0.347, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 9dceb5c105675d441b2bbaa8b453a7c8, type: 2}
+    AnchorMinPoints: {x: 0, y: 0.8863814}
+    AnchorMaxPoints: {x: 0.46051246, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  - screenBreakPointData: {fileID: 11400000, guid: 06793b676c87084499f298011c0fbda4, type: 2}
+    AnchorMinPoints: {x: 0, y: 0.85300004}
+    AnchorMaxPoints: {x: 0.347, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls: []
+  updateInEditMode: 0
+  updateOnStart: 1
 --- !u!1 &9160175433386779145
 GameObject:
   m_ObjectHideFlags: 0

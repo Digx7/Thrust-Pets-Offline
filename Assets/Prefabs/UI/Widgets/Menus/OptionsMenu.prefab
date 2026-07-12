@@ -34,8 +34,8 @@ RectTransform:
   - {fileID: 4554200236236750817}
   m_Father: {fileID: 7606625201012886525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.34, y: 0}
-  m_AnchorMax: {x: 0.65, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -82,7 +82,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - screenBreakPointData: {fileID: 11400000, guid: d6ed08d07294e3b4eb2f324bfb16ea81, type: 2}
+  - screenBreakPointData: {fileID: 11400000, guid: ec7004e9041890242b8ed6eff9a74bf3, type: 2}
     AnchorMinPoints: {x: 0, y: 0}
     AnchorMaxPoints: {x: 1, y: 1}
     onBreakPointApplied:
@@ -108,6 +108,36 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 150
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - screenBreakPointData: {fileID: 11400000, guid: 9dceb5c105675d441b2bbaa8b453a7c8, type: 2}
+    AnchorMinPoints: {x: 0, y: 0}
+    AnchorMaxPoints: {x: 1, y: 1}
+    onBreakPointApplied:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1403397709909455360}
+          m_TargetAssemblyTypeName: LayoutGroupHelper, Assembly-CSharp
+          m_MethodName: SetPaddingLeft
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 75
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1403397709909455360}
+          m_TargetAssemblyTypeName: LayoutGroupHelper, Assembly-CSharp
+          m_MethodName: SetPaddingRight
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 75
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -142,7 +172,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  updateInEditMode: 1
+  updateInEditMode: 0
   updateOnStart: 1
 --- !u!1 &5370559524090253787
 GameObject:
@@ -592,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6208107752219144658, guid: 0d862e8d9331ee84abb43c7f243f1e04, type: 3}
       propertyPath: m_fontSize
-      value: 32.65
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8601938739026900777, guid: 0d862e8d9331ee84abb43c7f243f1e04, type: 3}
       propertyPath: m_Pivot.x
@@ -714,11 +744,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 78.99729
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_text
@@ -726,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_fontSize
-      value: 65.35
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 1381997709421945375, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1093,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6783773832978511586, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.6900024
+      value: 4.6899414
       objectReference: {fileID: 0}
     - target: {fileID: 6783773832978511586, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1117,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605889644540895712, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_fontSize
-      value: 94.45
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8416761257626244949, guid: 7c863cc170c44a742b078f2f50a1a662, type: 3}
       propertyPath: m_Name
@@ -1143,11 +1173,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 78.99729
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_text
@@ -1155,7 +1185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_fontSize
-      value: 50.3
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 1381997709421945375, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1365,11 +1395,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 144474067088093107, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 78.99729
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_text
@@ -1377,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257095375740628692, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_fontSize
-      value: 65.35
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 1381997709421945375, guid: 28f3e0d76d01433458281c3cbb787387, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1634,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8080289554011393059, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_fontSize
-      value: 68.5
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8535855678628387416, guid: fcdda1224de852644831c34c80b862c7, type: 3}
       propertyPath: m_Pivot.x
@@ -1896,7 +1926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450039628314736369, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_fontSize
-      value: 31.2
+      value: 70.55
       objectReference: {fileID: 0}
     - target: {fileID: 6192126461354028682, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
@@ -1940,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7067494685742839248, guid: c66e80e0f4dff1e4eb2e6edb485f6246, type: 3}
       propertyPath: m_fontSize
-      value: 32.4
+      value: 70.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

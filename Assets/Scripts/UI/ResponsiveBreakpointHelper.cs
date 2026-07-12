@@ -8,7 +8,8 @@ public class ResponsiveBreakpointHelper : MonoBehaviour
 {
     #region Variables ================================
     [Header("Variables")]
-    public List<breakPointDataAndUnityEventPair> breakPoints;
+    public List<ScreenBreakPoint> breakPoints;
+    public List<breakPointDataAndUnityEventPair> breakPointsDataAndEventPairs;
     public bool updateInEditMode = false;
     public bool updateOnStart = true;
     public bool coninuallyUpdate = false;
@@ -43,9 +44,10 @@ public class ResponsiveBreakpointHelper : MonoBehaviour
 
     public void UpdateUI() 
     {   
-        ScreenInfo currentScreenInfo = new ScreenInfo { width = Screen.width, height = Screen.height };
+        // ScreenInfo currentScreenInfo = new ScreenInfo { width = Screen.width, height = Screen.height };
+        ScreenInfo currentScreenInfo = new ScreenInfo { width = Screen.width, height = Screen.height, isMobile = GameManager.IsMobileBrowser() };
 
-        foreach (var breakPoint in breakPoints) 
+        foreach (var breakPoint in breakPointsDataAndEventPairs) 
         {
             if (IsWithinBreakPoint(currentScreenInfo, breakPoint)) 
             {
@@ -63,14 +65,16 @@ public class ResponsiveBreakpointHelper : MonoBehaviour
     private bool IsWithinBreakPoint(ScreenInfo screenInfo, breakPointDataAndUnityEventPair breakPoint) 
     {
         
-        if (screenInfo.width < breakPoint.screenBreakPointData.minScreenWidth || screenInfo.width > breakPoint.screenBreakPointData.maxScreenWidth)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        // if (screenInfo.width < breakPoint.screenBreakPointData.minScreenWidth || screenInfo.width > breakPoint.screenBreakPointData.maxScreenWidth)
+        // {
+        //     return false;
+        // }
+        // else
+        // {
+        //     return true;
+        // }
+
+        return breakPoint.screenBreakPointData.IsWithinBreakPoint(screenInfo);
     }
 
     IEnumerator ConinualUpdate()
