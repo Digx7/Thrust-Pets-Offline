@@ -70,18 +70,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score Holder_RuntUI
       objectReference: {fileID: 0}
-    - target: {fileID: 5925681475502145796, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
-      propertyPath: m_fontSize
-      value: 48.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613046001106245511, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7577071143318008411, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
-      propertyPath: m_fontSize
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 7794945479837613111, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -104,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794945479837613111, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.8
+      value: 0.85300004
       objectReference: {fileID: 0}
     - target: {fileID: 7794945479837613111, guid: 410b0ac7425fbd54b9d52a1110d08680, type: 3}
       propertyPath: m_SizeDelta.x
